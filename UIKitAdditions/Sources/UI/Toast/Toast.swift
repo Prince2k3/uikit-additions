@@ -146,13 +146,13 @@ private class ToastView: UIView {
 /// Extensions
 
 extension UIViewController {
-    func presentInfo(_ message: String, position: Toast.Position = .bottom) {
+    public func presentInfo(_ message: String, position: Toast.Position = .bottom) {
         Toast.default.position = position
         Toast.default.backgroundColor = .blue
         Toast.default.show(message: message)
     }
     
-    func presentError(_ error: Error?, position: Toast.Position = .bottom) {
+    public func presentError(_ error: Error?, position: Toast.Position = .bottom) {
         var message = "Something went wrong that requires customer support."
         if let error = error as? String {
             message = error
@@ -167,11 +167,11 @@ extension UIViewController {
 }
 
 extension UIApplication {
-    static func presentError(_ error: Error?) {
+    public static func presentError(_ error: Error?) {
         self.shared.keyWindow?.rootViewController?.presentError(error)
     }
     
-    static func presentInfo(_ message: String) {
+    public static func presentInfo(_ message: String) {
         self.shared.keyWindow?.rootViewController?.presentInfo(message)
     }
 }
