@@ -6,7 +6,7 @@ public extension UIView {
         backgroundColor = .clear
         let name = nibName ?? String(describing: type(of: self))
 
-        let nib = UINib(nibName: name, bundle: nil)
+        let nib = UINib(nibName: name, bundle: Bundle(for: type(of: self)))
         if let view = nib.instantiate(withOwner: self, options: nil).first as? UIView {
             addSubview(view)
             self.frame = view.frame
