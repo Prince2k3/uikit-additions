@@ -142,3 +142,36 @@ private class ToastView: UIView {
         self.label.anchorToSuperview(edgeInset: UIEdgeInsets(top: 8, left: 8, bottom: -8, right: -8))
     }
 }
+
+/// Extensions
+
+extension UIViewController {
+    func presentInfo(_ message: String, position: Toast.Position = .bottom) {
+        Toast.default.position = position
+        Toast.default.backgroundColor = .blue
+        Toast.default.show(message: message)
+    }
+    
+    func presentError(_ error: Error?, position: Toast.Position = .bottom) {
+        var message = "Something went wrong that requires customer support."
+        if let error = error as? String {
+            message = error
+        } else {
+            message = error?.localizedDescription ?? message
+        }
+        
+        Toast.default.position = position
+        Toast.default.backgroundColor = .red
+        Toast.default.show(message: message)
+    }
+}
+
+extension UIApplication {
+    static func presentError(_ error: Error?) {
+        self.shared.keyWindow?.rootViewController?.presentError(error)
+    }
+    
+    static func presentInfo(_ message: String) {
+        self.shared.keyWindow?.rootViewController?.presentInfo(message)
+    }
+}
