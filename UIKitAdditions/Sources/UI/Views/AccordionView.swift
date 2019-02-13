@@ -29,7 +29,7 @@ public struct AccordionSectionItem {
     }
 }
 
-class AccordionView: UIView {
+public class AccordionView: UIView {
     private(set) var sections: [AccordionSectionItem] = []
     private var registeredIdentifiers: [String] = []
 
@@ -97,12 +97,12 @@ class AccordionView: UIView {
         super.init(coder: aDecoder)
     }
 
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         commonInit()
     }
 
-    func commonInit() {
+    public func commonInit() {
         self.backgroundColor = .white
         self.tableView.backgroundColor = .clear
         self.tableView.dataSource = self
@@ -199,7 +199,7 @@ class AccordionView: UIView {
 }
 
 extension AccordionView: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count = self.sections.count
         if let expandedIndexPath = self.expandedIndexPath, expandedIndexPath.section == section {
             count += 1
@@ -207,7 +207,7 @@ extension AccordionView: UITableViewDataSource {
         return count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let expandedIndexPath = self.expandedIndexPath, expandedIndexPath == indexPath {
             let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.identifier, for: indexPath)
             cell.selectionStyle = .none
@@ -235,7 +235,7 @@ extension AccordionView: UITableViewDataSource {
 }
 
 extension AccordionView: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let expandedIndexPath = self.expandedIndexPath {
 
             if let selectedIndexPath = self.selectedIndexPath,
@@ -264,7 +264,7 @@ extension AccordionView: UITableViewDelegate {
         }
     }
 
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+    public func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         let shouldSelectSection = self.shouldSelectSection?(indexPath) ?? true
 
         if let expandedIndexPath = self.expandedIndexPath, expandedIndexPath == indexPath || !shouldSelectSection {

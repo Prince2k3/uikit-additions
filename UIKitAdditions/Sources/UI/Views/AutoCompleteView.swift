@@ -1,7 +1,7 @@
 import UIKit
 import DataSource
 
-class AutoCompleteView: UIView {
+public class AutoCompleteView: UIView {
     typealias CompletionHandler = (_ selected: Any) -> Void
     typealias TextDidChangeHandler = (_ text: String) -> Void
 
@@ -20,9 +20,9 @@ class AutoCompleteView: UIView {
     private var textField: UITextField?
     private var presentingView: UIView?
     
-    var completionSelected: CompletionHandler?
-    var textDidChange: TextDidChangeHandler?
-    var completions: [Any] = [] {
+    public var completionSelected: CompletionHandler?
+    public var textDidChange: TextDidChangeHandler?
+    public var completions: [Any] = [] {
         didSet {
             self.dataSource.items = self.completions
             self.tableView.reloadData()
@@ -33,7 +33,7 @@ class AutoCompleteView: UIView {
         self.keyboardManager = nil
     }
 
-    convenience init(textField: UITextField, presentingView: UIView) {
+    public convenience init(textField: UITextField, presentingView: UIView) {
         self.init()
         self.textField = textField
         self.presentingView = presentingView
@@ -87,7 +87,7 @@ class AutoCompleteView: UIView {
         layoutIfNeeded()
     }
 
-    @objc func textFieldEditingChanged(_ textField: UITextField) {
+    @objc public func textFieldEditingChanged(_ textField: UITextField) {
         guard
             let text = textField.text
             else { return }
@@ -100,26 +100,26 @@ class AutoCompleteView: UIView {
         self.isHidden = text.isEmpty
     }
 
-    @objc func textFieldDidBegan(_ textField: UITextField) {
+    @objc public func textFieldDidBegan(_ textField: UITextField) {
         guard
             let text = textField.text
             else { return }
         self.isHidden = text.isEmpty
     }
 
-    @objc func textFieldDidEnd(_ textField: UITextField) {
+    @objc public func textFieldDidEnd(_ textField: UITextField) {
         self.isHidden = true
     }
 }
 
 extension AutoCompleteView {
-    func register<T: Identifiable>(nib cls: T.Type, bundle: Bundle? = nil) {
+    public func register<T: Identifiable>(nib cls: T.Type, bundle: Bundle? = nil) {
         self.tableView.register(nib: cls, bundle: bundle)
         self.dataSource = DataSource(cellIdentifier: cls.identifier)
         self.tableView.dataSource = self.dataSource
     }
 
-    func register<T: Identifiable>(`class` cls: T.Type) {
+    public func register<T: Identifiable>(`class` cls: T.Type) {
         self.tableView.register(class: cls)
         self.dataSource = DataSource(cellIdentifier: cls.identifier)
         self.tableView.dataSource = self.dataSource
@@ -127,7 +127,7 @@ extension AutoCompleteView {
 }
 
 extension AutoCompleteView: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.textField?.removeTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
         tableView.deselectRow(at: indexPath, animated: true)
         self.completionSelected?(self.completions[indexPath.row])

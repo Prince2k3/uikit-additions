@@ -42,7 +42,7 @@ open class NibLoadedView: UIView {
     }
 }
 
-public class NibLoadedControl: UIControl {
+open class NibLoadedControl: UIControl {
     public var contentView: UIView?
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

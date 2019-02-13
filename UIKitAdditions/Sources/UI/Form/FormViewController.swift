@@ -10,7 +10,7 @@ public protocol FormViewControllerDelegate: class {
 
 /// This class is meant to be subclassed only
 
-public class FormViewController: UITableViewController {
+open class FormViewController: UITableViewController {
     public enum FormEntry: Int { // tag textfields in storyboard with these numbers
         case `default` = 0, state = 10, country = 20, date = 30, monthYear = 40, list = 50
     }
@@ -42,11 +42,11 @@ public class FormViewController: UITableViewController {
         }
     }
     
-    public override func numberOfSections(in tableView: UITableView) -> Int {
+    open override func numberOfSections(in tableView: UITableView) -> Int {
         return self.hideRows ? 0 : super.numberOfSections(in: tableView)
     }
 
-    public override var inputAccessoryView: UIView? {
+    open override var inputAccessoryView: UIView? {
         self.textFieldInputAccessoryView.formDoneTitle = "Done"
         self.textFieldInputAccessoryView.doneHandler = { textField in
             self.view.endEditing(true)

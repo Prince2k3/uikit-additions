@@ -1,6 +1,6 @@
 import UIKit
 
-public class Button: UIButton {
+open class Button: UIButton {
     public enum VerticalAlignment: String {
         case center, top, bottom
     }
@@ -48,7 +48,7 @@ public class Button: UIButton {
 
     private var extraContentEdgeInsets: UIEdgeInsets = .zero
 
-    public override var contentEdgeInsets: UIEdgeInsets {
+    open override var contentEdgeInsets: UIEdgeInsets {
         get { return super.contentEdgeInsets }
         set {
             super.contentEdgeInsets = newValue
@@ -58,7 +58,7 @@ public class Button: UIButton {
 
     private var extraImageEdgeInsets: UIEdgeInsets = .zero
 
-    public override var imageEdgeInsets: UIEdgeInsets {
+    open override var imageEdgeInsets: UIEdgeInsets {
         get { return super.imageEdgeInsets }
         set {
             super.imageEdgeInsets = newValue
@@ -68,7 +68,7 @@ public class Button: UIButton {
 
     private var extraTitleEdgeInsets: UIEdgeInsets = .zero
 
-    public override var titleEdgeInsets: UIEdgeInsets {
+    open override var titleEdgeInsets: UIEdgeInsets {
         get { return super.titleEdgeInsets }
         set {
             super.titleEdgeInsets = newValue
@@ -88,7 +88,7 @@ public class Button: UIButton {
         self.contentEdgeInsets = super.contentEdgeInsets
     }
 
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         if let imageSize = self.imageView?.image?.size,
             let font = self.titleLabel?.font,
             let textSize = self.titleLabel?.attributedText?.size() ?? self.titleLabel?.text?.size(withAttributes: [.font: font]) {
