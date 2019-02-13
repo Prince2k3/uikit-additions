@@ -2,8 +2,8 @@ import UIKit
 import DataSource
 
 public class AutoCompleteView: UIView {
-    typealias CompletionHandler = (_ selected: Any) -> Void
-    typealias TextDidChangeHandler = (_ text: String) -> Void
+    public typealias CompletionHandler = (_ selected: Any) -> Void
+    public typealias TextDidChangeHandler = (_ text: String) -> Void
 
     private lazy var tableView: UITableView = {
         let view = UITableView(frame: .zero, style: .plain)
