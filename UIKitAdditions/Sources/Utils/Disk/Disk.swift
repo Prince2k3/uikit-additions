@@ -1,6 +1,6 @@
 import Foundation
 
-enum DiskError: Error {
+public enum DiskError: Error {
     case noFileFound
     case serialization
     case deserialization
@@ -8,10 +8,10 @@ enum DiskError: Error {
     case locationNotFound
 }
 
-class Disk {
-    enum Directory {
+public class Disk {
+    public enum Directory {
         case documents, cache, applicationSupport, temporary, sharedContainer(appGroupName: String)
-        var url: URL? {
+        public var url: URL? {
             switch self {
             case .documents:
                 return FileManager.documentDirectory()
@@ -27,19 +27,19 @@ class Disk {
         }
     }
 
-    struct Path: RawRepresentable, Equatable, Hashable {
-        var rawValue: String
+    public struct Path: RawRepresentable, Equatable, Hashable {
+        public var rawValue: String
 
-        init(_ rawValue: String) {
+        public init(_ rawValue: String) {
             self.rawValue = rawValue
         }
 
-        init(rawValue: String) {
+        public init(rawValue: String) {
             self.rawValue = rawValue
         }
     }
 
-    static func write<T: Encodable>(_ value: T, to directory: Directory, to path: Path) throws {
+    public static func write<T: Encodable>(_ value: T, to directory: Directory, to path: Path) throws {
         guard !path.rawValue.hasSuffix("/") else { throw DiskError.invalidFileName }
         do {
             guard let url = directory.url?.appendingPathComponent(path.rawValue) else {
@@ -54,7 +54,7 @@ class Disk {
         } catch { throw error }
     }
 
-    static func read<T: Decodable>(_ path: Path, from directory: Directory, as type: T.Type) throws -> T {
+    public static func read<T: Decodable>(_ path: Path, from directory: Directory, as type: T.Type) throws -> T {
         guard !path.rawValue.hasSuffix("/") else { throw DiskError.invalidFileName }
         do {
             guard let url = directory.url?.appendingPathComponent(path.rawValue) else {
@@ -72,7 +72,7 @@ class Disk {
 }
 
 extension Disk {
-    static func clear(_ directory: Directory) throws {
+    public static func clear(_ directory: Directory) throws {
         do {
             guard let url = directory.url else {
                 throw DiskError.locationNotFound
@@ -83,7 +83,7 @@ extension Disk {
         } catch { throw error }
     }
 
-    static func remove(_ path: Path, from directory: Directory) throws {
+    public static func remove(_ path: Path, from directory: Directory) throws {
         do {
             guard let url = directory.url?.appendingPathComponent(path.rawValue) else {
                 throw DiskError.locationNotFound
@@ -96,13 +96,13 @@ extension Disk {
         } catch { throw error }
     }
 
-    static func exists(_ path: Path, in directory: Directory) -> Bool {
+    public static func exists(_ path: Path, in directory: Directory) -> Bool {
         guard let url = directory.url?.appendingPathComponent(path.rawValue),
               FileManager.fileExists(url.path) else { return false }
         return true
     }
 
-    static func move(_ path: Path, in directory: Directory, to newDirectory: Directory) throws {
+    public static func move(_ path: Path, in directory: Directory, to newDirectory: Directory) throws {
         do {
             guard let url = directory.url else {
                 throw DiskError.locationNotFound
@@ -121,7 +121,7 @@ extension Disk {
         } catch { throw error }
     }
 
-    static func rename(_ path: Path, in directory: Directory, to newName: String) throws {
+    public static func rename(_ path: Path, in directory: Directory, to newName: String) throws {
         do {
             guard let currentURL = directory.url?.appendingPathComponent(path.rawValue) else {
                 throw DiskError.locationNotFound
@@ -132,6 +132,8 @@ extension Disk {
     }
 }
 
-func == (lhs: Disk.Path, rhs: Disk.Path) -> Bool {
-    return lhs.rawValue == rhs.rawValue
+extension Disk.Path {
+    public static func == (lhs: Disk.Path, rhs: Disk.Path) -> Bool {
+        return lhs.rawValue == rhs.rawValue
+    }
 }

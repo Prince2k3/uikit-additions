@@ -1,19 +1,19 @@
 import UIKit
 import DataSource
 
-class ListInputView: UIView, UITableViewDelegate {
+public class ListInputView: UIView, UITableViewDelegate {
     private var tableView: UITableView!
     private var dataSource: DataSource = DataSource(cellIdentifier: ListInputCell.identifier)
 
-    var didSelectItem: ((String?) -> Void)?
-    var items: [String] = [] {
+    public var didSelectItem: ((String?) -> Void)?
+    public var items: [String] = [] {
         didSet {
             self.dataSource.items = self.items
             self.tableView.reloadData()
         }
     }
 
-    var selectedItem: String? {
+    public var selectedItem: String? {
         didSet {
             if let selectedItem = self.selectedItem,
                 let index = self.items.index(of: selectedItem),
@@ -24,12 +24,12 @@ class ListInputView: UIView, UITableViewDelegate {
         }
     }
 
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
     }
@@ -49,13 +49,13 @@ class ListInputView: UIView, UITableViewDelegate {
         self.tableView.reloadData()
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.didSelectItem?(self.items[indexPath.row])
     }
 }
 
-internal class ListInputCell: UITableViewCell, DataSourceConfigurable {
-    fileprivate var itemLabel: UILabel!
+fileprivate class ListInputCell: UITableViewCell, DataSourceConfigurable {
+    private var itemLabel: UILabel!
 
     var title: String? {
         return itemLabel.text

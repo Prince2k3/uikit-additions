@@ -2,7 +2,7 @@ import UIKit
 import SwiftAdditions
 import SwiftDate
 
-protocol FormViewControllerDelegate: class {
+public protocol FormViewControllerDelegate: class {
     func customizeMonthYearInputView(_ inputView: MonthYearInputView, for textField: UITextField)
     func customizeDateInputView(_ inputView: UIDatePicker, for textField: UITextField)
     func customizeListInputView(_ inputView: ListInputView, for textField: UITextField)
@@ -10,12 +10,12 @@ protocol FormViewControllerDelegate: class {
 
 /// This class is meant to be subclassed only
 
-class FormViewController: UITableViewController {
-    enum FormEntry: Int { // tag textfields in storyboard with these numbers
+public class FormViewController: UITableViewController {
+    public enum FormEntry: Int { // tag textfields in storyboard with these numbers
         case `default` = 0, state = 10, country = 20, date = 30, monthYear = 40, list = 50
     }
 
-    enum FormState {
+    public enum FormState {
         case none, editing, saving
     }
 
@@ -34,19 +34,19 @@ class FormViewController: UITableViewController {
     private var hideRows: Bool = false
     private var isCountryUS = true
 
-    weak var delegate: FormViewControllerDelegate?
+    public weak var delegate: FormViewControllerDelegate?
     
-    var state: FormState = .none {
+    public var state: FormState = .none {
         didSet {
             formStateDidChange()
         }
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    public override func numberOfSections(in tableView: UITableView) -> Int {
         return self.hideRows ? 0 : super.numberOfSections(in: tableView)
     }
 
-    override var inputAccessoryView: UIView? {
+    public override var inputAccessoryView: UIView? {
         self.textFieldInputAccessoryView.formDoneTitle = "Done"
         self.textFieldInputAccessoryView.doneHandler = { textField in
             self.view.endEditing(true)
@@ -85,15 +85,15 @@ class FormViewController: UITableViewController {
         return self.textFieldInputAccessoryView
     }
 
-    func formStateDidChange() {
+    open func formStateDidChange() {
         /* to be overriden */
     }
     
-    func handleFormSubmit(_ textField: UITextField) {
+    open func handleFormSubmit(_ textField: UITextField) {
         /* to be overriden */
     }
 
-    func isEntriesValid() -> Bool {
+    open func isEntriesValid() -> Bool {
         return self.textFields.filter { !$0.validate() }.isEmpty
     }
 
@@ -139,19 +139,19 @@ class FormViewController: UITableViewController {
 }
 
 extension FormViewController {
-    @objc func textFieldDidChange(_ sender: UITextField) {
+    @objc open func textFieldDidChange(_ sender: UITextField) {
         self.state = .editing
     }
 
-    @objc func textFieldDidBeginEditing(_ textField: UITextField) {
+    @objc open func textFieldDidBeginEditing(_ textField: UITextField) {
         updateInputView(textField)
     }
 
-    @objc func textFieldDidEndEditing(_ textField: UITextField) {
+    @objc open func textFieldDidEndEditing(_ textField: UITextField) {
         /* to be overriden, if needed */
     }
 
-    @objc func textFieldDidReturn(_ textField: UITextField) {
+    @objc open func textFieldDidReturn(_ textField: UITextField) {
         guard
             let current = textField as? TextField,
             let index = self.textFields.index(of: current)

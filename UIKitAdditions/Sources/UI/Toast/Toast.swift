@@ -1,11 +1,11 @@
 import UIKit
 
-class Toast {
-    enum Position {
+public class Toast {
+    public enum Position {
         case top, bottom
     }
 
-    static let `default`: Toast = Toast()
+    public static let `default`: Toast = Toast()
 
     private lazy var toastView: ToastView = {
         let view = ToastView()
@@ -16,19 +16,19 @@ class Toast {
     private var timer: Timer?
     private var positionConstraint: NSLayoutConstraint?
 
-    var positionOffset: CGFloat = 84
-    var position: Position = .bottom
-    var percentageWidth: CGFloat = 0.7
-    var cornerRadius: CGFloat = 4
-    var dismissDuration: TimeInterval = 2
-    var backgroundColor: UIColor = .red
-    var duration: TimeInterval = 0.3
-    var isShadowEnabled: Bool = true
-    var isVisible: Bool = false
+    public var positionOffset: CGFloat = 84
+    public var position: Position = .bottom
+    public var percentageWidth: CGFloat = 0.7
+    public var cornerRadius: CGFloat = 4
+    public var dismissDuration: TimeInterval = 2
+    public var backgroundColor: UIColor = .red
+    public var duration: TimeInterval = 0.3
+    public var isShadowEnabled: Bool = true
+    public var isVisible: Bool = false
 
     private init() {}
 
-    func show(message: String) {
+    public func show(message: String) {
 
         DispatchQueue.main.async {
             if self.isVisible {

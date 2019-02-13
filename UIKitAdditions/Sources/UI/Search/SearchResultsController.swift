@@ -1,17 +1,17 @@
 import UIKit
 import DataSource
 
-protocol SearchResults {
+public protocol SearchResults {
     var items: [Any] { get set }
     var didSelectItem: ((Any) -> Void)? { get set }
 }
 
-protocol SearchResultsPaging {
+public protocol SearchResultsPaging {
     var enablePaging: Bool { get set }
     var page: Int { get set }
 }
 
-class SearchResultsController: UIViewController, UITableViewDelegate, SearchResults, SearchResultsPaging {
+public class SearchResultsController: UIViewController, UITableViewDelegate, SearchResults, SearchResultsPaging {
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.delegate = self
@@ -23,29 +23,29 @@ class SearchResultsController: UIViewController, UITableViewDelegate, SearchResu
     private var identifier: String = ""
     private var cellClass: AnyClass?
 
-    var enablePaging: Bool = false
-    var page: Int = 0
+    public var enablePaging: Bool = false
+    public var page: Int = 0
 
-    var didSelectItem: ((Any) -> Void)?
-    var items: [Any] = [] {
+    public var didSelectItem: ((Any) -> Void)?
+    public var items: [Any] = [] {
         didSet {
             self.dataSource?.items = self.items
             self.tableView.reloadData()
         }
     }
 
-    var contentInset: UIEdgeInsets {
+    public var contentInset: UIEdgeInsets {
         get { return self.tableView.contentInset }
         set { self.tableView.contentInset = newValue }
     }
 
-    weak var delegate: DataSourceDelegate?
+    public weak var delegate: DataSourceDelegate?
 
-    override var preferredStatusBarStyle: UIStatusBarStyle {
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
 
         self.view.addSubview(self.tableView)
@@ -58,7 +58,7 @@ class SearchResultsController: UIViewController, UITableViewDelegate, SearchResu
         self.tableView.reloadData()
     }
 
-    func registerCell(with identifier: String, cellClass: AnyClass?) {
+    public func registerCell(with identifier: String, cellClass: AnyClass?) {
         self.identifier = identifier
         self.cellClass = cellClass
 
@@ -75,23 +75,22 @@ class SearchResultsController: UIViewController, UITableViewDelegate, SearchResu
         self.tableView.dataSource = self.dataSource
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         self.didSelectItem?(self.items[indexPath.row])
     }
 
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
     }
 
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 1
     }
 }
 
-@available(iOS 11.0, *)
 extension SearchResultsController {
-    var contentInsetAdjustmentBehavior: UIScrollView.ContentInsetAdjustmentBehavior {
+    public var contentInsetAdjustmentBehavior: UIScrollView.ContentInsetAdjustmentBehavior {
         get { return self.tableView.contentInsetAdjustmentBehavior }
         set { self.tableView.contentInsetAdjustmentBehavior = newValue }
     }

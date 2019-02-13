@@ -1,18 +1,19 @@
 import UIKit
 
-protocol AccordionSectionDataSource: Identifiable {
+public protocol AccordionSectionDataSource: Identifiable {
     func configure(_ data: Any?)
 }
 
-struct AccordionSectionItem {
-    typealias AccordionSection = UITableViewCell & AccordionSectionDataSource
+public struct AccordionSectionItem {
+    public typealias AccordionSection = UITableViewCell & AccordionSectionDataSource
+    
     private(set) var cellClass: UITableViewCell.Type
     private(set) var bundle: Bundle?
     private(set) var isNib: Bool
     private(set) var data: Any?
     private(set) var viewHandler: ((AccordionSectionItem) -> UIView)?
 
-    init<T: AccordionSection>(nib cls: T.Type, data: Any?, bundle: Bundle? = nil, viewHandler: ((AccordionSectionItem) -> UIView)? = nil) {
+    public init<T: AccordionSection>(nib cls: T.Type, data: Any?, bundle: Bundle? = nil, viewHandler: ((AccordionSectionItem) -> UIView)? = nil) {
         self.isNib = true
         self.cellClass = cls
         self.data = data
@@ -20,7 +21,7 @@ struct AccordionSectionItem {
         self.viewHandler = viewHandler
     }
 
-    init<T: AccordionSection>(`class` cls: T.Type, data: Any?, viewHandler: ((AccordionSectionItem) -> UIView)? = nil) {
+    public init<T: AccordionSection>(`class` cls: T.Type, data: Any?, viewHandler: ((AccordionSectionItem) -> UIView)? = nil) {
         self.isNib = false
         self.cellClass = cls
         self.data = data
@@ -45,54 +46,54 @@ class AccordionView: UIView {
         return view
     }()
 
-    var shouldSelectSection: ((IndexPath) -> Bool)?
-    var didSelectSection: ((IndexPath) -> Void)?
-    var didExpandSection: ((IndexPath) -> Void)?
-    var didCollapseSection: (() -> Void)?
+    public var shouldSelectSection: ((IndexPath) -> Bool)?
+    public var didSelectSection: ((IndexPath) -> Void)?
+    public var didExpandSection: ((IndexPath) -> Void)?
+    public var didCollapseSection: (() -> Void)?
 
-    var expandedIndexPath: IndexPath?
-    var selectedIndexPath: IndexPath? {
+    public var expandedIndexPath: IndexPath?
+    public var selectedIndexPath: IndexPath? {
         guard let expandedIndexPath = self.expandedIndexPath else { return nil }
         return IndexPath(row: expandedIndexPath.row - 1, section: expandedIndexPath.section)
     }
 
-    var expandedView: UIView? {
+    public var expandedView: UIView? {
         guard let expandedIndexPath = self.expandedIndexPath,
               let cell = self.tableView.cellForRow(at: expandedIndexPath) else { return nil }
         return cell.contentView.subviews.first
     }
 
-    var accordionHeaderView: UIView? {
+    public var accordionHeaderView: UIView? {
         get { return self.tableView.tableHeaderView }
         set { self.tableView.tableHeaderView = newValue }
     }
 
-    var accordionFooterView: UIView? {
+    public var accordionFooterView: UIView? {
         get { return self.tableView.tableFooterView }
         set {  self.tableView.tableFooterView = newValue }
     }
 
-    var separatorColor: UIColor? {
+    public var separatorColor: UIColor? {
         get { return self.tableView.separatorColor }
         set { self.tableView.separatorColor = newValue }
     }
 
-    var separatorInset: UIEdgeInsets {
+    public var separatorInset: UIEdgeInsets {
         get { return self.tableView.separatorInset }
         set { self.tableView.separatorInset = newValue }
     }
 
-    var contentInset: UIEdgeInsets {
+    public var contentInset: UIEdgeInsets {
         get { return self.tableView.contentInset }
         set { self.tableView.contentInset = newValue }
     }
 
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 
@@ -110,7 +111,7 @@ class AccordionView: UIView {
         self.tableView.anchorToSuperview()
     }
 
-    func addSection(_ section: AccordionSectionItem) {
+    public func addSection(_ section: AccordionSectionItem) {
         self.sections.append(section)
         if !self.registeredIdentifiers.contains(section.cellClass.identifier) {
             if section.isNib {
@@ -122,11 +123,11 @@ class AccordionView: UIView {
         }
     }
 
-    func reloadAll() {
+    public func reloadAll() {
         self.tableView.reloadData()
     }
 
-    func refreshSection(alsoReloadExpanded: Bool = true, animated: Bool = true) {
+    public func refreshSection(alsoReloadExpanded: Bool = true, animated: Bool = true) {
         var reloadIndexPaths: [IndexPath] = []
         if let selectedIndexPath = self.selectedIndexPath {
             reloadIndexPaths.append(selectedIndexPath)
@@ -142,13 +143,13 @@ class AccordionView: UIView {
         }
     }
 
-    func selectSection(_ section: Int, animated: Bool = true) {
+    public func selectSection(_ section: Int, animated: Bool = true) {
         let indexPath = IndexPath(row: section, section: 0)
         self.tableView.selectRow(at: indexPath, animated: animated, scrollPosition: .top)
         tableView(self.tableView, didSelectRowAt: indexPath)
     }
 
-    func collapseSelectedSection(animated: Bool = true, completion: (() -> Void)? = nil) {
+    public func collapseSelectedSection(animated: Bool = true, completion: (() -> Void)? = nil) {
         if let selectedIndexPath = self.selectedIndexPath {
             collapseSection(selectedIndexPath, animated: animated, completion: completion)
         } else if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
@@ -156,7 +157,7 @@ class AccordionView: UIView {
         }
     }
 
-    func collapseSection(_ indexPath: IndexPath, animated: Bool = true, completion: (() -> Void)? = nil) {
+    public func collapseSection(_ indexPath: IndexPath, animated: Bool = true, completion: (() -> Void)? = nil) {
         guard let expandedIndexPath = self.expandedIndexPath else {
             self.tableView.deselectRow(at: indexPath, animated: animated)
             return
@@ -170,12 +171,12 @@ class AccordionView: UIView {
         completion?()
     }
 
-    func expandSelectedSection(animated: Bool = true) {
+    public func expandSelectedSection(animated: Bool = true) {
         guard let selectedIndexPath = self.selectedIndexPath else { return }
         expandSection(selectedIndexPath, animated: animated)
     }
 
-    func expandSection(_ indexPath: IndexPath, animated: Bool = true) {
+    public func expandSection(_ indexPath: IndexPath, animated: Bool = true) {
         let section = self.expandedIndexPath == nil ? self.sections[indexPath.row] : self.sections[max(0, indexPath.row - 1)]
         guard section.viewHandler != nil else { return }
 
@@ -273,26 +274,25 @@ extension AccordionView: UITableViewDelegate {
         return indexPath
     }
 
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return UIView()
     }
 
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    open func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.01
     }
 
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    open func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
     }
 
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    open func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.01
     }
 }
 
-@available(iOS 11, *)
 extension AccordionView {
-    var contentInsetAdjustmentBehavior: UIScrollView.ContentInsetAdjustmentBehavior {
+    public var contentInsetAdjustmentBehavior: UIScrollView.ContentInsetAdjustmentBehavior {
         get { return self.tableView.contentInsetAdjustmentBehavior }
         set { self.tableView.contentInsetAdjustmentBehavior = newValue }
     }

@@ -1,6 +1,6 @@
 import UIKit
 
-class CountingLabel: UILabel {
+public class CountingLabel: UILabel {
     private(set) var fromValue: CGFloat = 0
     private(set) var toValue: CGFloat = 0
     private var progress: TimeInterval = 0
@@ -8,8 +8,8 @@ class CountingLabel: UILabel {
     private var totalTime: TimeInterval = 0
     private var timer: Timer = Timer()
 
-    var formatValue: ((CGFloat) -> String)?
-    var value: CGFloat {
+    public var formatValue: ((CGFloat) -> String)?
+    public var value: CGFloat {
         if self.progress >= self.totalTime {
             return self.toValue
         }
@@ -18,7 +18,7 @@ class CountingLabel: UILabel {
         return self.fromValue + value * (self.toValue - self.fromValue)
     }
 
-    func count(from value: CGFloat, to otherValue: CGFloat, duration: TimeInterval) {
+    public func count(from value: CGFloat, to otherValue: CGFloat, duration: TimeInterval) {
         self.fromValue = value
         self.toValue = otherValue
 

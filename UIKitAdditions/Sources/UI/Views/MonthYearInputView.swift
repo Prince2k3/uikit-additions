@@ -1,32 +1,32 @@
 import UIKit
 
-class MonthYearInputView: UIPickerView {
+public class MonthYearInputView: UIPickerView {
     lazy var calendar: Calendar = {
         return Calendar(identifier: .gregorian)
     }()
 
-    var valueDidChange: ((Int, Int) -> Void)?
-    var months: [String] = []
-    var years: [Int] = []
-    var month: Int = 0 {
+    public var valueDidChange: ((Int, Int) -> Void)?
+    public var months: [String] = []
+    public var years: [Int] = []
+    public var month: Int = 0 {
         didSet {
             selectRow(self.month - 1, inComponent: 0, animated: false)
         }
     }
 
-    var year: Int = 0 {
+    public var year: Int = 0 {
         didSet {
             guard let index = self.years.index(of: self.year) else { return }
             selectRow(index, inComponent: 1, animated: true)
         }
     }
 
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
     }
@@ -45,11 +45,11 @@ class MonthYearInputView: UIPickerView {
 }
 
 extension MonthYearInputView: UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2
     }
 
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch component {
         case 0:
             return self.months.count
@@ -60,7 +60,7 @@ extension MonthYearInputView: UIPickerViewDataSource {
         }
     }
 
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch component {
         case 0:
             return self.months[row]
@@ -73,7 +73,7 @@ extension MonthYearInputView: UIPickerViewDataSource {
 }
 
 extension MonthYearInputView: UIPickerViewDelegate {
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let month = self.selectedRow(inComponent: 0) + 1
         let year = self.years[self.selectedRow(inComponent: 1)]
 

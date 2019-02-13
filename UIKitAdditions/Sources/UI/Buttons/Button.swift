@@ -1,21 +1,23 @@
 import UIKit
 
-class Button: UIButton {
-    enum VerticalAlignment: String {
+public class Button: UIButton {
+    public enum VerticalAlignment: String {
         case center, top, bottom
     }
 
-    enum HorizontalAlignment: String {
+    public enum HorizontalAlignment: String {
         case center, left, right
     }
 
-    @IBInspectable var imageToTitleSpacing: CGFloat = 8.0 {
+    @IBInspectable
+    public var imageToTitleSpacing: CGFloat = 8.0 {
         didSet {
             setNeedsLayout()
         }
     }
 
-    @IBInspectable private var imageVerticalAlignmentName: String! {
+    @IBInspectable
+    private var imageVerticalAlignmentName: String! {
         willSet {
             if let imageVerticalAlignmentName = VerticalAlignment(rawValue: newValue.lowercased()) {
                 self.imageVerticalAlignment = imageVerticalAlignmentName
@@ -23,7 +25,8 @@ class Button: UIButton {
         }
     }
 
-    @IBInspectable private var imageHorizontalAlignmentName: String! {
+    @IBInspectable
+    private var imageHorizontalAlignmentName: String! {
         willSet {
             if let imageHorizontalAlignmentName = HorizontalAlignment(rawValue: newValue.lowercased()) {
                 self.imageHorizontalAlignment = imageHorizontalAlignmentName
@@ -31,13 +34,13 @@ class Button: UIButton {
         }
     }
 
-    var imageVerticalAlignment: VerticalAlignment = .center {
+    public var imageVerticalAlignment: VerticalAlignment = .center {
         didSet {
             setNeedsLayout()
         }
     }
 
-    var imageHorizontalAlignment: HorizontalAlignment = .left {
+    public var imageHorizontalAlignment: HorizontalAlignment = .left {
         didSet {
             setNeedsLayout()
         }
@@ -45,7 +48,7 @@ class Button: UIButton {
 
     private var extraContentEdgeInsets: UIEdgeInsets = .zero
 
-    override var contentEdgeInsets: UIEdgeInsets {
+    public override var contentEdgeInsets: UIEdgeInsets {
         get { return super.contentEdgeInsets }
         set {
             super.contentEdgeInsets = newValue
@@ -55,7 +58,7 @@ class Button: UIButton {
 
     private var extraImageEdgeInsets: UIEdgeInsets = .zero
 
-    override var imageEdgeInsets: UIEdgeInsets {
+    public override var imageEdgeInsets: UIEdgeInsets {
         get { return super.imageEdgeInsets }
         set {
             super.imageEdgeInsets = newValue
@@ -65,7 +68,7 @@ class Button: UIButton {
 
     private var extraTitleEdgeInsets: UIEdgeInsets = .zero
 
-    override var titleEdgeInsets: UIEdgeInsets {
+    public override var titleEdgeInsets: UIEdgeInsets {
         get { return super.titleEdgeInsets }
         set {
             super.titleEdgeInsets = newValue
@@ -73,11 +76,11 @@ class Button: UIButton {
         }
     }
 
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
         self.imageEdgeInsets = super.imageEdgeInsets
@@ -85,7 +88,7 @@ class Button: UIButton {
         self.contentEdgeInsets = super.contentEdgeInsets
     }
 
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         if let imageSize = self.imageView?.image?.size,
             let font = self.titleLabel?.font,
             let textSize = self.titleLabel?.attributedText?.size() ?? self.titleLabel?.text?.size(withAttributes: [.font: font]) {
@@ -169,5 +172,4 @@ class Button: UIButton {
 
         super.layoutSubviews()
     }
-
 }

@@ -1,6 +1,6 @@
 import UIKit
 
-class BusyButton: Button {
+public class BusyButton: Button {
     private lazy var activityIndicatorView: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView(style: self.activityIndicatorStyle)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -8,22 +8,22 @@ class BusyButton: Button {
         return view
     }()
 
-    var activityIndicatorStyle: UIActivityIndicatorView.Style = .gray {
+    public var activityIndicatorStyle: UIActivityIndicatorView.Style = .gray {
         didSet {
             self.activityIndicatorView.style = self.activityIndicatorStyle
         }
     }
 
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         commonInit()
     }
@@ -44,7 +44,7 @@ class BusyButton: Button {
         self.activityIndicatorView.stopAnimating()
     }
 
-    var isBusy: Bool = false {
+    public var isBusy: Bool = false {
         didSet {
             self.isEnabled = !self.isBusy
             self.isBusy ?

@@ -2,7 +2,7 @@ import UIKit
 
 extension UIImageView {
     // Fix for interface builder around image tint
-    @IBInspectable var imageTintColor: UIColor! {
+    @IBInspectable public var imageTintColor: UIColor! {
         set { self.tintColor = newValue }
         get { return self.tintColor }
     }

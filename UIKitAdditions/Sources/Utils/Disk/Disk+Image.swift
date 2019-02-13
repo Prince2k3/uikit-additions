@@ -2,7 +2,7 @@ import Foundation
 import UIKit.UIImage
 
 extension Disk {
-    static func write(_ image: UIImage, to directory: Directory, to path: Path) throws {
+    public static func write(_ image: UIImage, to directory: Directory, to path: Path) throws {
         do {
             var imageData: Data
             if path.rawValue.suffix(4).lowercased() == ".png" {
@@ -36,7 +36,7 @@ extension Disk {
         } catch { throw error }
     }
 
-    static func read(_ path: Path, from directory: Directory, as type: UIImage.Type) throws -> UIImage {
+    public static func read(_ path: Path, from directory: Directory, as type: UIImage.Type) throws -> UIImage {
         do {
             guard let url = directory.url?.appendingPathComponent(path.rawValue) else {
                 throw DiskError.locationNotFound

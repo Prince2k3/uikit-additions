@@ -1,35 +1,37 @@
 import UIKit
 
-class GradientView: UIView {
-    @IBInspectable var startColor: UIColor = .white {
+public class GradientView: UIView {
+    @IBInspectable
+    public var startColor: UIColor = .white {
         didSet {
             updateView()
         }
     }
 
-    @IBInspectable var endColor: UIColor = .black {
+    @IBInspectable
+    public var endColor: UIColor = .black {
         didSet {
             updateView()
         }
     }
 
-    var startPoint: CGPoint = .zero {
+    public var startPoint: CGPoint = .zero {
         didSet {
             updateView()
         }
     }
 
-    var endPoint: CGPoint = CGPoint(x: 0.0, y: 1.0) {
+    public var endPoint: CGPoint = CGPoint(x: 0.0, y: 1.0) {
         didSet {
             updateView()
         }
     }
 
-    override static var layerClass: AnyClass {
+    public override static var layerClass: AnyClass {
         return CAGradientLayer.self
     }
 
-    convenience init(startColor: UIColor, endColor: UIColor) {
+    public convenience init(startColor: UIColor, endColor: UIColor) {
         self.init()
         self.startColor = startColor
         self.endColor = endColor

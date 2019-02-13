@@ -1,19 +1,19 @@
 import UIKit
 import PhoneNumberKit
 
-class PhoneNumberTextField: TextField {
+public class PhoneNumberTextField: TextField {
     private let phoneNumberKit = PhoneNumberKit()
     
     private(set) var partialFormatter: PartialFormatter?
     
-    var isPartialFormatterEnabled = true
-    var defaultRegion = PhoneNumberKit.defaultRegionCode() {
+    public var isPartialFormatterEnabled = true
+    public var defaultRegion = PhoneNumberKit.defaultRegionCode() {
         didSet {
             self.partialFormatter?.defaultRegion = defaultRegion
         }
     }
     
-    var withPrefix: Bool = true {
+    public var withPrefix: Bool = true {
         didSet {
             self.partialFormatter = PartialFormatter(phoneNumberKit: self.phoneNumberKit, defaultRegion: self.defaultRegion, withPrefix: self.withPrefix)
             
@@ -25,16 +25,16 @@ class PhoneNumberTextField: TextField {
         }
     }
     
-    var currentRegion: String {
+    public var currentRegion: String {
         return self.partialFormatter?.currentRegion ?? ""
     }
     
-    var nationalNumber: String {
+    public var nationalNumber: String {
         let rawNumber = self.text ?? ""
         return self.partialFormatter?.nationalNumber(from: rawNumber) ?? ""
     }
     
-    override func setup() {
+    public override func setup() {
         self.partialFormatter = PartialFormatter(phoneNumberKit: self.phoneNumberKit, defaultRegion: self.defaultRegion, withPrefix: self.withPrefix)
         self.autocorrectionType = .no
         self.keyboardType = UIKeyboardType.phonePad
@@ -42,7 +42,7 @@ class PhoneNumberTextField: TextField {
         super.setup()
     }
     
-    override func validate() -> Bool {
+    public override func validate() -> Bool {
         do {
             _ = try phoneNumberKit.parse(self.text ?? "", withRegion: self.currentRegion)
             self.hasError = false
@@ -53,7 +53,7 @@ class PhoneNumberTextField: TextField {
         }
     }
     
-    override func checkText(_ value: inout String, animated: Bool) {
+    public override func checkText(_ value: inout String, animated: Bool) {
         super.checkText(&value, animated: animated)
         formatPhoneNumber(&value)
     }

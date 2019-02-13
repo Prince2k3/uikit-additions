@@ -1,13 +1,13 @@
 import UIKit
 
 class CreditCardTextField: TextField {
-    override func setup() {
+    public override func setup() {
         super.setup()
         self.iconImage = UIImage(named: "unknown")
         self.iconPosition = .right
     }
 
-    override func updateIcon() {
+    public override func updateIcon() {
         super.updateIcon()
 
         if self.iconPosition == .left {
@@ -17,12 +17,12 @@ class CreditCardTextField: TextField {
         }
     }
 
-    override func checkText(_ value: inout String, animated: Bool) {
+    public override func checkText(_ value: inout String, animated: Bool) {
         super.checkText(&value, animated: animated)
         formatCreditCard(&value)
     }
 
-    func formatCreditCard(_ value: inout String) {
+    private func formatCreditCard(_ value: inout String) {
         let matchedCCs = CreditCardFormatter.all.filter { $0.hasPrefix(value) }
         if matchedCCs.count > 1 {
             self.iconImage = CreditCardFormatter.unknown.image

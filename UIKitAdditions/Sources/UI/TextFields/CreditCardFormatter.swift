@@ -1,11 +1,11 @@
 import UIKit
 
-enum CreditCardFormatter: String, Codable {
+public enum CreditCardFormatter: String, Codable {
     case visa, masterCard, maestro, discover, amex, dinersClub, jcb, unknown
 
-    static var all: [CreditCardFormatter] = [.visa, .masterCard, .maestro, .discover, .amex, .dinersClub, .jcb]
+    public static var all: [CreditCardFormatter] = [.visa, .masterCard, .maestro, .discover, .amex, .dinersClub, .jcb]
 
-    var formats: [(Int, String)] {   //[length, format]
+    public var formats: [(Int, String)] {   //[length, format]
         switch self {
         case .visa, .discover, .masterCard, .jcb:
             return [(16, "XXXX XXXX XXXX XXXX")]
@@ -20,7 +20,7 @@ enum CreditCardFormatter: String, Codable {
         }
     }
 
-    var prefixes: [[Int]] {
+    public var prefixes: [[Int]] {
         switch self {
         case .visa:
             return [[4]]
@@ -41,7 +41,7 @@ enum CreditCardFormatter: String, Codable {
         }
     }
 
-    var image: UIImage? {
+    public var image: UIImage? {
         switch self {
         case .visa:
             return UIImage(named: "visa")
