@@ -2,7 +2,7 @@ import UIKit
 import AVKit
 import AVFoundation
 
-class PlayerView: UIView {
+public class PlayerView: UIView {
     private var playerLayer: AVPlayerLayer {
         guard
             let layer = self.layer as? AVPlayerLayer
@@ -10,7 +10,7 @@ class PlayerView: UIView {
         return layer
     }
     
-    var player: AVPlayer? {
+    public var player: AVPlayer? {
         get { return self.playerLayer.player }
         set {
             self.playerLayer.player = newValue
@@ -20,7 +20,7 @@ class PlayerView: UIView {
         }
     }
     
-    var isAmbient: Bool = false {
+    public var isAmbient: Bool = false {
         didSet {
             do {
                 if self.isAmbient {
@@ -33,7 +33,7 @@ class PlayerView: UIView {
         }
     }
     
-    var isRepeating: Bool = false {
+    public var isRepeating: Bool = false {
         didSet {
             removeNotifications()
             
@@ -45,30 +45,30 @@ class PlayerView: UIView {
         }
     }
     
-    var videoGravity: AVLayerVideoGravity = .resizeAspectFill {
+    public var videoGravity: AVLayerVideoGravity = .resizeAspectFill {
         didSet {
             self.playerLayer.videoGravity = self.videoGravity
         }
     }
     
-    override static var layerClass: AnyClass {
+    public override static var layerClass: AnyClass {
         return AVPlayerLayer.self
     }
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    convenience init(player: AVPlayer) {
+    public convenience init(player: AVPlayer) {
         self.init(frame: .zero)
         self.player = player
     }
     
-    convenience init(url: URL) {
+    public convenience init(url: URL) {
         self.init(player: AVPlayer(url: url))
     }
 }
