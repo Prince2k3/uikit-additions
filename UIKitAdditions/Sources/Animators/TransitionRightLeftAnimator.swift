@@ -9,8 +9,8 @@ public class TransitionRightLeftAnimator: NSObject, Animator {
         self.duration = duration
     }
     
-    public static func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationController.Operation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        let animator = TransitionRightLeftAnimator()
+    public static func navigationController(duration: TimeInterval = 0.55, navigationController: UINavigationController, animationControllerForOperation operation: UINavigationController.Operation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        let animator = TransitionRightLeftAnimator(duration: duration)
         animator.isPresenting = operation == .push
         return animator
     }

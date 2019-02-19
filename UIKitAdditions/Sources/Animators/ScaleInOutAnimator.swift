@@ -9,8 +9,8 @@ public class ScaleInOutAnimator: NSObject, Animator {
         self.duration = duration
     }
     
-    public static func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationController.Operation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        let animator = ScaleInOutAnimator()
+    public static func navigationController(duration: TimeInterval = 0.35, navigationController: UINavigationController, animationControllerForOperation operation: UINavigationController.Operation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        let animator = ScaleInOutAnimator(duration: duration)
         animator.isPresenting = operation == .push
         return animator
     }

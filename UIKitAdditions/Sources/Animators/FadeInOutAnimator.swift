@@ -11,8 +11,8 @@ public class FadeInOutAnimator: NSObject, Animator {
         self.isOverlay = isOverlay
     }
     
-    public static func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationController.Operation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        let animator = FadeInOutAnimator()
+    public static func navigationController(duration: TimeInterval = 0.33, navigationController: UINavigationController, animationControllerForOperation operation: UINavigationController.Operation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        let animator = FadeInOutAnimator(duration: duration)
         animator.isPresenting = operation == .push
         return animator
     }

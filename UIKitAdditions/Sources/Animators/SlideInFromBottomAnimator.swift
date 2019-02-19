@@ -9,8 +9,8 @@ public class SlideInFromBottomAnimator: NSObject, Animator {
         self.duration = duration
     }
     
-    public static func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationController.Operation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        let animator = SlideInFromBottomAnimator()
+    public static func navigationController(duration: TimeInterval = 0.35, navigationController: UINavigationController, animationControllerForOperation operation: UINavigationController.Operation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        let animator = SlideInFromBottomAnimator(duration: duration)
         animator.isPresenting = operation == .push
         return animator
     }
