@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1E0D8A45221B12090065B179 /* Button.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1E88AE2D2213660F008EC4C9 /* Button.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E0D8A7D221C7FE10065B179 /* SemiModalAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0D8A76221C7FE00065B179 /* SemiModalAnimator.swift */; };
+		1E0D8A7E221C7FE10065B179 /* ScaleInOutAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0D8A77221C7FE10065B179 /* ScaleInOutAnimator.swift */; };
+		1E0D8A7F221C7FE10065B179 /* FadeInOutAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0D8A78221C7FE10065B179 /* FadeInOutAnimator.swift */; };
+		1E0D8A81221C7FE10065B179 /* TransitionRightLeftAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0D8A7A221C7FE10065B179 /* TransitionRightLeftAnimator.swift */; };
+		1E0D8A82221C7FE10065B179 /* SlideInFromBottomAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0D8A7B221C7FE10065B179 /* SlideInFromBottomAnimator.swift */; };
+		1E0D8A85221C8E4E0065B179 /* SemiModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0D8A84221C8E4E0065B179 /* SemiModalPresentationController.swift */; };
+		1E0D8A88221C92920065B179 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0D8A87221C92920065B179 /* Animator.swift */; };
 		1E88AE21221365FF008EC4C9 /* Perform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E88AE1E221365FF008EC4C9 /* Perform.swift */; };
 		1E88AE22221365FF008EC4C9 /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E88AE1F221365FF008EC4C9 /* Segue.swift */; };
 		1E88AE23221365FF008EC4C9 /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E88AE20221365FF008EC4C9 /* Identifier.swift */; };
@@ -66,6 +73,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E0D8A76221C7FE00065B179 /* SemiModalAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemiModalAnimator.swift; sourceTree = "<group>"; };
+		1E0D8A77221C7FE10065B179 /* ScaleInOutAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleInOutAnimator.swift; sourceTree = "<group>"; };
+		1E0D8A78221C7FE10065B179 /* FadeInOutAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeInOutAnimator.swift; sourceTree = "<group>"; };
+		1E0D8A7A221C7FE10065B179 /* TransitionRightLeftAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionRightLeftAnimator.swift; sourceTree = "<group>"; };
+		1E0D8A7B221C7FE10065B179 /* SlideInFromBottomAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideInFromBottomAnimator.swift; sourceTree = "<group>"; };
+		1E0D8A84221C8E4E0065B179 /* SemiModalPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemiModalPresentationController.swift; sourceTree = "<group>"; };
+		1E0D8A87221C92920065B179 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		1E88AE1E221365FF008EC4C9 /* Perform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Perform.swift; sourceTree = "<group>"; };
 		1E88AE1F221365FF008EC4C9 /* Segue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segue.swift; sourceTree = "<group>"; };
 		1E88AE20221365FF008EC4C9 /* Identifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
@@ -140,9 +154,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E0D8A75221C7E890065B179 /* Animators */ = {
+			isa = PBXGroup;
+			children = (
+				1E0D8A87221C92920065B179 /* Animator.swift */,
+				1E0D8A78221C7FE10065B179 /* FadeInOutAnimator.swift */,
+				1E0D8A77221C7FE10065B179 /* ScaleInOutAnimator.swift */,
+				1E0D8A76221C7FE00065B179 /* SemiModalAnimator.swift */,
+				1E0D8A7B221C7FE10065B179 /* SlideInFromBottomAnimator.swift */,
+				1E0D8A7A221C7FE10065B179 /* TransitionRightLeftAnimator.swift */,
+			);
+			path = Animators;
+			sourceTree = "<group>";
+		};
+		1E0D8A86221C91D70065B179 /* Presentation Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1E0D8A84221C8E4E0065B179 /* SemiModalPresentationController.swift */,
+			);
+			path = "Presentation Controllers";
+			sourceTree = "<group>";
+		};
 		1E88ADA0221364A5008EC4C9 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				1E0D8A86221C91D70065B179 /* Presentation Controllers */,
+				1E0D8A75221C7E890065B179 /* Animators */,
 				1EA8ABAD22138F38007ECF6E /* Managers */,
 				1E88ADA1221364AA008EC4C9 /* Extensions */,
 				1E88AE1D221365FF008EC4C9 /* Utils */,
@@ -458,6 +495,8 @@
 				1EA8ABC222138FDE007ECF6E /* KeyboardManager.swift in Sources */,
 				1E88AE6A22136611008EC4C9 /* BusyButton.swift in Sources */,
 				1E88AE5222136611008EC4C9 /* ResourceUtils.swift in Sources */,
+				1E0D8A88221C92920065B179 /* Animator.swift in Sources */,
+				1E0D8A7D221C7FE10065B179 /* SemiModalAnimator.swift in Sources */,
 				1E88AE9C22136721008EC4C9 /* UITextField+Extension.swift in Sources */,
 				1E88AE9A22136721008EC4C9 /* UIEdgeInsets+Extension.swift in Sources */,
 				1E88AE4E22136611008EC4C9 /* SearchController.swift in Sources */,
@@ -470,18 +509,23 @@
 				1E88AE9F22136843008EC4C9 /* NSAttributedString+Extension.swift in Sources */,
 				1E88AE9D22136721008EC4C9 /* UIViewController+Extension.swift in Sources */,
 				1E88AE8F22136721008EC4C9 /* UIViewController+Alert.swift in Sources */,
+				1E0D8A82221C7FE10065B179 /* SlideInFromBottomAnimator.swift in Sources */,
 				1E88AE8E22136721008EC4C9 /* UIViewController+Present.swift in Sources */,
+				1E0D8A81221C7FE10065B179 /* TransitionRightLeftAnimator.swift in Sources */,
 				1E88AE23221365FF008EC4C9 /* Identifier.swift in Sources */,
 				1E88AE6F22136611008EC4C9 /* InputAccessoryView.swift in Sources */,
 				1E88AE9622136721008EC4C9 /* UIStoryboard+Extension.swift in Sources */,
 				1EA8ABDB2213BAEF007ECF6E /* DateFormats.swift in Sources */,
 				1E88AE9022136721008EC4C9 /* UIView+Extension.swift in Sources */,
 				1E88AE4A22136611008EC4C9 /* GradientView.swift in Sources */,
+				1E0D8A85221C8E4E0065B179 /* SemiModalPresentationController.swift in Sources */,
 				1E88AE5722136611008EC4C9 /* AccordionView.swift in Sources */,
 				1E88AE9722136721008EC4C9 /* UIImageView+Extension.swift in Sources */,
 				1E88AE22221365FF008EC4C9 /* Segue.swift in Sources */,
 				1E88AE5922136611008EC4C9 /* CountingLabel.swift in Sources */,
+				1E0D8A7F221C7FE10065B179 /* FadeInOutAnimator.swift in Sources */,
 				1E88AE9122136721008EC4C9 /* UIFont+Custom.swift in Sources */,
+				1E0D8A7E221C7FE10065B179 /* ScaleInOutAnimator.swift in Sources */,
 				1E88AE5A22136611008EC4C9 /* CreditCardFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
