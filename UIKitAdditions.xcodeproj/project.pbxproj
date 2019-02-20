@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E023698221E1A910060983A /* FormViewController.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1E88AE352213660F008EC4C9 /* FormViewController.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E023699221E1AB80060983A /* InputAccessoryView.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1E88AE4922136611008EC4C9 /* InputAccessoryView.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E0D8A45221B12090065B179 /* Button.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1E88AE2D2213660F008EC4C9 /* Button.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E0D8A7D221C7FE10065B179 /* SemiModalAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0D8A76221C7FE00065B179 /* SemiModalAnimator.swift */; };
 		1E0D8A7E221C7FE10065B179 /* ScaleInOutAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0D8A77221C7FE10065B179 /* ScaleInOutAnimator.swift */; };
@@ -403,6 +405,8 @@
 			files = (
 				1EE63A11220D007F00E93E88 /* UIKitAdditions.h in Headers */,
 				1EA40CF1221B0F3800550914 /* UIView+Extension.swift in Headers */,
+				1E023698221E1A910060983A /* FormViewController.swift in Headers */,
+				1E023699221E1AB80060983A /* InputAccessoryView.swift in Headers */,
 				1E0D8A45221B12090065B179 /* Button.swift in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
