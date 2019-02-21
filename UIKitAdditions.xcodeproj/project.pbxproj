@@ -32,6 +32,7 @@
 		1E0D8A85221C8E4E0065B179 /* SemiModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0D8A84221C8E4E0065B179 /* SemiModalPresentationController.swift */; };
 		1E0D8A88221C92920065B179 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0D8A87221C92920065B179 /* Animator.swift */; };
 		1E0D8A8F221CA1F70065B179 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0D8A8E221CA1F70065B179 /* PlayerView.swift */; };
+		1E0D8A95221F232C0065B179 /* UIImageView+Extension.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1E88AE8622136720008EC4C9 /* UIImageView+Extension.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E88AE21221365FF008EC4C9 /* Perform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E88AE1E221365FF008EC4C9 /* Perform.swift */; };
 		1E88AE22221365FF008EC4C9 /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E88AE1F221365FF008EC4C9 /* Segue.swift */; };
 		1E88AE23221365FF008EC4C9 /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E88AE20221365FF008EC4C9 /* Identifier.swift */; };
@@ -435,6 +436,7 @@
 				1E02369F221E1DB60060983A /* CountingLabel.swift in Headers */,
 				1E02369E221E1DAD0060983A /* NibLoadedView.swift in Headers */,
 				1E0236A7221E227F0060983A /* UIViewController+Extension.swift in Headers */,
+				1E0D8A95221F232C0065B179 /* UIImageView+Extension.swift in Headers */,
 				1E02369D221E1DA40060983A /* BusyButton.swift in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
