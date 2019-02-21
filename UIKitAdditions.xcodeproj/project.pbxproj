@@ -22,6 +22,7 @@
 		1E0236A4221E1DD40060983A /* ListInputView.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1E88AE4622136610008EC4C9 /* ListInputView.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E0236A5221E1DD40060983A /* MonthYearInputView.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1E88AE362213660F008EC4C9 /* MonthYearInputView.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E0236A6221E1DD40060983A /* Toast.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1E88AE2E2213660F008EC4C9 /* Toast.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E0236A7221E227F0060983A /* UIViewController+Extension.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1E88AE8C22136721008EC4C9 /* UIViewController+Extension.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E0D8A45221B12090065B179 /* Button.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1E88AE2D2213660F008EC4C9 /* Button.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E0D8A7D221C7FE10065B179 /* SemiModalAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0D8A76221C7FE00065B179 /* SemiModalAnimator.swift */; };
 		1E0D8A7E221C7FE10065B179 /* ScaleInOutAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0D8A77221C7FE10065B179 /* ScaleInOutAnimator.swift */; };
@@ -433,6 +434,7 @@
 				1E0236A6221E1DD40060983A /* Toast.swift in Headers */,
 				1E02369F221E1DB60060983A /* CountingLabel.swift in Headers */,
 				1E02369E221E1DAD0060983A /* NibLoadedView.swift in Headers */,
+				1E0236A7221E227F0060983A /* UIViewController+Extension.swift in Headers */,
 				1E02369D221E1DA40060983A /* BusyButton.swift in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
