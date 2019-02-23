@@ -1,11 +1,3 @@
-//
-//  Alamofire+PromiseKit.swift
-//  Tradelytics
-//
-//  Created by Prince Ugwuh on 7/21/17.
-//  Copyright © 2017 Alerting Options, LLC. All rights reserved.
-//
-
 import Alamofire
 import PromiseKit
 

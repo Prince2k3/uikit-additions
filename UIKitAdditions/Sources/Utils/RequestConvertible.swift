@@ -1,9 +1,3 @@
-//
-//  RequestConvertible.swift
-//
-//  Created by Prince Ugwuh on 2/12/19.
-//
-
 import Alamofire
 import PromiseKit
 

@@ -1,9 +1,3 @@
-//
-//  Router.swift
-//
-//  Created by Prince Ugwuh on 2/12/19.
-//
-
 import Alamofire
 
 public protocol Router {

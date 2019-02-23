@@ -31,6 +31,7 @@
 		1E0237462221B1610060983A /* SwiftDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0237432221B1600060983A /* SwiftDate+Extension.swift */; };
 		1E02374A2221B6030060983A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E0237492221B6030060983A /* Alamofire.framework */; };
 		1E02374C2221B6800060983A /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E02374B2221B6800060983A /* ServiceError.swift */; };
+		1E0237602221E1010060983A /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E02375F2221E1000060983A /* QRCode.swift */; };
 		1E0D8A45221B12090065B179 /* Button.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1E88AE2D2213660F008EC4C9 /* Button.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E0D8A7D221C7FE10065B179 /* SemiModalAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0D8A76221C7FE00065B179 /* SemiModalAnimator.swift */; };
 		1E0D8A7E221C7FE10065B179 /* ScaleInOutAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0D8A77221C7FE10065B179 /* ScaleInOutAnimator.swift */; };
@@ -108,6 +109,7 @@
 		1E0237472221B18B0060983A /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		1E0237492221B6030060983A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		1E02374B2221B6800060983A /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
+		1E02375F2221E1000060983A /* QRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
 		1E0D8A76221C7FE00065B179 /* SemiModalAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemiModalAnimator.swift; sourceTree = "<group>"; };
 		1E0D8A77221C7FE10065B179 /* ScaleInOutAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleInOutAnimator.swift; sourceTree = "<group>"; };
 		1E0D8A78221C7FE10065B179 /* FadeInOutAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeInOutAnimator.swift; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 		1E88AE7A221366EB008EC4C9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1E02375F2221E1000060983A /* QRCode.swift */,
 				1E0D8A8E221CA1F70065B179 /* PlayerView.swift */,
 				1E88AE382213660F008EC4C9 /* AutoCompleteView.swift */,
 				1E88AE312213660F008EC4C9 /* AccordionView.swift */,
@@ -586,6 +589,7 @@
 				1E88AE6F22136611008EC4C9 /* InputAccessoryView.swift in Sources */,
 				1E88AE9622136721008EC4C9 /* UIStoryboard+Extension.swift in Sources */,
 				1E02373F2221B1160060983A /* OrderedDictionary.swift in Sources */,
+				1E0237602221E1010060983A /* QRCode.swift in Sources */,
 				1E0237462221B1610060983A /* SwiftDate+Extension.swift in Sources */,
 				1EA8ABDB2213BAEF007ECF6E /* DateFormats.swift in Sources */,
 				1E88AE9022136721008EC4C9 /* UIView+Extension.swift in Sources */,
