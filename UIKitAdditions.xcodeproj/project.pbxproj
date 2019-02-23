@@ -23,6 +23,14 @@
 		1E0236A5221E1DD40060983A /* MonthYearInputView.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1E88AE362213660F008EC4C9 /* MonthYearInputView.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E0236A6221E1DD40060983A /* Toast.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1E88AE2E2213660F008EC4C9 /* Toast.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E0236A7221E227F0060983A /* UIViewController+Extension.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1E88AE8C22136721008EC4C9 /* UIViewController+Extension.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E02373E2221B1160060983A /* RequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E02373B2221B1160060983A /* RequestConvertible.swift */; };
+		1E02373F2221B1160060983A /* OrderedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E02373C2221B1160060983A /* OrderedDictionary.swift */; };
+		1E0237402221B1160060983A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E02373D2221B1160060983A /* Router.swift */; };
+		1E0237442221B1610060983A /* Alamofire+PromiseKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0237412221B1600060983A /* Alamofire+PromiseKit.swift */; };
+		1E0237452221B1610060983A /* UIViewController+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0237422221B1600060983A /* UIViewController+Promise.swift */; };
+		1E0237462221B1610060983A /* SwiftDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0237432221B1600060983A /* SwiftDate+Extension.swift */; };
+		1E02374A2221B6030060983A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E0237492221B6030060983A /* Alamofire.framework */; };
+		1E02374C2221B6800060983A /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E02374B2221B6800060983A /* ServiceError.swift */; };
 		1E0D8A45221B12090065B179 /* Button.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1E88AE2D2213660F008EC4C9 /* Button.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E0D8A7D221C7FE10065B179 /* SemiModalAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0D8A76221C7FE00065B179 /* SemiModalAnimator.swift */; };
 		1E0D8A7E221C7FE10065B179 /* ScaleInOutAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0D8A77221C7FE10065B179 /* ScaleInOutAnimator.swift */; };
@@ -91,6 +99,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E02373B2221B1160060983A /* RequestConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestConvertible.swift; sourceTree = "<group>"; };
+		1E02373C2221B1160060983A /* OrderedDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedDictionary.swift; sourceTree = "<group>"; };
+		1E02373D2221B1160060983A /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		1E0237412221B1600060983A /* Alamofire+PromiseKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alamofire+PromiseKit.swift"; sourceTree = "<group>"; };
+		1E0237422221B1600060983A /* UIViewController+Promise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Promise.swift"; sourceTree = "<group>"; };
+		1E0237432221B1600060983A /* SwiftDate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwiftDate+Extension.swift"; sourceTree = "<group>"; };
+		1E0237472221B18B0060983A /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
+		1E0237492221B6030060983A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		1E02374B2221B6800060983A /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		1E0D8A76221C7FE00065B179 /* SemiModalAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemiModalAnimator.swift; sourceTree = "<group>"; };
 		1E0D8A77221C7FE10065B179 /* ScaleInOutAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleInOutAnimator.swift; sourceTree = "<group>"; };
 		1E0D8A78221C7FE10065B179 /* FadeInOutAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeInOutAnimator.swift; sourceTree = "<group>"; };
@@ -162,6 +179,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E02374A2221B6030060983A /* Alamofire.framework in Frameworks */,
 				1EA8ABD92213BA67007ECF6E /* SwiftDate.framework in Frameworks */,
 				1EA8ABAC22138EDC007ECF6E /* SwiftAdditions.framework in Frameworks */,
 				1E88AEA622136B97008EC4C9 /* PhoneNumberKit.framework in Frameworks */,
@@ -210,6 +228,9 @@
 		1E88ADA1221364AA008EC4C9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				1E0237412221B1600060983A /* Alamofire+PromiseKit.swift */,
+				1E0237432221B1600060983A /* SwiftDate+Extension.swift */,
+				1E0237422221B1600060983A /* UIViewController+Promise.swift */,
 				1E88AE8822136720008EC4C9 /* UIButton+Extension.swift */,
 				1E88AE8222136720008EC4C9 /* UICollectionView+Extension.swift */,
 				1E88AE8122136720008EC4C9 /* UIColor+Extension.swift */,
@@ -251,11 +272,15 @@
 			isa = PBXGroup;
 			children = (
 				1E88AE7422136652008EC4C9 /* Disk */,
+				1E02373C2221B1160060983A /* OrderedDictionary.swift */,
+				1E02373B2221B1160060983A /* RequestConvertible.swift */,
+				1E02373D2221B1160060983A /* Router.swift */,
 				1EA8ABDA2213BAEF007ECF6E /* DateFormats.swift */,
 				1E88AE1E221365FF008EC4C9 /* Perform.swift */,
 				1E88AE1F221365FF008EC4C9 /* Segue.swift */,
 				1E88AE2C2213660F008EC4C9 /* ResourceUtils.swift */,
 				1E88AE20221365FF008EC4C9 /* Identifier.swift */,
+				1E02374B2221B6800060983A /* ServiceError.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -366,6 +391,7 @@
 		1E88AEA0221369C5008EC4C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1E0237492221B6030060983A /* Alamofire.framework */,
 				1EA8ABD82213BA67007ECF6E /* SwiftDate.framework */,
 				1EA8ABAB22138EDC007ECF6E /* SwiftAdditions.framework */,
 				1E88AEA522136B97008EC4C9 /* PhoneNumberKit.framework */,
@@ -404,6 +430,7 @@
 		1EE63A02220D007F00E93E88 /* UIKitAdditions */ = {
 			isa = PBXGroup;
 			children = (
+				1E0237472221B18B0060983A /* Cartfile */,
 				1E88ADA0221364A5008EC4C9 /* Sources */,
 				1EE63A03220D007F00E93E88 /* UIKitAdditions.h */,
 				1EE63A04220D007F00E93E88 /* Info.plist */,
@@ -512,6 +539,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E02374C2221B6800060983A /* ServiceError.swift in Sources */,
 				1E88AE5E22136611008EC4C9 /* AutoCompleteView.swift in Sources */,
 				1E0D8A8F221CA1F70065B179 /* PlayerView.swift in Sources */,
 				1E88AE5422136611008EC4C9 /* Toast.swift in Sources */,
@@ -525,6 +553,8 @@
 				1E88AE9422136721008EC4C9 /* UIScrollView+Extension.swift in Sources */,
 				1E88AE6022136611008EC4C9 /* Disk.swift in Sources */,
 				1E88AE5022136611008EC4C9 /* PhoneNumberTextField.swift in Sources */,
+				1E0237442221B1610060983A /* Alamofire+PromiseKit.swift in Sources */,
+				1E02373E2221B1160060983A /* RequestConvertible.swift in Sources */,
 				1E88AE9822136721008EC4C9 /* UITableView+Extension.swift in Sources */,
 				1E88AE6C22136611008EC4C9 /* ListInputView.swift in Sources */,
 				1E88AE9222136721008EC4C9 /* UIColor+Extension.swift in Sources */,
@@ -535,6 +565,7 @@
 				1E88AE5222136611008EC4C9 /* ResourceUtils.swift in Sources */,
 				1E0D8A88221C92920065B179 /* Animator.swift in Sources */,
 				1E0D8A7D221C7FE10065B179 /* SemiModalAnimator.swift in Sources */,
+				1E0237402221B1160060983A /* Router.swift in Sources */,
 				1E88AE9C22136721008EC4C9 /* UITextField+Extension.swift in Sources */,
 				1E88AE9A22136721008EC4C9 /* UIEdgeInsets+Extension.swift in Sources */,
 				1E88AE4E22136611008EC4C9 /* SearchController.swift in Sources */,
@@ -547,12 +578,15 @@
 				1E88AE9F22136843008EC4C9 /* NSAttributedString+Extension.swift in Sources */,
 				1E88AE9D22136721008EC4C9 /* UIViewController+Extension.swift in Sources */,
 				1E88AE8F22136721008EC4C9 /* UIViewController+Alert.swift in Sources */,
+				1E0237452221B1610060983A /* UIViewController+Promise.swift in Sources */,
 				1E0D8A82221C7FE10065B179 /* SlideInFromBottomAnimator.swift in Sources */,
 				1E88AE8E22136721008EC4C9 /* UIViewController+Present.swift in Sources */,
 				1E0D8A81221C7FE10065B179 /* TransitionRightLeftAnimator.swift in Sources */,
 				1E88AE23221365FF008EC4C9 /* Identifier.swift in Sources */,
 				1E88AE6F22136611008EC4C9 /* InputAccessoryView.swift in Sources */,
 				1E88AE9622136721008EC4C9 /* UIStoryboard+Extension.swift in Sources */,
+				1E02373F2221B1160060983A /* OrderedDictionary.swift in Sources */,
+				1E0237462221B1610060983A /* SwiftDate+Extension.swift in Sources */,
 				1EA8ABDB2213BAEF007ECF6E /* DateFormats.swift in Sources */,
 				1E88AE9022136721008EC4C9 /* UIView+Extension.swift in Sources */,
 				1E88AE4A22136611008EC4C9 /* GradientView.swift in Sources */,

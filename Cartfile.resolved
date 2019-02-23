@@ -1,5 +1,6 @@
-github "Prince2k3/datasource" "1.0.0"
-github "Prince2k3/swift-additions" "03b4981afa7e56941edead1f2872bd70c29fd2fb"
+github "Alamofire/Alamofire" "5.0.0-beta.2"
+github "Prince2k3/datasource" "1.0.1"
+github "Prince2k3/swift-additions" "2082ad03de45a01e4b8306167478cba47d8f93ef"
 github "malcommac/SwiftDate" "5.1.0"
 github "marmelroy/PhoneNumberKit" "2.6.0"
 github "mxcl/PromiseKit" "6.8.3"

@@ -6,16 +6,16 @@
 //  Copyright © 2018 Silvercar Inc. All rights reserved.
 //
 
-struct OrderedDictionary<Key: Hashable, Value> {
+public struct OrderedDictionary<Key: Hashable, Value> {
     private(set) var keys: [Key] = []
     private(set) var values: [Key: Value] = [:]
     
-    var count: Int {
+    public var count: Int {
         assert(self.keys.count == self.values.count, "Internal count does not match")
         return self.keys.count
     }
     
-    subscript(index: Int) -> Value? {
+    public subscript(index: Int) -> Value? {
         get {
             let key = self.keys[index]
             return self.values[key]
@@ -32,7 +32,7 @@ struct OrderedDictionary<Key: Hashable, Value> {
         }
     }
     
-    subscript(key: Key) -> Value? {
+    public subscript(key: Key) -> Value? {
         get {
             return self.values[key]
         }
@@ -50,13 +50,13 @@ struct OrderedDictionary<Key: Hashable, Value> {
         }
     }
     
-    init() {
+    public init() {
         
     }
 }
 
 extension OrderedDictionary {
-    init(keysAndValues: [(Key, Value)]) {
+    public init(keysAndValues: [(Key, Value)]) {
         self.init()
         for (key, value) in keysAndValues {
             self[key] = value
@@ -65,7 +65,7 @@ extension OrderedDictionary {
 }
 
 extension OrderedDictionary: CustomStringConvertible {
-    var description: String {
+    public var description: String {
         let content = (0..<self.count).map {
             if let value = self[$0] {
                 return "[\($0)]: \(self.keys[$0]) => \(value)"
@@ -79,7 +79,7 @@ extension OrderedDictionary: CustomStringConvertible {
 }
 
 extension OrderedDictionary: ExpressibleByDictionaryLiteral {
-    init(dictionaryLiteral elements: (Key, Value)...) {
+    public init(dictionaryLiteral elements: (Key, Value)...) {
         self.init()
         for (key, value) in elements {
             self[key] = value
@@ -88,9 +88,9 @@ extension OrderedDictionary: ExpressibleByDictionaryLiteral {
 }
 
 extension OrderedDictionary: Sequence {
-    typealias Element = (Key, Value)
-    typealias Iterator = IndexingIterator<[Element]>
-    typealias SubSequence = AnySequence<Element>
+    public typealias Element = (Key, Value)
+    public typealias Iterator = IndexingIterator<[Element]>
+    public typealias SubSequence = AnySequence<Element>
     
     private var sortedKeysAndValues: [(Key, Value)] {
         return self.self.keys.map { ($0, self.values[$0]!) }
