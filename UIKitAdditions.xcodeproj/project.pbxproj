@@ -100,6 +100,9 @@
 		1EF73408222288DE00F79415 /* Keychain+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF73407222288DD00F79415 /* Keychain+Keys.swift */; };
 		1EF73409222288E700F79415 /* Keychain+Keys.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1EF73407222288DD00F79415 /* Keychain+Keys.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		1EF7340A222288EA00F79415 /* Alamofire+PromiseKit.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1E0237412221B1600060983A /* Alamofire+PromiseKit.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EF7340B22228F0400F79415 /* RequestConvertible.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1E02373B2221B1160060983A /* RequestConvertible.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EF7340C22228F0700F79415 /* Router.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1E02373D2221B1160060983A /* Router.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EF7340D22228F0F00F79415 /* ServiceError.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1E02374B2221B6800060983A /* ServiceError.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -473,6 +476,9 @@
 				1E02369F221E1DB60060983A /* CountingLabel.swift in Headers */,
 				1E02369E221E1DAD0060983A /* NibLoadedView.swift in Headers */,
 				1E0236A7221E227F0060983A /* UIViewController+Extension.swift in Headers */,
+				1EF7340B22228F0400F79415 /* RequestConvertible.swift in Headers */,
+				1EF7340C22228F0700F79415 /* Router.swift in Headers */,
+				1EF7340D22228F0F00F79415 /* ServiceError.swift in Headers */,
 				1E0D8A95221F232C0065B179 /* UIImageView+Extension.swift in Headers */,
 				1E02369D221E1DA40060983A /* BusyButton.swift in Headers */,
 			);
