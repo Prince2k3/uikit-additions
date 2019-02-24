@@ -97,6 +97,9 @@
 		1EA8ABD92213BA67007ECF6E /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EA8ABD82213BA67007ECF6E /* SwiftDate.framework */; };
 		1EA8ABDB2213BAEF007ECF6E /* DateFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA8ABDA2213BAEF007ECF6E /* DateFormats.swift */; };
 		1EE63A11220D007F00E93E88 /* UIKitAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EE63A03220D007F00E93E88 /* UIKitAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EF73408222288DE00F79415 /* Keychain+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF73407222288DD00F79415 /* Keychain+Keys.swift */; };
+		1EF73409222288E700F79415 /* Keychain+Keys.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1EF73407222288DD00F79415 /* Keychain+Keys.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EF7340A222288EA00F79415 /* Alamofire+PromiseKit.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1E0237412221B1600060983A /* Alamofire+PromiseKit.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -174,6 +177,7 @@
 		1EE63A00220D007F00E93E88 /* UIKitAdditions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIKitAdditions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EE63A03220D007F00E93E88 /* UIKitAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIKitAdditions.h; sourceTree = "<group>"; };
 		1EE63A04220D007F00E93E88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1EF73407222288DD00F79415 /* Keychain+Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Keychain+Keys.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +234,7 @@
 		1E88ADA1221364AA008EC4C9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				1EF73407222288DD00F79415 /* Keychain+Keys.swift */,
 				1E0237412221B1600060983A /* Alamofire+PromiseKit.swift */,
 				1E0237432221B1600060983A /* SwiftDate+Extension.swift */,
 				1E0237422221B1600060983A /* UIViewController+Promise.swift */,
@@ -450,6 +455,8 @@
 			files = (
 				1EE63A11220D007F00E93E88 /* UIKitAdditions.h in Headers */,
 				1EA40CF1221B0F3800550914 /* UIView+Extension.swift in Headers */,
+				1EF7340A222288EA00F79415 /* Alamofire+PromiseKit.swift in Headers */,
+				1EF73409222288E700F79415 /* Keychain+Keys.swift in Headers */,
 				1E023698221E1A910060983A /* FormViewController.swift in Headers */,
 				1E023699221E1AB80060983A /* InputAccessoryView.swift in Headers */,
 				1E02369A221E1D740060983A /* TextField.swift in Headers */,
@@ -595,6 +602,7 @@
 				1E88AE9022136721008EC4C9 /* UIView+Extension.swift in Sources */,
 				1E88AE4A22136611008EC4C9 /* GradientView.swift in Sources */,
 				1E0D8A85221C8E4E0065B179 /* SemiModalPresentationController.swift in Sources */,
+				1EF73408222288DE00F79415 /* Keychain+Keys.swift in Sources */,
 				1E88AE5722136611008EC4C9 /* AccordionView.swift in Sources */,
 				1E88AE9722136721008EC4C9 /* UIImageView+Extension.swift in Sources */,
 				1E88AE22221365FF008EC4C9 /* Segue.swift in Sources */,
