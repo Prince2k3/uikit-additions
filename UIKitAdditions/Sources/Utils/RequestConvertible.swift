@@ -54,7 +54,7 @@ extension RequestPerformable where Self: RequestConvertible {
         return self.client.request(self).validate().responseJSON()
     }
     
-    public func perform<T: Decodable>(queue: DispatchQueue) -> Promise<T> {
-        return self.client.request(self).validate().responseDecodable(queue: queue)
+    public func perform<T: Decodable>(queue: DispatchQueue, decoder: JSONDecoder = .init()) -> Promise<T> {
+        return self.client.request(self).validate().responseDecodable(queue: queue, decoder: decoder)
     }
 }
