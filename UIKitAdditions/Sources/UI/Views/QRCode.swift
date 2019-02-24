@@ -37,7 +37,23 @@ public struct QRCode {
     }
     
     public var image: UIImage? {
-        return self.ciImage.flatMap { UIImage(ciImage: $0) }
+        guard
+            let ciImage = self.ciImage
+            else { return nil }
+        
+        let image = UIImage(ciImage: ciImage)
+        
+        if self.size.width < ciImage.extent.size.width {
+            return image
+        }
+        
+        let renderer = UIGraphicsImageRenderer(size: size)
+        let scaledImage = renderer.image { context in
+            context.cgContext.interpolationQuality = .none
+            image.draw(in: CGRect(origin: .zero, size: size))
+        }
+        
+        return scaledImage
     }
     
     public var ciImage: CIImage? {
