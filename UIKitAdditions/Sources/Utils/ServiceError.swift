@@ -15,13 +15,13 @@ extension Int {
 struct ServiceError: LocalizedError {
     private(set) var message: String
     private(set) var statusCode: Int
-    private(set) var error: Error?
+    private(set) var error: LocalizedError?
     
     var errorDescription: String? {
         return self.message
     }
     
-    init(error: Error?, response: HTTPURLResponse?, body: [String: Any]? = nil) {
+    init(error: LocalizedError?, response: HTTPURLResponse?, body: [String: Any]? = nil) {
         self.error = error
         self.statusCode = response?.statusCode ?? .unknownStatusCode
         if let body = body, !body.isEmpty {
