@@ -11,9 +11,9 @@ extension DataRequest {
                 case let .failure(error):
                     if let data = response.data,
                         let errorInfo = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        seal.reject(ServiceError(error: error, response: response.response, body: errorInfo))
+                        seal.reject(ServiceError(error: error.asAFError, response: response.response, body: errorInfo))
                     } else {
-                        seal.reject(ServiceError(error: error, response: response.response))
+                        seal.reject(ServiceError(error: error.asAFError, response: response.response))
                     }
                 }
             }
@@ -29,9 +29,9 @@ extension DataRequest {
                 case let .failure(error):
                     if let data = response.data,
                         let errorInfo = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        seal.reject(ServiceError(error: error, response: response.response, body: errorInfo))
+                        seal.reject(ServiceError(error: error.asAFError, response: response.response, body: errorInfo))
                     } else {
-                        seal.reject(ServiceError(error: error, response: response.response))
+                        seal.reject(ServiceError(error: error.asAFError, response: response.response))
                     }
                 }
             }
@@ -47,9 +47,9 @@ extension DataRequest {
                 case let .failure(error):
                     if let data = response.data,
                        let errorInfo = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        seal.reject(ServiceError(error: error, response: response.response, body: errorInfo))
+                        seal.reject(ServiceError(error: error.asAFError, response: response.response, body: errorInfo))
                     } else {
-                        seal.reject(ServiceError(error: error, response: response.response))
+                        seal.reject(ServiceError(error: error.asAFError, response: response.response))
                     }
                 }
             }
@@ -66,9 +66,9 @@ extension DataRequest {
                 case let .failure(error):
                     if let data = response.data,
                         let errorInfo = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        seal.reject(ServiceError(error: error, response: response.response, body: errorInfo))
+                        seal.reject(ServiceError(error: error.asAFError, response: response.response, body: errorInfo))
                     } else {
-                        seal.reject(ServiceError(error: error, response: response.response))
+                        seal.reject(ServiceError(error: error.asAFError, response: response.response))
                     }
                 }
             }

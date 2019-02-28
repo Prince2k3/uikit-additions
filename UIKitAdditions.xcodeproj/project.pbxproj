@@ -29,7 +29,6 @@
 		1E0237442221B1610060983A /* Alamofire+PromiseKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0237412221B1600060983A /* Alamofire+PromiseKit.swift */; };
 		1E0237452221B1610060983A /* UIViewController+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0237422221B1600060983A /* UIViewController+Promise.swift */; };
 		1E0237462221B1610060983A /* SwiftDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0237432221B1600060983A /* SwiftDate+Extension.swift */; };
-		1E02374A2221B6030060983A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E0237492221B6030060983A /* Alamofire.framework */; };
 		1E02374C2221B6800060983A /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E02374B2221B6800060983A /* ServiceError.swift */; };
 		1E0237602221E1010060983A /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E02375F2221E1000060983A /* QRCode.swift */; };
 		1E0D8A45221B12090065B179 /* Button.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1E88AE2D2213660F008EC4C9 /* Button.swift */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -96,6 +95,7 @@
 		1EA8ABC422138FDE007ECF6E /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA8ABB022138FDE007ECF6E /* AppInfo.swift */; };
 		1EA8ABD92213BA67007ECF6E /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EA8ABD82213BA67007ECF6E /* SwiftDate.framework */; };
 		1EA8ABDB2213BAEF007ECF6E /* DateFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA8ABDA2213BAEF007ECF6E /* DateFormats.swift */; };
+		1EE1E05422276270003F8AB9 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E0237492221B6030060983A /* Alamofire.framework */; };
 		1EE63A11220D007F00E93E88 /* UIKitAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EE63A03220D007F00E93E88 /* UIKitAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1EF73408222288DE00F79415 /* Keychain+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF73407222288DD00F79415 /* Keychain+Keys.swift */; };
 		1EF73409222288E700F79415 /* Keychain+Keys.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1EF73407222288DD00F79415 /* Keychain+Keys.swift */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -188,7 +188,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E02374A2221B6030060983A /* Alamofire.framework in Frameworks */,
+				1EE1E05422276270003F8AB9 /* Alamofire.framework in Frameworks */,
 				1EA8ABD92213BA67007ECF6E /* SwiftDate.framework in Frameworks */,
 				1EA8ABAC22138EDC007ECF6E /* SwiftAdditions.framework in Frameworks */,
 				1E88AEA622136B97008EC4C9 /* PhoneNumberKit.framework in Frameworks */,
