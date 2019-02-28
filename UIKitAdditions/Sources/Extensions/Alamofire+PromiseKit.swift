@@ -59,10 +59,11 @@ extension DataRequest {
     public func responseDecodable<T: Decodable>(queue: DispatchQueue? = nil, decoder: JSONDecoder = JSONDecoder()) -> Promise<T> {
         return Promise { seal in
             decoder.dateDecodingStrategy = .iso8601
-            responseDecodable(queue: queue, decoder: decoder) { (response: DataResponse<T>) in
+            responseData(queue: queue) { response in
                 switch response.result {
                 case let .success(value):
-                    seal.fulfill(value)
+                    do { seal.fulfill(try decoder.decode(T.self, from: value)) }
+                    catch { seal.reject(error) }
                 case let .failure(error):
                     if let data = response.data,
                         let errorInfo = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
@@ -74,4 +75,24 @@ extension DataRequest {
             }
         }
     }
+
+// For Alamofire 5
+//    public func responseDecodable<T: Decodable>(queue: DispatchQueue? = nil, decoder: JSONDecoder = JSONDecoder()) -> Promise<T> {
+//        return Promise { seal in
+//            decoder.dateDecodingStrategy = .iso8601
+//            responseDecodable(queue: queue, decoder: decoder) { (response: DataResponse<T>) in
+//                switch response.result {
+//                case let .success(value):
+//                    seal.fulfill(value)
+//                case let .failure(error):
+//                    if let data = response.data,
+//                        let errorInfo = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+//                        seal.reject(ServiceError(error: error.asAFError, response: response.response, body: errorInfo))
+//                    } else {
+//                        seal.reject(ServiceError(error: error.asAFError, response: response.response))
+//                    }
+//                }
+//            }
+//        }
+//    }
 }
