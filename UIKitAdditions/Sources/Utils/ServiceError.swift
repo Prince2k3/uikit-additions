@@ -25,9 +25,9 @@ struct ServiceError: LocalizedError {
         self.error = error
         self.statusCode = response?.statusCode ?? .unknownStatusCode
         if let body = body, !body.isEmpty {
-            self.message = body["reason"] as? String ?? "an problem has occurred"
+            self.message = body["reason"] as? String ?? "A problem has occurred"
         } else {
-            self.message = "an problem has occurred"
+            self.message = "A problem has occurred"
         }
     }
     
