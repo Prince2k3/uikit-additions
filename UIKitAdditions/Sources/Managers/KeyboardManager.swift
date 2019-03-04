@@ -23,8 +23,8 @@ public class KeyboardManager {
         return frame
     }
     
-    public var animationDuration: TimeInterval? {
-        guard let duration = self.keyboardInfos?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval,
+    public var animationDuration: Double? {
+        guard let duration = self.keyboardInfos?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double,
             duration > 0.0 else { return nil }
         return duration
     }
