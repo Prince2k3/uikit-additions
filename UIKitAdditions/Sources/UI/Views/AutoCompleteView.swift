@@ -74,7 +74,7 @@ public class AutoCompleteView: UIView {
 
     private func keyboardDidShow() {
         guard
-            let endFrame = self.keyboardManager?.endFrame,
+            let endFrame = self.keyboardManager?.keyboardInfo?.frameEnd,
             let textField = self.textField,
             let presentingView = self.presentingView
             else { return }

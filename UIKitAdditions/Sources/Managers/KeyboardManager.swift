@@ -1,66 +1,52 @@
 import UIKit
 
 public class KeyboardManager {
+    public struct KeyboardInfo {
+        public var frameStart: CGRect
+        public var frameEnd: CGRect
+        public var animationDuration: TimeInterval
+        public var animationCurve: UIView.AnimationCurve?
+        public var animationOptions: UIView.AnimationOptions? {
+            guard
+                let animationCurve = self.animationCurve
+                else { return nil }
+            return UIView.AnimationOptions(rawValue: UInt(animationCurve.rawValue << 16))
+        }
+        
+        init?(_ notification: Notification) {
+            guard
+                let info = notification.userInfo
+                else { return nil }
+            self.frameStart = (info[UIWindow.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue ?? .zero
+            self.frameEnd = (info[UIWindow.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue  ?? .zero
+            self.animationCurve = UIView.AnimationCurve(rawValue: info[UIWindow.keyboardAnimationCurveUserInfoKey] as? Int ?? 0)
+            self.animationDuration = info[UIWindow.keyboardAnimationDurationUserInfoKey] as? Double ?? 0
+        }
+    }
+    
     private(set) var isVisible: Bool = false
     private(set) var isPresenting: Bool = false
     private(set) var isDismissing: Bool = false
-    
-    private var keyboardInfos: [AnyHashable: Any]?
     
     public var keyboardWillShowHandler: (() -> Void)?
     public var keyboardDidShowHandler: (() -> Void)?
     public var keyboardWillHideHandler: (() -> Void)?
     public var keyboardDidHideHandler: (() -> Void)?
-    public var beginFrame: CGRect? {
-        guard
-            let frame = (self.keyboardInfos?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue,
-            self.isVisible
-            else { return nil }
-        return frame
-    }
-    
-    public var endFrame: CGRect? {
-        guard
-            let frame = (self.keyboardInfos?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
-            self.isVisible
-            else { return nil }
-        return frame
-    }
-    
-    public var animationDuration: TimeInterval? {
-        guard
-            let duration = (self.keyboardInfos?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue,
-            duration > 0.0
-            else { return nil }
-        return duration
-    }
-    
-    public var animationCurve: UIView.AnimationCurve? {
-        guard
-            let animationCurveRawValue = (self.keyboardInfos?[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber)?.intValue
-            else { return nil }
-        
-        return UIView.AnimationCurve(rawValue: animationCurveRawValue)
-    }
-    
-    public var animationOptions: UIView.AnimationOptions? {
-        guard let animationCurve = animationCurve else { return nil }
-        return UIView.AnimationOptions(rawValue: UInt(animationCurve.rawValue << 16))
-    }
+    public var keyboardInfo: KeyboardInfo?
     
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
     public init() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: UIResponder.keyboardDidShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: UIResponder.keyboardDidHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIWindow.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: UIWindow.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIWindow.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: UIWindow.keyboardDidHideNotification, object: nil)
     }
     
     @objc private func keyboardWillShow(_ notification: Notification) {
-        self.keyboardInfos = notification.userInfo
+        self.keyboardInfo = KeyboardInfo(notification)
         self.isVisible = true
         self.isPresenting = true
         
@@ -70,21 +56,27 @@ public class KeyboardManager {
     }
     
     @objc private func keyboardDidShow(_ notification: Notification) {
-        self.keyboardInfos = notification.userInfo
+        self.keyboardInfo = KeyboardInfo(notification)
         self.isPresenting = false
-        self.keyboardDidShowHandler?()
+        DispatchQueue.main.async {
+            self.keyboardDidShowHandler?()
+        }
     }
     
     @objc private func keyboardWillHide(_ notification: Notification) {
-        self.keyboardInfos = notification.userInfo
+        self.keyboardInfo = KeyboardInfo(notification)
         self.isDismissing = true
-        self.keyboardWillHideHandler?()
+        DispatchQueue.main.async {
+            self.keyboardWillHideHandler?()
+        }
     }
     
     @objc private func keyboardDidHide(_ notification: Notification) {
-        self.keyboardInfos = notification.userInfo
+        self.keyboardInfo = KeyboardInfo(notification)
         self.isVisible = false
         self.isDismissing = false
-        self.keyboardDidHideHandler?()
+        DispatchQueue.main.async {
+            self.keyboardDidHideHandler?()
+        }
     }
 }
