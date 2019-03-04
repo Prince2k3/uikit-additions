@@ -6,6 +6,17 @@ public class Toast {
     }
 
     public static let `default`: Toast = Toast()
+    public static let error: Toast  = {
+        let toast = Toast.default
+        toast.backgroundColor = .red
+        return toast
+    }()
+    
+    public static let info: Toast = {
+       let toast = Toast.default
+        toast.backgroundColor = .blue
+        return toast
+    }()
 
     private lazy var toastView: ToastView = {
         let view = ToastView()
@@ -146,13 +157,11 @@ private class ToastView: UIView {
 /// Extensions
 
 extension UIViewController {
-    public func presentInfo(_ message: String, position: Toast.Position = .bottom) {
-        Toast.default.position = position
-        Toast.default.backgroundColor = .blue
-        Toast.default.show(message: message)
+    public func presentInfo(_ message: String, toast: Toast = .info) {
+        toast.show(message: message)
     }
     
-    public func presentError(_ error: Error?, position: Toast.Position = .bottom) {
+    public func presentError(_ error: Error?, toast: Toast = .error) {
         var message = "Something went wrong that requires customer support."
         if let error = error as? String {
             message = error
@@ -160,9 +169,7 @@ extension UIViewController {
             message = error?.localizedDescription ?? message
         }
         
-        Toast.default.position = position
-        Toast.default.backgroundColor = .red
-        Toast.default.show(message: message)
+        toast.show(message: message)
     }
 }
 
