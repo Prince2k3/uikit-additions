@@ -12,27 +12,33 @@ public class KeyboardManager {
     public var keyboardWillHideHandler: (() -> Void)?
     public var keyboardDidHideHandler: (() -> Void)?
     public var beginFrame: CGRect? {
-        guard let frame = (self.keyboardInfos?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue,
-            self.isVisible else { return nil }
+        guard
+            let frame = (self.keyboardInfos?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue,
+            self.isVisible
+            else { return nil }
         return frame
     }
     
     public var endFrame: CGRect? {
-        guard let frame = (self.keyboardInfos?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
-            self.isVisible else { return nil }
+        guard
+            let frame = (self.keyboardInfos?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
+            self.isVisible
+            else { return nil }
         return frame
     }
     
-    public var animationDuration: Double? {
-        guard let duration = self.keyboardInfos?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double,
-            duration > 0.0 else { return nil }
+    public var animationDuration: TimeInterval? {
+        guard
+            let duration = (self.keyboardInfos?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue,
+            duration > 0.0
+            else { return nil }
         return duration
     }
     
     public var animationCurve: UIView.AnimationCurve? {
-        guard let animationCurveRawValue = self.keyboardInfos?[UIResponder.keyboardAnimationCurveUserInfoKey] as? Int else {
-            return nil
-        }
+        guard
+            let animationCurveRawValue = (self.keyboardInfos?[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber)?.intValue
+            else { return nil }
         
         return UIView.AnimationCurve(rawValue: animationCurveRawValue)
     }
