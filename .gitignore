@@ -75,3 +75,5 @@ fastlane/test_output
 
 iOSInjectionProject/
 /UIKitAdditions.xcodeproj/project.xcworkspace/xcuserdata/princeugwuh.xcuserdatad/UserInterfaceState.xcuserstate
+*.xcuserstate
+UserInterfaceState.xcuserstate
