@@ -9,7 +9,7 @@ extension UICollectionView {
         register(cls.self as? AnyClass, forCellWithReuseIdentifier: cls.identifier)
     }
     
-    public func registe<T: Identifiable>(nib cls: T.Type, bundle: Bundle? = nil, forSupplementaryViewOfKind kind: String) {
+    public func register<T: Identifiable>(nib cls: T.Type, bundle: Bundle? = nil, forSupplementaryViewOfKind kind: String) {
         register(UINib(nibName: cls.identifier, bundle: bundle), forSupplementaryViewOfKind: kind, withReuseIdentifier: cls.identifier)
     }
     
