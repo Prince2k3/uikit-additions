@@ -37,6 +37,12 @@ extension RequestConvertible where Params: Encodable {
     }
 }
 
+extension RequestConvertible where Self: Encodable {
+    var params: Self {
+        return self
+    }
+}
+
 public protocol RequestPerformable {
     var client: Session { get }
 }
