@@ -38,7 +38,7 @@ extension RequestConvertible where Params: Encodable {
 }
 
 extension RequestConvertible where Self: Encodable {
-    public var params: Self {
+    public var params: Self? {
         return self
     }
 }
