@@ -22,7 +22,7 @@ extension DataRequest {
 
     public func responseVoid() -> Promise<Void> {
         return Promise { seal in
-            responseData { response in
+            response { response in
                 switch response.result {
                 case .success:
                     seal.fulfill(())
