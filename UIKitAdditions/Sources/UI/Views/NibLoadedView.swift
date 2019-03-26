@@ -1,6 +1,6 @@
 import UIKit
 
-public extension UIView {
+extension UIView {
     @discardableResult
     public func loadNibContents(from nibName: String? = nil) -> UIView? {
         backgroundColor = .clear

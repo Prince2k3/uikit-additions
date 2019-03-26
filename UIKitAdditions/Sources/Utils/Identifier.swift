@@ -5,7 +5,7 @@ public protocol Identifiable {
     static var identifier: String { get }
 }
 
-public extension Identifiable {
+extension Identifiable {
     public var identifier: String {
         return String(describing: self)
     }
@@ -15,7 +15,7 @@ public extension Identifiable {
     }
 }
 
-public extension Identifiable where Self: NSObjectProtocol {
+extension Identifiable where Self: NSObjectProtocol {
     public var identifier: String {
         return String(describing: type(of: self))
     }

@@ -16,7 +16,7 @@ public class MonthYearInputView: UIPickerView {
 
     public var year: Int = 0 {
         didSet {
-            guard let index = self.years.index(of: self.year) else { return }
+            guard let index = self.years.firstIndex(of: self.year) else { return }
             selectRow(index, inComponent: 1, animated: true)
         }
     }

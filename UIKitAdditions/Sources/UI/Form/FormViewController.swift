@@ -55,7 +55,7 @@ open class FormViewController: UITableViewController {
         self.textFieldInputAccessoryView.moveToNextHandler = { current in
             guard
                 let current = current as? TextField,
-                let index = self.textFields.index(of: current)
+                let index = self.textFields.firstIndex(of: current)
                 else { return }
 
             if (index + 1) < self.textFields.count {
@@ -70,7 +70,7 @@ open class FormViewController: UITableViewController {
         self.textFieldInputAccessoryView.moveToPreviousHandler = { current in
             guard
                 let current = current as? TextField,
-                let index = self.textFields.index(of: current)
+                let index = self.textFields.firstIndex(of: current)
                 else { return }
 
             if (index - 1) > -1 {
@@ -154,7 +154,7 @@ extension FormViewController {
     @objc open func textFieldDidReturn(_ textField: UITextField) {
         guard
             let current = textField as? TextField,
-            let index = self.textFields.index(of: current)
+            let index = self.textFields.firstIndex(of: current)
             else { return }
         
         if (index + 1) < self.textFields.count {

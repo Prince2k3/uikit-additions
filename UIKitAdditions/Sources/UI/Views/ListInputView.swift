@@ -16,7 +16,7 @@ public class ListInputView: UIView, UITableViewDelegate {
     public var selectedItem: String? {
         didSet {
             if let selectedItem = self.selectedItem,
-                let index = self.items.index(of: selectedItem),
+                let index = self.items.firstIndex(of: selectedItem),
                 self.items.contains(selectedItem) {
 
                 self.tableView.selectRow(at: IndexPath(row: index, section: 0), animated: true, scrollPosition: .top)
