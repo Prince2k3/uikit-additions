@@ -59,11 +59,11 @@ open class FormViewController: UITableViewController {
                 else { return }
 
             if (index + 1) < self.textFields.count {
-                let textField = self.textFields[index + 1]
-                textField.becomeFirstResponder()
+                let textField = self.textFields[safe: index + 1]
+                textField?.becomeFirstResponder()
             } else {
-                let textField = self.textFields[0]
-                textField.becomeFirstResponder()
+                let textField = self.textFields[safe: 0]
+                textField?.becomeFirstResponder()
             }
         }
 
@@ -74,11 +74,11 @@ open class FormViewController: UITableViewController {
                 else { return }
 
             if (index - 1) > -1 {
-                let textField = self.textFields[index - 1]
-                textField.becomeFirstResponder()
+                let textField = self.textFields[safe: index - 1]
+                textField?.becomeFirstResponder()
             } else {
-                let textField = self.textFields[self.textFields.count - 1]
-                textField.becomeFirstResponder()
+                let textField = self.textFields[safe: self.textFields.count - 1]
+                textField?.becomeFirstResponder()
             }
         }
 
@@ -158,15 +158,15 @@ extension FormViewController {
             else { return }
         
         if (index + 1) < self.textFields.count {
-            let textField = self.textFields[index + 1]
-            textField.becomeFirstResponder()
+            let textField = self.textFields[safe: index + 1]
+            textField?.becomeFirstResponder()
         } else if textField.returnKeyType == .done || textField.returnKeyType == .send || textField.returnKeyType == .go {
             handleFormSubmit(textField)
         } else if textField.returnKeyType == .default {
             textField.resignFirstResponder()
         } else {
-            let textField = self.textFields[0]
-            textField.becomeFirstResponder()
+            let textField = self.textFields[safe: 0]
+            textField?.becomeFirstResponder()
         }
     }
 }
