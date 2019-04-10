@@ -59,7 +59,7 @@ extension DataRequest {
     public func responseDecodable<T: Decodable>(queue: DispatchQueue? = nil, decoder: JSONDecoder = JSONDecoder()) -> Promise<T> {
         return Promise { seal in
             decoder.dateDecodingStrategy = .iso8601
-            responseDecodable(queue: queue, decoder: decoder) { (response: DataResponse<T>) in
+            responseDecodable(queue: queue ?? .main, decoder: decoder) { (response: DataResponse<T>) in
                 switch response.result {
                 case let .success(value):
                     seal.fulfill(value)
