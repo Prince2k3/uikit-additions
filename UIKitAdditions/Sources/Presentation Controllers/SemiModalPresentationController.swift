@@ -1,6 +1,6 @@
 import UIKit
 
-class SemiModalPresentationController: UIPresentationController {
+public class SemiModalPresentationController: UIPresentationController {
     lazy fileprivate var dimmingView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -9,7 +9,7 @@ class SemiModalPresentationController: UIPresentationController {
         return view
     }()
     
-    override func presentationTransitionWillBegin() {
+    public override func presentationTransitionWillBegin() {
         guard let containerView = self.containerView else { return }
         
         containerView.insertSubview(self.dimmingView, at: 0)
@@ -32,7 +32,7 @@ class SemiModalPresentationController: UIPresentationController {
         })
     }
     
-    override func dismissalTransitionWillBegin() {
+    public override func dismissalTransitionWillBegin() {
         guard let coordinator = presentedViewController.transitionCoordinator else {
             dimmingView.alpha = 0.0
             return
@@ -43,13 +43,13 @@ class SemiModalPresentationController: UIPresentationController {
         })
     }
     
-    override func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
+    public override func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
         var size = container.preferredContentSize
         size.height = size.height - 20
         return size
     }
     
-    override var frameOfPresentedViewInContainerView: CGRect {
+    public override var frameOfPresentedViewInContainerView: CGRect {
         guard let containerView = self.containerView else { return .zero }
         var frame: CGRect = .zero
         frame.size = size(forChildContentContainer: self.presentedViewController, withParentContainerSize: containerView.bounds.size)
@@ -57,7 +57,7 @@ class SemiModalPresentationController: UIPresentationController {
         return frame
     }
     
-    override func containerViewWillLayoutSubviews() {
+    public override func containerViewWillLayoutSubviews() {
         self.presentedView?.frame = self.frameOfPresentedViewInContainerView
     }
     
