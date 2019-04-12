@@ -77,3 +77,4 @@ iOSInjectionProject/
 /UIKitAdditions.xcodeproj/project.xcworkspace/xcuserdata/princeugwuh.xcuserdatad/UserInterfaceState.xcuserstate
 *.xcuserstate
 UserInterfaceState.xcuserstate
+.DS_Store
