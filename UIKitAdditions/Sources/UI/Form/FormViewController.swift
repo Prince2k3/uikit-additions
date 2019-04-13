@@ -16,7 +16,7 @@ open class FormViewController: UITableViewController {
     }
 
     public enum FormState {
-        case none, editing, saving
+        case none, editing, done, saving
     }
 
     @IBOutlet private var textFields: [TextField]! {
@@ -140,7 +140,7 @@ open class FormViewController: UITableViewController {
 
 extension FormViewController {
     @objc open func textFieldDidChange(_ sender: UITextField) {
-        self.state = .editing
+        self.state = !self.textFields.filter { !$0.text.isNilOrEmpty }.isEmpty ? .editing : .done
     }
 
     @objc open func textFieldDidBeginEditing(_ textField: UITextField) {
