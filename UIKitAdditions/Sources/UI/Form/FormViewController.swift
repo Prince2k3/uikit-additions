@@ -140,7 +140,7 @@ open class FormViewController: UITableViewController {
 
 extension FormViewController {
     @objc open func textFieldDidChange(_ sender: UITextField) {
-        self.state = !self.textFields.filter { !$0.text.isNilOrEmpty }.isEmpty ? .editing : .done
+        self.state = !self.textFields.filter { $0.text.isNilOrEmpty }.isEmpty ? .editing : .done
     }
 
     @objc open func textFieldDidBeginEditing(_ textField: UITextField) {
