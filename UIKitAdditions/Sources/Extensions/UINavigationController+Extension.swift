@@ -12,18 +12,18 @@ extension UINavigationController {
 
 extension UINavigationController {
     open override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
-        return self.topViewController?.preferredInterfaceOrientationForPresentation ?? super.preferredInterfaceOrientationForPresentation
+        return self.viewControllers.first?.preferredInterfaceOrientationForPresentation ?? super.preferredInterfaceOrientationForPresentation
     }
 
     open override var transitioningDelegate: UIViewControllerTransitioningDelegate? {
         get {
-            return self.topViewController?.transitioningDelegate ?? super.transitioningDelegate
+            return self.viewControllers.first?.transitioningDelegate ?? super.transitioningDelegate
         }
 
         set {
 
-            if let topViewController = self.topViewController {
-                topViewController.transitioningDelegate = newValue
+            if let rootViewController = self.viewControllers.first {
+                rootViewController.transitioningDelegate = newValue
             } else {
                super.transitioningDelegate = newValue
             }
@@ -31,21 +31,21 @@ extension UINavigationController {
     }
 
     open override var preferredStatusBarStyle: UIStatusBarStyle {
-        return self.topViewController?.preferredStatusBarStyle ?? super.preferredStatusBarStyle
+        return self.viewControllers.first?.preferredStatusBarStyle ?? super.preferredStatusBarStyle
     }
 
     open override var prefersStatusBarHidden: Bool {
-        return self.topViewController?.prefersStatusBarHidden ?? super.prefersStatusBarHidden
+        return self.viewControllers.first?.prefersStatusBarHidden ?? super.prefersStatusBarHidden
     }
 
     open override var modalPresentationStyle: UIModalPresentationStyle {
         get {
-            return self.topViewController?.modalPresentationStyle ?? super.modalPresentationStyle
+            return self.viewControllers.first?.modalPresentationStyle ?? super.modalPresentationStyle
         }
 
         set {
-            if let topViewController = self.topViewController {
-                topViewController.modalPresentationStyle = newValue
+            if let rootViewController = self.viewControllers.first {
+                rootViewController.modalPresentationStyle = newValue
             } else {
                super.modalPresentationStyle = newValue
             }
@@ -54,12 +54,12 @@ extension UINavigationController {
 
     open override var modalTransitionStyle: UIModalTransitionStyle {
         get {
-            return self.topViewController?.modalTransitionStyle ?? super.modalTransitionStyle
+            return self.viewControllers.first?.modalTransitionStyle ?? super.modalTransitionStyle
         }
 
         set {
-            if let topViewController = self.topViewController {
-                topViewController.modalTransitionStyle = newValue
+            if let rootViewController = self.viewControllers.first {
+                rootViewController.modalTransitionStyle = newValue
             } else {
                 super.modalTransitionStyle = newValue
             }
