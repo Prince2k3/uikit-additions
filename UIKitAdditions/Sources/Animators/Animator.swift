@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol Animator: class, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
+@objc public protocol Animator: class, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
     var isPresenting: Bool { get set }
     var duration: TimeInterval { get }
     
