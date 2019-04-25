@@ -16,18 +16,33 @@ struct ServiceError: LocalizedError {
     private(set) var message: String
     private(set) var statusCode: Int
     private(set) var error: LocalizedError?
+    private let errorKeys: [String] = [
+        "error_description",
+        "errorDescription",
+        "description",
+        "error_message",
+        "errorMessage",
+        "message",
+        "error_reason",
+        "errorReason",
+        "reason"
+    ]
     
     var errorDescription: String? {
         return self.message
     }
     
+    private func findErrorMessage(_ body: [String: Any]) -> String? {
+        return body.first { self.errorKeys.contains($0.key) }?.value as? String ??
+               body["error"] as? String // last resort use error as key
+    }
+    
     init(error: LocalizedError?, response: HTTPURLResponse?, body: [String: Any]? = nil) {
         self.error = error
         self.statusCode = response?.statusCode ?? .unknownStatusCode
+        self.message = "A problem has occurred"
         if let body = body, !body.isEmpty {
-            self.message = body["reason"] as? String ?? "A problem has occurred"
-        } else {
-            self.message = "A problem has occurred"
+            self.message = findErrorMessage(body) ?? "A problem has occurred"
         }
     }
     
