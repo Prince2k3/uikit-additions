@@ -11,9 +11,7 @@ public protocol RequestConvertible: URLRequestConvertible, RequestPerformable {
 
 extension RequestConvertible where Params == Parameters {
     public func asURLRequest() throws -> URLRequest {
-        var url = self.route.baseURL
-        url.appendPathComponent(self.route.path)
-        var request = URLRequest(url: url)
+        var request = URLRequest(url: self.route.absoluteURL)
         request.httpMethod = self.route.httpMethod.rawValue
         if self.route.httpMethod == .get {
             return try URLEncoding.default.encode(request, with: self.params)
@@ -24,9 +22,7 @@ extension RequestConvertible where Params == Parameters {
 
 extension RequestConvertible where Params: Encodable {
     public func asURLRequest() throws -> URLRequest {
-        var url = self.route.baseURL
-        url.appendPathComponent(self.route.path)
-        var request = URLRequest(url: url)
+        var request = URLRequest(url: self.route.absoluteURL)
         request.httpMethod = self.route.httpMethod.rawValue
         
         if self.route.httpMethod == .get {

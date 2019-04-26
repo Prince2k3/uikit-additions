@@ -15,4 +15,8 @@ extension Router {
         }
         return self
     }
+    
+    public var absoluteURL: URL {
+        return self.baseURL.appendingPathComponent(self.path)
+    }
 }
