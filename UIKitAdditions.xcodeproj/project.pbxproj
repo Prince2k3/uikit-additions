@@ -31,6 +31,7 @@
 		1E0237462221B1610060983A /* SwiftDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0237432221B1600060983A /* SwiftDate+Extension.swift */; };
 		1E02374C2221B6800060983A /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E02374B2221B6800060983A /* ServiceError.swift */; };
 		1E0237602221E1010060983A /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E02375F2221E1000060983A /* QRCode.swift */; };
+		1E034EB422749D7F0066A583 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E034EB322749D7F0066A583 /* TextView.swift */; };
 		1E0D8A45221B12090065B179 /* Button.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1E88AE2D2213660F008EC4C9 /* Button.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E0D8A7D221C7FE10065B179 /* SemiModalAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0D8A76221C7FE00065B179 /* SemiModalAnimator.swift */; };
 		1E0D8A7E221C7FE10065B179 /* ScaleInOutAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0D8A77221C7FE10065B179 /* ScaleInOutAnimator.swift */; };
@@ -117,6 +118,7 @@
 		1E0237492221B6030060983A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		1E02374B2221B6800060983A /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		1E02375F2221E1000060983A /* QRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
+		1E034EB322749D7F0066A583 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		1E0D8A76221C7FE00065B179 /* SemiModalAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemiModalAnimator.swift; sourceTree = "<group>"; };
 		1E0D8A77221C7FE10065B179 /* ScaleInOutAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleInOutAnimator.swift; sourceTree = "<group>"; };
 		1E0D8A78221C7FE10065B179 /* FadeInOutAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeInOutAnimator.swift; sourceTree = "<group>"; };
@@ -201,6 +203,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E034EB222749D220066A583 /* Supported Files */ = {
+			isa = PBXGroup;
+			children = (
+				1E0237472221B18B0060983A /* Cartfile */,
+				1EE63A03220D007F00E93E88 /* UIKitAdditions.h */,
+				1EE63A04220D007F00E93E88 /* Info.plist */,
+			);
+			name = "Supported Files";
+			sourceTree = "<group>";
+		};
 		1E0D8A75221C7E890065B179 /* Animators */ = {
 			isa = PBXGroup;
 			children = (
@@ -388,6 +400,7 @@
 				1E88AE4622136610008EC4C9 /* ListInputView.swift */,
 				1E88AE362213660F008EC4C9 /* MonthYearInputView.swift */,
 				1E88AE3E22136610008EC4C9 /* NibLoadedView.swift */,
+				1E034EB322749D7F0066A583 /* TextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -442,10 +455,8 @@
 		1EE63A02220D007F00E93E88 /* UIKitAdditions */ = {
 			isa = PBXGroup;
 			children = (
-				1E0237472221B18B0060983A /* Cartfile */,
+				1E034EB222749D220066A583 /* Supported Files */,
 				1E88ADA0221364A5008EC4C9 /* Sources */,
-				1EE63A03220D007F00E93E88 /* UIKitAdditions.h */,
-				1EE63A04220D007F00E93E88 /* Info.plist */,
 			);
 			path = UIKitAdditions;
 			sourceTree = "<group>";
@@ -582,6 +593,7 @@
 				1EA8ABC222138FDE007ECF6E /* KeyboardManager.swift in Sources */,
 				1E88AE6A22136611008EC4C9 /* BusyButton.swift in Sources */,
 				1E88AE5222136611008EC4C9 /* ResourceUtils.swift in Sources */,
+				1E034EB422749D7F0066A583 /* TextView.swift in Sources */,
 				1E0D8A88221C92920065B179 /* Animator.swift in Sources */,
 				1E0D8A7D221C7FE10065B179 /* SemiModalAnimator.swift in Sources */,
 				1E0237402221B1160060983A /* Router.swift in Sources */,

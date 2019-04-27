@@ -1,4 +1,4 @@
-github "Alamofire/Alamofire" "5.0.0-beta.4"
+github "Alamofire/Alamofire" "5.0.0-beta.6"
 github "Prince2k3/datasource" "1.0.1"
 github "Prince2k3/swift-additions" "64f0023a33bbdbfd94034c9b407534be33227d98"
 github "malcommac/SwiftDate" "6.0.2"
