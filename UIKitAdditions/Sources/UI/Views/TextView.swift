@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TextView: UITextView {
+open class TextView: UITextView {
     private let placeholderTextView: UITextView = {
         let view = UITextView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -19,23 +19,23 @@ class TextView: UITextView {
         return view
     }()
     
-    var maxHeight: CGFloat = 0.0
-    var placeholder: String? {
+    @IBInspectable public var maxHeight: CGFloat = 0.0
+    @IBInspectable public var placeholder: String? {
         get { return self.placeholderTextView.text }
         set { self.placeholderTextView.text = newValue }
     }
     
-    var placeholderTextColor: UIColor = .gray {
+    @IBInspectable public var placeholderTextColor: UIColor = .gray {
         didSet {
             self.placeholderTextView.textColor = self.placeholderTextColor
         }
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    override init(frame: CGRect, textContainer: NSTextContainer?) {
+    public override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
         NotificationCenter.default.addObserver(self, selector: #selector(textDidChange), name: UITextView.textDidChangeNotification, object: self)
         
@@ -53,27 +53,27 @@ class TextView: UITextView {
         ])
     }
     
-    override var text: String! {
+    open override var text: String! {
         didSet {
             invalidateIntrinsicContentSize()
             self.placeholderTextView.isHidden = !self.text.isEmpty
         }
     }
     
-    override var font: UIFont? {
+    open override var font: UIFont? {
         didSet {
             self.placeholderTextView.font = self.font
             invalidateIntrinsicContentSize()
         }
     }
     
-    override var contentInset: UIEdgeInsets {
+    open override var contentInset: UIEdgeInsets {
         didSet {
             self.placeholderTextView.contentInset = self.contentInset
         }
     }
     
-    override var intrinsicContentSize: CGSize {
+    open override var intrinsicContentSize: CGSize {
         var size = super.intrinsicContentSize
         
         if size.height == UIView.noIntrinsicMetric {
