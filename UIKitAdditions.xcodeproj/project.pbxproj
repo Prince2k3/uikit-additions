@@ -42,6 +42,7 @@
 		1E0D8A88221C92920065B179 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0D8A87221C92920065B179 /* Animator.swift */; };
 		1E0D8A8F221CA1F70065B179 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0D8A8E221CA1F70065B179 /* PlayerView.swift */; };
 		1E0D8A95221F232C0065B179 /* UIImageView+Extension.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1E88AE8622136720008EC4C9 /* UIImageView+Extension.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E8792DD22847D6700DDEDA0 /* TextView.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1E034EB322749D7F0066A583 /* TextView.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E88AE21221365FF008EC4C9 /* Perform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E88AE1E221365FF008EC4C9 /* Perform.swift */; };
 		1E88AE22221365FF008EC4C9 /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E88AE1F221365FF008EC4C9 /* Segue.swift */; };
 		1E88AE23221365FF008EC4C9 /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E88AE20221365FF008EC4C9 /* Identifier.swift */; };
@@ -482,6 +483,7 @@
 				1E0236A0221E1DD40060983A /* PlayerView.swift in Headers */,
 				1E0236A1221E1DD40060983A /* AutoCompleteView.swift in Headers */,
 				1E0236A2221E1DD40060983A /* AccordionView.swift in Headers */,
+				1E8792DD22847D6700DDEDA0 /* TextView.swift in Headers */,
 				1E0236A3221E1DD40060983A /* GradientView.swift in Headers */,
 				1E0236A4221E1DD40060983A /* ListInputView.swift in Headers */,
 				1E0236A5221E1DD40060983A /* MonthYearInputView.swift in Headers */,
