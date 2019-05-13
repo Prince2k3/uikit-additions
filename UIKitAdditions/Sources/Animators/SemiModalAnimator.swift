@@ -59,7 +59,6 @@ public class SemiModalAnimator: NSObject, Animator {
         
         UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2, options: [.curveEaseInOut], animations: {
             toVC.view.transform = .identity
-            fromVC.view.alpha = 0
             fromVC.view.frame = initialFrame
         }) { _ in
             transitionContext.completeTransition(true)
