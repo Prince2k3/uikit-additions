@@ -5,10 +5,12 @@ public class SemiModalAnimator: NSObject, Animator {
     
     public var transform: CGAffineTransform
     public var isPresenting: Bool = true
+    private(set) var height: CGFloat?
     
-    public init(duration: TimeInterval = 0.33, transform: CGAffineTransform = CGAffineTransform(scaleX: 0.94, y: 0.94)) {
+    public init(height: CGFloat? = nil, duration: TimeInterval = 0.33, transform: CGAffineTransform = CGAffineTransform(scaleX: 0.94, y: 0.94)) {
         self.duration = duration
         self.transform = transform
+        self.height = height
     }
     
     public func present(_ transitionContext: UIViewControllerContextTransitioning) {
@@ -67,7 +69,7 @@ public class SemiModalAnimator: NSObject, Animator {
 
 extension SemiModalAnimator {
     public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        return SemiModalPresentationController(presentedViewController: presented, presenting: presenting)
+        return SemiModalPresentationController(height: self.height, presentedViewController: presented, presenting: presenting)
     }
 }
 

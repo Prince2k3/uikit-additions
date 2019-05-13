@@ -9,6 +9,8 @@ public class SemiModalPresentationController: UIPresentationController {
         return view
     }()
     
+    private(set) var height: CGFloat?
+    
     public override func presentationTransitionWillBegin() {
         guard let containerView = self.containerView else { return }
         
@@ -44,8 +46,8 @@ public class SemiModalPresentationController: UIPresentationController {
     }
     
     public override func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
-        var size = container.preferredContentSize
-        size.height = size.height - 20
+        var size = parentSize
+        size.height = self.height ?? (size.height - 20)
         return size
     }
     
@@ -63,5 +65,12 @@ public class SemiModalPresentationController: UIPresentationController {
     
     @objc func handleTap(_ recognizer: UITapGestureRecognizer) {
         self.presentingViewController.dismiss(animated: true)
+    }
+}
+
+extension SemiModalPresentationController {
+    public convenience init(height: CGFloat?, presentedViewController: UIViewController, presenting presentingViewController: UIViewController?) {
+        self.init(presentedViewController: presentedViewController, presenting: presentingViewController)
+        self.height = height
     }
 }
