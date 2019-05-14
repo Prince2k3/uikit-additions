@@ -39,7 +39,7 @@ public class SemiModalAnimator: NSObject, Animator {
         toVC.beginAppearanceTransition(true, animated: true)
         fromVC.beginAppearanceTransition(false, animated: true)
         
-        let animator = UIViewPropertyAnimator(duration: duration, dampingRatio: self.useSpringingAnimation ? 0.8 : 0.0) {
+        let animator = UIViewPropertyAnimator(duration: duration, dampingRatio: self.useSpringingAnimation ? 0.8 : 1.0) {
             fromVC.view.transform = self.transform
             toVC.view.frame = finalFrame
         }
@@ -73,7 +73,7 @@ public class SemiModalAnimator: NSObject, Animator {
         toVC.beginAppearanceTransition(true, animated: true)
         fromVC.beginAppearanceTransition(false, animated: true)
         
-        let animator = UIViewPropertyAnimator(duration: duration, dampingRatio: self.useSpringingAnimation ? 0.8  : 0.0) {
+        let animator = UIViewPropertyAnimator(duration: duration, dampingRatio: self.useSpringingAnimation ? 0.8  : 1.0) {
             toVC.view.transform = .identity
             fromVC.view.frame = initialFrame
         }
