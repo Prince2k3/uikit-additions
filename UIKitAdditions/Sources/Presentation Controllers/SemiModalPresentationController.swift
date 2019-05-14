@@ -35,10 +35,6 @@ public class SemiModalPresentationController: UIPresentationController {
         })
     }
     
-    public override var shouldRemovePresentersView: Bool {
-        return true
-    }
-    
     public override func dismissalTransitionWillBegin() {
         guard let coordinator = presentedViewController.transitionCoordinator else {
             dimmingView.alpha = 0.0
