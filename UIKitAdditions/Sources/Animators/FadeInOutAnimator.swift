@@ -23,13 +23,12 @@ public class FadeInOutAnimator: NSObject, Animator {
         let toVC = transitionContext.viewController(forKey: .to)!
         let duration = transitionDuration(using: transitionContext)
             
-        fromVC.beginAppearanceTransition(false, animated: true)
-        
         toVC.view.alpha = 0
         containerView.addSubview(toVC.view)
         toVC.view.frame = containerView.bounds
 
         toVC.beginAppearanceTransition(true, animated: true)
+        fromVC.beginAppearanceTransition(false, animated: true)
         UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
             if !self.isOverlay {
                 fromVC.view.alpha = 0
@@ -38,6 +37,7 @@ public class FadeInOutAnimator: NSObject, Animator {
             
         }) { _ in
             toVC.endAppearanceTransition()
+            fromVC.endAppearanceTransition()
             transitionContext.completeTransition(true)
             
         }
@@ -54,6 +54,7 @@ public class FadeInOutAnimator: NSObject, Animator {
             containerView.addSubview(toVC.view)
         }
         
+        toVC.beginAppearanceTransition(true, animated: true)
         fromVC.beginAppearanceTransition(false, animated: true)
         UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
             fromVC.view.alpha = 0
@@ -62,6 +63,7 @@ public class FadeInOutAnimator: NSObject, Animator {
             }
             
         }) { _ in
+            toVC.endAppearanceTransition()
             fromVC.endAppearanceTransition()
             transitionContext.completeTransition(true)
         }

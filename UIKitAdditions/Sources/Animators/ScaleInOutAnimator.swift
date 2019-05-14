@@ -26,6 +26,7 @@ public class ScaleInOutAnimator: NSObject, Animator {
         containerView.addSubview(toVC.view)
         
         toVC.beginAppearanceTransition(true, animated: true)
+        fromVC.beginAppearanceTransition(false, animated: true)
         UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
             fromVC.view.transform = CGAffineTransform(scaleX: 2, y: 2)
             fromVC.view.alpha = 0
@@ -40,6 +41,7 @@ public class ScaleInOutAnimator: NSObject, Animator {
             toVC.view.transform = .identity
             
             toVC.endAppearanceTransition()
+            fromVC.endAppearanceTransition()
             transitionContext.completeTransition(true)
         }
     }
@@ -54,6 +56,7 @@ public class ScaleInOutAnimator: NSObject, Animator {
         toVC.view.alpha = 0
         containerView.addSubview(toVC.view)
         
+        toVC.beginAppearanceTransition(true, animated: true)
         fromVC.beginAppearanceTransition(false, animated: true)
         UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
             fromVC.view.transform = CGAffineTransform(scaleX: 0.4, y: 0.4)
@@ -68,6 +71,7 @@ public class ScaleInOutAnimator: NSObject, Animator {
             fromVC.view.transform = .identity
             toVC.view.transform = .identity
             
+            toVC.endAppearanceTransition()
             fromVC.endAppearanceTransition()
             transitionContext.completeTransition(true)
         }
