@@ -17,40 +17,42 @@ public class SlideInFromBottomAnimator: NSObject, Animator {
     
     public func present(_ transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
-        let fromVC = transitionContext.viewController(forKey: .from)
-        let toVC = transitionContext.viewController(forKey: .to)
+        let fromVC = transitionContext.viewController(forKey: .from)!
+        let toVC = transitionContext.viewController(forKey: .to)!
         let duration = transitionDuration(using: transitionContext)
         
         
-        toVC!.view.frame = CGRect(x: 0, y: containerView.frame.height, width: containerView.frame.width, height: containerView.frame.height)
-        containerView.addSubview(toVC!.view)
+        toVC.view.frame = CGRect(x: 0, y: containerView.frame.height, width: containerView.frame.width, height: containerView.frame.height)
+        containerView.addSubview(toVC.view)
         
+        toVC.beginAppearanceTransition(true, animated: true)
         UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
-            fromVC!.view.alpha = 0
-            toVC!.view.frame = CGRect(x: 0, y: 0, width: containerView.frame.width, height: containerView.frame.height)
+            fromVC.view.alpha = 0
+            toVC.view.frame = CGRect(x: 0, y: 0, width: containerView.frame.width, height: containerView.frame.height)
 
         }) { _ in
-            
+            toVC.endAppearanceTransition()
             transitionContext.completeTransition(true)
         }
     }
     
     public func dismiss(_ transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
-        let fromVC = transitionContext.viewController(forKey: .from)
-        let toVC = transitionContext.viewController(forKey: .to)
+        let fromVC = transitionContext.viewController(forKey: .from)!
+        let toVC = transitionContext.viewController(forKey: .to)!
         let duration = transitionDuration(using: transitionContext)
         
 
-        containerView.addSubview(toVC!.view)
-        containerView.addSubview(fromVC!.view)
+        containerView.addSubview(toVC.view)
+        containerView.addSubview(fromVC.view)
 
+        fromVC.beginAppearanceTransition(false, animated: true)
         UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
-            fromVC!.view.frame = CGRect(x: 0, y: containerView.frame.height, width: containerView.frame.width, height: containerView.frame.height)
-            toVC!.view.alpha = 1
+            fromVC.view.frame = CGRect(x: 0, y: containerView.frame.height, width: containerView.frame.width, height: containerView.frame.height)
+            toVC.view.alpha = 1
         }) { _ in
-           
-            transitionContext.completeTransition(true)
+           fromVC.endAppearanceTransition()
+           transitionContext.completeTransition(true)
         }
     }
 }

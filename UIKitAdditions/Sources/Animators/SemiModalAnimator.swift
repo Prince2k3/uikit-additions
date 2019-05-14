@@ -32,10 +32,12 @@ public class SemiModalAnimator: NSObject, Animator {
         containerView.addSubview(toVC.view)
         toVC.view.frame = initialFrame
         
+        toVC.beginAppearanceTransition(true, animated: true)
         UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2, options: [.curveEaseInOut], animations: {
             fromVC.view.transform = self.transform
             toVC.view.frame = finalFrame
         }) { _ in
+            toVC.endAppearanceTransition()
             transitionContext.completeTransition(true)
         }
     }
@@ -57,10 +59,12 @@ public class SemiModalAnimator: NSObject, Animator {
         initialFrame.origin.y = toVC.view.frame.height
         containerView.addSubview(fromVC.view)
         
+        fromVC.beginAppearanceTransition(false, animated: true)
         UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2, options: [.curveEaseInOut], animations: {
             toVC.view.transform = .identity
             fromVC.view.frame = initialFrame
         }) { _ in
+            fromVC.endAppearanceTransition()
             transitionContext.completeTransition(true)
         }
     }

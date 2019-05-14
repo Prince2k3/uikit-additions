@@ -19,24 +19,25 @@ public class FadeInOutAnimator: NSObject, Animator {
 
     public func present(_ transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
-        let fromVC = transitionContext.viewController(forKey: .from)
-        let toVC = transitionContext.viewController(forKey: .to)
+        let fromVC = transitionContext.viewController(forKey: .from)!
+        let toVC = transitionContext.viewController(forKey: .to)!
         let duration = transitionDuration(using: transitionContext)
             
-        fromVC?.beginAppearanceTransition(false, animated: true)
+        fromVC.beginAppearanceTransition(false, animated: true)
         
-        toVC!.view.alpha = 0
-        containerView.addSubview(toVC!.view)
-        toVC!.view.frame = containerView.bounds
+        toVC.view.alpha = 0
+        containerView.addSubview(toVC.view)
+        toVC.view.frame = containerView.bounds
 
+        toVC.beginAppearanceTransition(true, animated: true)
         UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
             if !self.isOverlay {
-                fromVC!.view.alpha = 0
+                fromVC.view.alpha = 0
             }
-            toVC!.view.alpha = 1
+            toVC.view.alpha = 1
             
         }) { _ in
-            fromVC?.endAppearanceTransition()
+            toVC.endAppearanceTransition()
             transitionContext.completeTransition(true)
             
         }
@@ -44,25 +45,24 @@ public class FadeInOutAnimator: NSObject, Animator {
     
     public func dismiss(_ transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
-        let fromVC = transitionContext.viewController(forKey: .from)
-        let toVC = transitionContext.viewController(forKey: .to)
+        let fromVC = transitionContext.viewController(forKey: .from)!
+        let toVC = transitionContext.viewController(forKey: .to)!
         let duration = transitionDuration(using: transitionContext)
-            
-        toVC?.beginAppearanceTransition(true, animated: true)
         
         if !self.isOverlay {
-            toVC!.view.alpha = 0
-            containerView.addSubview(toVC!.view)
+            toVC.view.alpha = 0
+            containerView.addSubview(toVC.view)
         }
         
+        fromVC.beginAppearanceTransition(false, animated: true)
         UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
-            fromVC!.view.alpha = 0
+            fromVC.view.alpha = 0
             if !self.isOverlay {
-                toVC!.view.alpha = 1
+                toVC.view.alpha = 1
             }
             
         }) { _ in
-            toVC?.endAppearanceTransition()
+            fromVC.endAppearanceTransition()
             transitionContext.completeTransition(true)
         }
     }

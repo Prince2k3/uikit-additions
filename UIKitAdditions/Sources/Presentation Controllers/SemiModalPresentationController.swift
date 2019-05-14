@@ -10,6 +10,7 @@ public class SemiModalPresentationController: UIPresentationController {
     }()
     
     private(set) var height: CGFloat?
+    private var allowDimBackgroundTapDismissal: Bool = true
     
     public override func presentationTransitionWillBegin() {
         guard let containerView = self.containerView else { return }
@@ -64,13 +65,15 @@ public class SemiModalPresentationController: UIPresentationController {
     }
     
     @objc func handleTap(_ recognizer: UITapGestureRecognizer) {
+        guard self.allowDimBackgroundTapDismissal else { return }
         self.presentingViewController.dismiss(animated: true)
     }
 }
 
 extension SemiModalPresentationController {
-    public convenience init(height: CGFloat?, presentedViewController: UIViewController, presenting presentingViewController: UIViewController?) {
+    public convenience init(height: CGFloat?, allowDimBackgroundTapDismissal: Bool = true, presentedViewController: UIViewController, presenting presentingViewController: UIViewController?) {
         self.init(presentedViewController: presentedViewController, presenting: presentingViewController)
         self.height = height
+        self.allowDimBackgroundTapDismissal = allowDimBackgroundTapDismissal
     }
 }
