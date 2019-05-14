@@ -28,15 +28,19 @@ public class TransitionRightLeftAnimator: NSObject, Animator {
         
         toVC.beginAppearanceTransition(true, animated: true)
         fromVC.beginAppearanceTransition(false, animated: true)
-        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
+        
+        let animator = UIViewPropertyAnimator(duration: duration, curve: .easeInOut) {
             toVC.view.frame = CGRect(x: 0, y: 0, width: containerView.frame.width, height: containerView.frame.height)
             fromVC.view.frame = CGRect(x: -containerView.frame.width, y: 0, width: containerView.frame.width, height: containerView.frame.height)
-        }) { _ in
-            
+        }
+        
+        animator.addCompletion { _ in
             toVC.endAppearanceTransition()
             fromVC.endAppearanceTransition()
             transitionContext.completeTransition(true)
         }
+        
+        animator.startAnimation()
     }
     
     public func dismiss(_ transitionContext: UIViewControllerContextTransitioning) {
@@ -53,10 +57,13 @@ public class TransitionRightLeftAnimator: NSObject, Animator {
         
         toVC.beginAppearanceTransition(true, animated: true)
         fromVC.beginAppearanceTransition(false, animated: true)
-        UIView.animate(withDuration: duration, delay: 0, options: [.curveEaseInOut], animations: {
+        
+        let animator = UIViewPropertyAnimator(duration: duration, curve: .easeInOut) {
             toVC.view.frame = CGRect(x: 0, y: 0, width: containerView.frame.width, height: containerView.frame.height)
             fromVC.view.frame = CGRect(x: containerView.frame.width, y: 0, width: containerView.frame.width, height: containerView.frame.height)
-        }) { _ in
+        }
+        
+        animator.addCompletion { _ in
             toVC.endAppearanceTransition()
             fromVC.endAppearanceTransition()
             transitionContext.completeTransition(true)

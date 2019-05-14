@@ -27,13 +27,16 @@ public class ScaleInOutAnimator: NSObject, Animator {
         
         toVC.beginAppearanceTransition(true, animated: true)
         fromVC.beginAppearanceTransition(false, animated: true)
-        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
+        
+        let animator = UIViewPropertyAnimator(duration: duration, curve: .easeInOut) {
             fromVC.view.transform = CGAffineTransform(scaleX: 2, y: 2)
             fromVC.view.alpha = 0
-
+            
             toVC.view.transform = CGAffineTransform(scaleX: 1, y: 1)
             toVC.view.alpha = 1
-        }) { _ in
+        }
+        
+        animator.addCompletion { _ in
             fromVC.view.alpha = 1
             toVC.view.alpha = 1
             
@@ -44,6 +47,8 @@ public class ScaleInOutAnimator: NSObject, Animator {
             fromVC.endAppearanceTransition()
             transitionContext.completeTransition(true)
         }
+        
+        animator.startAnimation()
     }
     
     public func dismiss(_ transitionContext: UIViewControllerContextTransitioning) {
@@ -58,16 +63,19 @@ public class ScaleInOutAnimator: NSObject, Animator {
         
         toVC.beginAppearanceTransition(true, animated: true)
         fromVC.beginAppearanceTransition(false, animated: true)
-        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
+        
+        let animator = UIViewPropertyAnimator(duration: duration, curve: .easeInOut) {
             fromVC.view.transform = CGAffineTransform(scaleX: 0.4, y: 0.4)
             fromVC.view.alpha = 0
             
             toVC.view.transform = CGAffineTransform(scaleX: 1, y: 1)
             toVC.view.alpha = 1
-        }) { _ in
+        }
+        
+        animator.addCompletion { _ in
             fromVC.view.alpha = 1
             toVC.view.alpha = 1
-
+            
             fromVC.view.transform = .identity
             toVC.view.transform = .identity
             
@@ -75,6 +83,8 @@ public class ScaleInOutAnimator: NSObject, Animator {
             fromVC.endAppearanceTransition()
             transitionContext.completeTransition(true)
         }
+        
+        animator.startAnimation()
     }
 }
 

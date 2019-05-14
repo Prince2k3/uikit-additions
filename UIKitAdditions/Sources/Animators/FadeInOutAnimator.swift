@@ -29,18 +29,21 @@ public class FadeInOutAnimator: NSObject, Animator {
 
         toVC.beginAppearanceTransition(true, animated: true)
         fromVC.beginAppearanceTransition(false, animated: true)
-        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
+        
+        let animator = UIViewPropertyAnimator(duration: duration, curve: .easeInOut) {
             if !self.isOverlay {
                 fromVC.view.alpha = 0
             }
             toVC.view.alpha = 1
-            
-        }) { _ in
+        }
+        
+        animator.addCompletion { _ in
             toVC.endAppearanceTransition()
             fromVC.endAppearanceTransition()
             transitionContext.completeTransition(true)
-            
         }
+        
+        animator.startAnimation()
     }
     
     public func dismiss(_ transitionContext: UIViewControllerContextTransitioning) {
@@ -56,17 +59,21 @@ public class FadeInOutAnimator: NSObject, Animator {
         
         toVC.beginAppearanceTransition(true, animated: true)
         fromVC.beginAppearanceTransition(false, animated: true)
-        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
+        
+        let animator = UIViewPropertyAnimator(duration: duration, curve: .easeInOut) {
             fromVC.view.alpha = 0
             if !self.isOverlay {
                 toVC.view.alpha = 1
             }
-            
-        }) { _ in
+        }
+        
+        animator.addCompletion { _ in
             toVC.endAppearanceTransition()
             fromVC.endAppearanceTransition()
             transitionContext.completeTransition(true)
         }
+        
+        animator.startAnimation()
     }
 }
 

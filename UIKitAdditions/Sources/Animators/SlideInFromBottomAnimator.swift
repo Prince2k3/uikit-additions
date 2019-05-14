@@ -48,14 +48,19 @@ public class SlideInFromBottomAnimator: NSObject, Animator {
 
         toVC.beginAppearanceTransition(true, animated: true)
         fromVC.beginAppearanceTransition(false, animated: true)
-        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
+        
+        let animator = UIViewPropertyAnimator(duration: duration, curve: .easeInOut) {
             fromVC.view.frame = CGRect(x: 0, y: containerView.frame.height, width: containerView.frame.width, height: containerView.frame.height)
             toVC.view.alpha = 1
-        }) { _ in
-            toVC.endAppearanceTransition()
-           fromVC.endAppearanceTransition()
-           transitionContext.completeTransition(true)
         }
+        
+        animator.addCompletion { _ in
+            toVC.endAppearanceTransition()
+            fromVC.endAppearanceTransition()
+            transitionContext.completeTransition(true)
+        }
+        
+        animator.startAnimation()
     }
 }
 

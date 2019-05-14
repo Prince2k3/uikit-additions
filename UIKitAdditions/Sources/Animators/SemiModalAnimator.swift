@@ -6,11 +6,15 @@ public class SemiModalAnimator: NSObject, Animator {
     public var transform: CGAffineTransform
     public var isPresenting: Bool = true
     private(set) var height: CGFloat?
+    private(set) var allowDimBackgroundTapDismissal: Bool
+    private(set) var useSpringingAnimation: Bool
     
-    public init(height: CGFloat? = nil, duration: TimeInterval = 0.33, transform: CGAffineTransform = CGAffineTransform(scaleX: 0.94, y: 0.94)) {
+    public init(height: CGFloat? = nil, allowDimBackgroundTapDismissal: Bool = true, useSpringingAnimation: Bool = true, duration: TimeInterval = 0.4, transform: CGAffineTransform = CGAffineTransform(scaleX: 0.94, y: 0.94)) {
         self.duration = duration
         self.transform = transform
         self.height = height
+        self.useSpringingAnimation = useSpringingAnimation
+        self.allowDimBackgroundTapDismissal = allowDimBackgroundTapDismissal
     }
     
     public func present(_ transitionContext: UIViewControllerContextTransitioning) {
@@ -34,14 +38,19 @@ public class SemiModalAnimator: NSObject, Animator {
         
         toVC.beginAppearanceTransition(true, animated: true)
         fromVC.beginAppearanceTransition(false, animated: true)
-        UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2, options: [.curveEaseInOut], animations: {
+        
+        let animator = UIViewPropertyAnimator(duration: duration, dampingRatio: self.useSpringingAnimation ? 0.8 : 0.0) {
             fromVC.view.transform = self.transform
             toVC.view.frame = finalFrame
-        }) { _ in
+        }
+        
+        animator.addCompletion { _ in
             toVC.endAppearanceTransition()
             fromVC.endAppearanceTransition()
             transitionContext.completeTransition(true)
         }
+        
+        animator.startAnimation()
     }
     
     public func dismiss(_ transitionContext: UIViewControllerContextTransitioning) {
@@ -63,20 +72,25 @@ public class SemiModalAnimator: NSObject, Animator {
         
         toVC.beginAppearanceTransition(true, animated: true)
         fromVC.beginAppearanceTransition(false, animated: true)
-        UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2, options: [.curveEaseInOut], animations: {
+        
+        let animator = UIViewPropertyAnimator(duration: duration, dampingRatio: self.useSpringingAnimation ? 0.8  : 0.0) {
             toVC.view.transform = .identity
             fromVC.view.frame = initialFrame
-        }) { _ in
+        }
+        
+        animator.addCompletion { _ in
             toVC.endAppearanceTransition()
             fromVC.endAppearanceTransition()
             transitionContext.completeTransition(true)
         }
+        
+        animator.startAnimation()
     }
 }
 
 extension SemiModalAnimator {
     public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        return SemiModalPresentationController(height: self.height, presentedViewController: presented, presenting: presenting)
+        return SemiModalPresentationController(height: self.height, allowDimBackgroundTapDismissal: self.allowDimBackgroundTapDismissal, presentedViewController: presented, presenting: presenting)
     }
 }
 
