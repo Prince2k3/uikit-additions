@@ -62,7 +62,7 @@ public class GradientView: UIView {
     }
 
     private func updateView() {
-        self.gradientLayer.colors = self.colors
+        self.gradientLayer.colors = !self.colors.isEmpty ? self.colors : [self.startColor, self.endColor] 
         self.gradientLayer.locations = self.locations
         self.gradientLayer.startPoint = self.startPoint.rawValue
         self.gradientLayer.endPoint = self.endPoint.rawValue
