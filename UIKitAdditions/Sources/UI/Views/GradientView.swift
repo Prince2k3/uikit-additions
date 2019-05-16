@@ -62,7 +62,7 @@ public class GradientView: UIView {
     }
 
     private func updateView() {
-        self.gradientLayer.colors = self.colors
+        self.gradientLayer.colors = self.colors.map { $0.cgColor }
         self.gradientLayer.locations = self.locations
         self.gradientLayer.startPoint = self.startPoint.rawValue
         self.gradientLayer.endPoint = self.endPoint.rawValue
@@ -86,13 +86,13 @@ extension GradientView {
 extension GradientView.Point: RawRepresentable {
     public init?(rawValue: CGPoint) {
         switch rawValue {
-        case CGPoint(x: 0.0, y: 0):
+        case CGPoint(x: 0.0, y: 0.0):
             self = .topLeft
         case CGPoint(x: 0.0, y: 0.5):
             self = .centerLeft
         case CGPoint(x: 0.0, y: 1.0):
             self = .bottomLeft
-        case CGPoint(x: 0.5, y: 0):
+        case CGPoint(x: 0.5, y: 0.0):
             self = .topCenter
         case CGPoint(x: 0.5, y: 0.5):
             self = .center
@@ -112,13 +112,13 @@ extension GradientView.Point: RawRepresentable {
     public var rawValue: CGPoint {
         switch self {
         case .topLeft:
-            return CGPoint(x: 0.0, y: 0)
+            return CGPoint(x: 0.0, y: 0.0)
         case .centerLeft:
             return CGPoint(x: 0.0, y: 0.5)
         case .bottomLeft:
             return CGPoint(x: 0.0, y: 1.0)
         case .topCenter:
-            return CGPoint(x: 0.5, y: 0)
+            return CGPoint(x: 0.5, y: 0.0)
         case .center:
             return CGPoint(x: 0.5, y: 0.5)
         case .bottomCenter:
