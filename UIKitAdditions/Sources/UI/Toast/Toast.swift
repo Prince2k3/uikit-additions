@@ -1,18 +1,18 @@
 import UIKit
 
-public class Toast {
+open class Toast {
     public enum Position {
         case top, bottom
     }
 
-    public static let `default`: Toast = Toast()
-    public static let error: Toast  = {
+    open static let `default`: Toast = Toast()
+    open static let error: Toast  = {
         let toast = Toast.default
         toast.backgroundColor = .red
         return toast
     }()
     
-    public static let info: Toast = {
+    open static let info: Toast = {
        let toast = Toast.default
         toast.backgroundColor = .blue
         return toast
@@ -39,7 +39,7 @@ public class Toast {
 
     private init() {}
 
-    public func show(message: String) {
+    open func show(message: String) {
 
         DispatchQueue.main.async {
             if self.isVisible {
