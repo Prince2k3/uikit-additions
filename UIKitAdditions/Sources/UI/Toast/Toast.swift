@@ -5,14 +5,14 @@ open class Toast {
         case top, bottom
     }
 
-    open static let `default`: Toast = Toast()
-    open static let error: Toast  = {
+    public static let `default`: Toast = Toast()
+    public static let error: Toast  = {
         let toast = Toast.default
         toast.backgroundColor = .red
         return toast
     }()
     
-    open static let info: Toast = {
+    public static let info: Toast = {
        let toast = Toast.default
         toast.backgroundColor = .blue
         return toast
