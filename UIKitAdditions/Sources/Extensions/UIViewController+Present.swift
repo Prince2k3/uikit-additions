@@ -5,13 +5,13 @@ import MessageUI
 extension UIViewController {
     public typealias ImagePickerControllerDelegate = UIImagePickerControllerDelegate & UINavigationControllerDelegate
 
-    public func showWebViewController(url: URL, completion: (() -> Void)? = nil) {
+    public func showWebViewController(url: URL, barTintColor: UIColor = .black, controlTintColor: UIColor = .white, modalPresentationStyle: UIModalPresentationStyle = .formSheet, completion: (() -> Void)? = nil) {
         let safariViewController = SFSafariViewController(url: url)
         let navigationController = UINavigationController(rootViewController: safariViewController)
         navigationController.setNavigationBarHidden(true, animated: false)
-        safariViewController.modalPresentationStyle = .formSheet
-        safariViewController.preferredBarTintColor = .black
-        safariViewController.preferredControlTintColor = .white
+        safariViewController.modalPresentationStyle = modalPresentationStyle
+        safariViewController.preferredBarTintColor = barTintColor
+        safariViewController.preferredControlTintColor = controlTintColor
         present(navigationController, animated: true, completion: completion)
     }
 
