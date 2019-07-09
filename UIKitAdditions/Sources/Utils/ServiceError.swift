@@ -13,9 +13,9 @@ extension Int {
 }
 
 public struct ServiceError: LocalizedError {
-    private(set) var message: String
-    private(set) var statusCode: Int
-    private(set) var error: LocalizedError?
+    public private(set) var message: String
+    public private(set) var statusCode: Int
+    public private(set) var error: LocalizedError?
     private let errorKeys: [String] = [
         "error_description",
         "errorDescription",
