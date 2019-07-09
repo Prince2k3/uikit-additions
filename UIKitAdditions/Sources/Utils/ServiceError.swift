@@ -9,10 +9,10 @@
 import Foundation
 
 extension Int {
-    static let unknownStatusCode = -999
+    public static let unknownStatusCode = -999
 }
 
-struct ServiceError: LocalizedError {
+public struct ServiceError: LocalizedError {
     private(set) var message: String
     private(set) var statusCode: Int
     private(set) var error: LocalizedError?
@@ -28,7 +28,7 @@ struct ServiceError: LocalizedError {
         "reason"
     ]
     
-    var errorDescription: String? {
+    public var errorDescription: String? {
         return self.message
     }
     
@@ -37,7 +37,7 @@ struct ServiceError: LocalizedError {
                body["error"] as? String // last resort use error as key
     }
     
-    init(error: LocalizedError?, response: HTTPURLResponse?, body: [String: Any]? = nil) {
+    public init(error: LocalizedError?, response: HTTPURLResponse?, body: [String: Any]? = nil) {
         self.error = error
         self.statusCode = response?.statusCode ?? .unknownStatusCode
         self.message = "A problem has occurred"
@@ -46,14 +46,14 @@ struct ServiceError: LocalizedError {
         }
     }
     
-    init(statusCode: Int = .unknownStatusCode, message: String) {
+    public init(statusCode: Int = .unknownStatusCode, message: String) {
         self.statusCode = statusCode
         self.message = message
     }
 }
 
 extension ServiceError: Equatable {
-    static func == (lhs: ServiceError, rhs: ServiceError) -> Bool {
+    public static func == (lhs: ServiceError, rhs: ServiceError) -> Bool {
         if lhs.statusCode == .unknownStatusCode || rhs.statusCode == .unknownStatusCode {
             return lhs.message.lowercased() == rhs.message.lowercased()
         }
