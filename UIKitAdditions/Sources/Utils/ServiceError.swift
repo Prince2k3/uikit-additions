@@ -40,7 +40,9 @@ public struct ServiceError: LocalizedError {
         self.error = error
         self.statusCode = response?.statusCode ?? .unknownStatusCode
         self.message = "A problem has occurred"
-        if let body = body, !body.isEmpty {
+        if let body = body, !body.isEmpty,
+           self.statusCode != .unknownStatusCode,
+           self.statusCode > 299 {
             self.message = findErrorMessage(body) ?? "A problem has occurred"
         }
     }
