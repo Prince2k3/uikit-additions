@@ -19,7 +19,6 @@ public struct ServiceError: LocalizedError {
     private let errorKeys: [String] = [
         "error_description",
         "errorDescription",
-        "description",
         "error_message",
         "errorMessage",
         "message",
