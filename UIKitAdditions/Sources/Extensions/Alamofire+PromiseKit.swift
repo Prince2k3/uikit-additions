@@ -38,9 +38,9 @@ extension DataRequest {
         }
     }
 
-    public func responseJSON() -> Promise<Any> {
+    public func responseJSON(queue: DispatchQueue = .main, options: JSONSerialization.ReadingOptions = []) -> Promise<Any> {
         return Promise { seal in
-            responseJSON { response in
+            responseJSON(queue: queue, options: options) { response in
                 switch response.result {
                 case let .success(object):
                     seal.fulfill(object)
