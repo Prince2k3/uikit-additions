@@ -1,6 +1,7 @@
 import Alamofire
 
 public protocol Router {
+    var client: Session { get }
     var path: String { get set }
     var baseURL: URL { get }
     var httpMethod: HTTPMethod { get }

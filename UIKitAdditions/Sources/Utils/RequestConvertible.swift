@@ -44,6 +44,10 @@ public protocol RequestPerformable {
 }
 
 extension RequestPerformable where Self: RequestConvertible {
+    var client: Session {
+        return self.route.client
+    }
+    
     public func perform<T: Decodable>() -> Promise<T> {
         return self.client.request(self).validate().responseDecodable()
     }
