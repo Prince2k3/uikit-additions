@@ -43,11 +43,19 @@ public protocol RequestPerformable {
     var client: Session { get }
 }
 
-extension RequestPerformable where Self: RequestConvertible {
+extension RequestConvertible where Self: RequestPerformable, Params == Encodable {
     var client: Session {
         return self.route.client
     }
-    
+}
+
+extension RequestConvertible where Self: RequestPerformable, Params == Parameters {
+    var client: Session {
+        return self.route.client
+    }
+}
+
+extension RequestPerformable where Self: RequestConvertible {
     public func perform<T: Decodable>() -> Promise<T> {
         return self.client.request(self).validate().responseDecodable()
     }
