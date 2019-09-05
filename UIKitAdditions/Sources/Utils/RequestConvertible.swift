@@ -43,13 +43,7 @@ public protocol RequestPerformable {
     var client: Session { get }
 }
 
-extension RequestConvertible where Self: RequestPerformable, Params == Encodable {
-    var client: Session {
-        return self.route.client
-    }
-}
-
-extension RequestConvertible where Self: RequestPerformable, Params == Parameters {
+extension RequestConvertible where Self: RequestPerformable {
     var client: Session {
         return self.route.client
     }
