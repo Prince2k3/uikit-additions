@@ -218,7 +218,7 @@ public class TextField: UITextField {
 
         self.floatingLabel.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         self.floatingLabel.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        self.floatingLabelTopConstraint = self.floatingLabel.topAnchor.constraint(equalTo: self.bottomAnchor)
+        self.floatingLabelTopConstraint = self.floatingLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         self.floatingLabelTopConstraint.isActive = true
 
         addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
@@ -237,7 +237,7 @@ public class TextField: UITextField {
         }
 
         self.floatingLabel?.textColor = self.isFirstResponder ? self.activeFloatingLabelColor : self.inactiveFloatingLabelColor
-        self.floatingLabelTopConstraint?.constant = bounds.height - 8
+        self.floatingLabelTopConstraint?.constant = (bounds.height / 2)
 
         UIView.animate(withDuration: animated ? 0.3 : 0, delay: 0, options: .curveEaseInOut, animations: {
             self.floatingLabel?.alpha = 1
