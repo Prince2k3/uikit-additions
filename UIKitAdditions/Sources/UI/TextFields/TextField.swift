@@ -205,7 +205,7 @@ public class TextField: UITextField {
         self.floatingLabel.textAlignment = self.textAlignment
         self.floatingLabel.textColor = self.activeFloatingLabelColor
         if let font = self.font {
-            self.floatingLabel.font = UIFont(name: font.fontName, size: (max(12, font.pointSize * 0.65)))
+            self.floatingLabel.font = UIFont(name: font.familyName, size: (max(12, font.pointSize * 0.65)))
         }
         self.floatingLabel.text = self.placeholder
         self.floatingLabel.alpha = 0
