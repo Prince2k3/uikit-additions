@@ -237,7 +237,7 @@ public class TextField: UITextField {
         }
 
         self.floatingLabel?.textColor = self.isFirstResponder ? self.activeFloatingLabelColor : self.inactiveFloatingLabelColor
-        self.floatingLabelTopConstraint?.constant = (bounds.height / 2)
+        self.floatingLabelTopConstraint?.constant = -(bounds.height / 2)
 
         UIView.animate(withDuration: animated ? 0.3 : 0, delay: 0, options: .curveEaseInOut, animations: {
             self.floatingLabel?.alpha = 1
