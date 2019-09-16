@@ -182,7 +182,7 @@ public class AccordionView: UIView {
 
         self.tableView.beginUpdates()
 
-        if var expandedIndexPath = self.expandedIndexPath,
+        if let expandedIndexPath = self.expandedIndexPath,
            expandedIndexPath.section == indexPath.section && indexPath.row > expandedIndexPath.row {
             self.expandedIndexPath = IndexPath(row: (indexPath.row - expandedIndexPath.row), section: expandedIndexPath.section)
         } else {

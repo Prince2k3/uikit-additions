@@ -17,7 +17,7 @@ public class AutoCompleteView: UIView {
 
     private var dataSource: DataSource = DataSource(cellIdentifier: "")
     private var keyboardManager: KeyboardManager? = KeyboardManager()
-    private var textField: UITextField?
+    private weak var textField: UITextField?
     private var presentingView: UIView?
     
     public var completionSelected: CompletionHandler?
@@ -27,6 +27,11 @@ public class AutoCompleteView: UIView {
             self.dataSource.items = self.completions
             self.tableView.reloadData()
         }
+    }
+    
+    public var textFieldText: String? {
+        get { return textField?.text }
+        set { textField?.text = newValue }
     }
 
     deinit {
