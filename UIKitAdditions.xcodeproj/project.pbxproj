@@ -9,11 +9,11 @@
 /* Begin PBXAggregateTarget section */
 		"UIKitAdditions::UIKitAdditionsPackageTests::ProductTarget" /* UIKitAdditionsPackageTests */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = OBJ_174 /* Build configuration list for PBXAggregateTarget "UIKitAdditionsPackageTests" */;
+			buildConfigurationList = OBJ_178 /* Build configuration list for PBXAggregateTarget "UIKitAdditionsPackageTests" */;
 			buildPhases = (
 			);
 			dependencies = (
-				OBJ_177 /* PBXTargetDependency */,
+				OBJ_181 /* PBXTargetDependency */,
 			);
 			name = UIKitAdditionsPackageTests;
 			productName = UIKitAdditionsPackageTests;
@@ -21,91 +21,91 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		1EF1B9F323371F0400417D87 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1EF1B9F223371F0400417D87 /* PromiseKit */; };
-		1EF1B9F62337201A00417D87 /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1EF1B9F52337201A00417D87 /* PhoneNumberKit */; };
-		1EF1B9F92337205200417D87 /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 1EF1B9F82337205200417D87 /* SwiftDate */; };
-		1EF1B9FC233720A700417D87 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1EF1B9FB233720A700417D87 /* Alamofire */; };
-		1EF1B9FF233720E600417D87 /* SwiftAdditions in Frameworks */ = {isa = PBXBuildFile; productRef = 1EF1B9FE233720E600417D87 /* SwiftAdditions */; };
-		1EF1BA092337235400417D87 /* DataSource in Frameworks */ = {isa = PBXBuildFile; productRef = 1EF1BA082337235400417D87 /* DataSource */; };
-		OBJ_102 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Animator.swift */; };
-		OBJ_103 /* FadeInOutAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* FadeInOutAnimator.swift */; };
-		OBJ_104 /* ScaleInOutAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* ScaleInOutAnimator.swift */; };
-		OBJ_105 /* SemiModalAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* SemiModalAnimator.swift */; };
-		OBJ_106 /* SlideInFromBottomAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* SlideInFromBottomAnimator.swift */; };
-		OBJ_107 /* TransitionRightLeftAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* TransitionRightLeftAnimator.swift */; };
-		OBJ_108 /* Alamofire+PromiseKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* Alamofire+PromiseKit.swift */; };
-		OBJ_109 /* Keychain+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Keychain+Keys.swift */; };
-		OBJ_110 /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* NSAttributedString+Extension.swift */; };
-		OBJ_111 /* SwiftDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* SwiftDate+Extension.swift */; };
-		OBJ_112 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* UIButton+Extension.swift */; };
-		OBJ_113 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* UICollectionView+Extension.swift */; };
-		OBJ_114 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* UIColor+Extension.swift */; };
-		OBJ_115 /* UIEdgeInsets+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* UIEdgeInsets+Extension.swift */; };
-		OBJ_116 /* UIFont+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* UIFont+Custom.swift */; };
-		OBJ_117 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* UIImage+Extension.swift */; };
-		OBJ_118 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* UIImageView+Extension.swift */; };
-		OBJ_119 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* UINavigationController+Extension.swift */; };
-		OBJ_120 /* UIScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* UIScrollView+Extension.swift */; };
-		OBJ_121 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* UIStoryboard+Extension.swift */; };
-		OBJ_122 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* UITableView+Extension.swift */; };
-		OBJ_123 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* UITextField+Extension.swift */; };
-		OBJ_124 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* UIView+AutoLayout.swift */; };
-		OBJ_125 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* UIView+Extension.swift */; };
-		OBJ_126 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* UIViewController+Alert.swift */; };
-		OBJ_127 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* UIViewController+Extension.swift */; };
-		OBJ_128 /* UIViewController+Present.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_37 /* UIViewController+Present.swift */; };
-		OBJ_129 /* UIViewController+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_38 /* UIViewController+Promise.swift */; };
-		OBJ_130 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* AppInfo.swift */; };
-		OBJ_131 /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* KeyboardManager.swift */; };
-		OBJ_132 /* SemiModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* SemiModalPresentationController.swift */; };
-		OBJ_133 /* BusyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* BusyButton.swift */; };
-		OBJ_134 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* Button.swift */; };
-		OBJ_135 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* FormViewController.swift */; };
-		OBJ_136 /* InputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_51 /* InputAccessoryView.swift */; };
-		OBJ_137 /* CountingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_53 /* CountingLabel.swift */; };
-		OBJ_138 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_55 /* SearchController.swift */; };
-		OBJ_139 /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_56 /* SearchResultsController.swift */; };
-		OBJ_140 /* CreditCardFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* CreditCardFormatter.swift */; };
-		OBJ_141 /* CreditCardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_59 /* CreditCardTextField.swift */; };
-		OBJ_142 /* PhoneNumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_60 /* PhoneNumberTextField.swift */; };
-		OBJ_143 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_61 /* TextField.swift */; };
-		OBJ_144 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_63 /* Toast.swift */; };
-		OBJ_145 /* AccordionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_65 /* AccordionView.swift */; };
-		OBJ_146 /* AutoCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_66 /* AutoCompleteView.swift */; };
-		OBJ_147 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_67 /* GradientView.swift */; };
-		OBJ_148 /* ListInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* ListInputView.swift */; };
-		OBJ_149 /* MonthYearInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* MonthYearInputView.swift */; };
-		OBJ_150 /* NibLoadedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* NibLoadedView.swift */; };
-		OBJ_151 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_71 /* PlayerView.swift */; };
-		OBJ_152 /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_72 /* QRCode.swift */; };
-		OBJ_153 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_73 /* TextView.swift */; };
-		OBJ_154 /* DateFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_75 /* DateFormats.swift */; };
-		OBJ_155 /* Disk+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_77 /* Disk+Image.swift */; };
-		OBJ_156 /* Disk.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_78 /* Disk.swift */; };
-		OBJ_157 /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_79 /* Identifier.swift */; };
-		OBJ_158 /* LocationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_80 /* LocationHeader.swift */; };
-		OBJ_159 /* OrderedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_81 /* OrderedDictionary.swift */; };
-		OBJ_160 /* Perform.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_82 /* Perform.swift */; };
-		OBJ_161 /* RequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_83 /* RequestConvertible.swift */; };
-		OBJ_162 /* ResourceUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_84 /* ResourceUtils.swift */; };
-		OBJ_163 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_85 /* Router.swift */; };
-		OBJ_164 /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_86 /* Segue.swift */; };
-		OBJ_165 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_87 /* ServiceError.swift */; };
-		OBJ_172 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
-		OBJ_183 /* UIKitAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_90 /* UIKitAdditionsTests.swift */; };
-		OBJ_184 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_91 /* XCTestManifests.swift */; };
-		OBJ_186 /* UIKitAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "UIKitAdditions::UIKitAdditions::Product" /* UIKitAdditions.framework */; };
+		1EF1BA222337CA6500417D87 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1EF1BA212337CA6500417D87 /* PromiseKit */; };
+		1EF1BA252337CA7400417D87 /* DataSource in Frameworks */ = {isa = PBXBuildFile; productRef = 1EF1BA242337CA7400417D87 /* DataSource */; };
+		1EF1BA282337CA8C00417D87 /* SwiftAdditions in Frameworks */ = {isa = PBXBuildFile; productRef = 1EF1BA272337CA8C00417D87 /* SwiftAdditions */; };
+		1EF1BA2B2337CAA700417D87 /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1EF1BA2A2337CAA700417D87 /* PhoneNumberKit */; };
+		1EF1BA2E2337CABD00417D87 /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 1EF1BA2D2337CABD00417D87 /* SwiftDate */; };
+		1EF1BA312337CB1300417D87 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1EF1BA302337CB1300417D87 /* Alamofire */; };
+		OBJ_106 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Animator.swift */; };
+		OBJ_107 /* FadeInOutAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* FadeInOutAnimator.swift */; };
+		OBJ_108 /* ScaleInOutAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* ScaleInOutAnimator.swift */; };
+		OBJ_109 /* SemiModalAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* SemiModalAnimator.swift */; };
+		OBJ_110 /* SlideInFromBottomAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* SlideInFromBottomAnimator.swift */; };
+		OBJ_111 /* TransitionRightLeftAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* TransitionRightLeftAnimator.swift */; };
+		OBJ_112 /* Alamofire+PromiseKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* Alamofire+PromiseKit.swift */; };
+		OBJ_113 /* Keychain+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Keychain+Keys.swift */; };
+		OBJ_114 /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* NSAttributedString+Extension.swift */; };
+		OBJ_115 /* SwiftDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* SwiftDate+Extension.swift */; };
+		OBJ_116 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* UIButton+Extension.swift */; };
+		OBJ_117 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* UICollectionView+Extension.swift */; };
+		OBJ_118 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* UIColor+Extension.swift */; };
+		OBJ_119 /* UIEdgeInsets+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* UIEdgeInsets+Extension.swift */; };
+		OBJ_120 /* UIFont+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* UIFont+Custom.swift */; };
+		OBJ_121 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* UIImage+Extension.swift */; };
+		OBJ_122 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* UIImageView+Extension.swift */; };
+		OBJ_123 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* UINavigationController+Extension.swift */; };
+		OBJ_124 /* UIScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* UIScrollView+Extension.swift */; };
+		OBJ_125 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* UIStoryboard+Extension.swift */; };
+		OBJ_126 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* UITableView+Extension.swift */; };
+		OBJ_127 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* UITextField+Extension.swift */; };
+		OBJ_128 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* UIView+AutoLayout.swift */; };
+		OBJ_129 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* UIView+Extension.swift */; };
+		OBJ_130 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_35 /* UIViewController+Alert.swift */; };
+		OBJ_131 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* UIViewController+Extension.swift */; };
+		OBJ_132 /* UIViewController+Present.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_37 /* UIViewController+Present.swift */; };
+		OBJ_133 /* UIViewController+Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_38 /* UIViewController+Promise.swift */; };
+		OBJ_134 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* AppInfo.swift */; };
+		OBJ_135 /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* KeyboardManager.swift */; };
+		OBJ_136 /* SemiModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* SemiModalPresentationController.swift */; };
+		OBJ_137 /* BusyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_46 /* BusyButton.swift */; };
+		OBJ_138 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* Button.swift */; };
+		OBJ_139 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* FormViewController.swift */; };
+		OBJ_140 /* InputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_51 /* InputAccessoryView.swift */; };
+		OBJ_141 /* CountingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_53 /* CountingLabel.swift */; };
+		OBJ_142 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_55 /* SearchController.swift */; };
+		OBJ_143 /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_56 /* SearchResultsController.swift */; };
+		OBJ_144 /* CreditCardFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* CreditCardFormatter.swift */; };
+		OBJ_145 /* CreditCardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_59 /* CreditCardTextField.swift */; };
+		OBJ_146 /* PhoneNumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_60 /* PhoneNumberTextField.swift */; };
+		OBJ_147 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_61 /* TextField.swift */; };
+		OBJ_148 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_63 /* Toast.swift */; };
+		OBJ_149 /* AccordionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_65 /* AccordionView.swift */; };
+		OBJ_150 /* AutoCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_66 /* AutoCompleteView.swift */; };
+		OBJ_151 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_67 /* GradientView.swift */; };
+		OBJ_152 /* ListInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* ListInputView.swift */; };
+		OBJ_153 /* MonthYearInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* MonthYearInputView.swift */; };
+		OBJ_154 /* NibLoadedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* NibLoadedView.swift */; };
+		OBJ_155 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_71 /* PlayerView.swift */; };
+		OBJ_156 /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_72 /* QRCode.swift */; };
+		OBJ_157 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_73 /* TextView.swift */; };
+		OBJ_158 /* DateFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_75 /* DateFormats.swift */; };
+		OBJ_159 /* Disk+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_77 /* Disk+Image.swift */; };
+		OBJ_160 /* Disk.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_78 /* Disk.swift */; };
+		OBJ_161 /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_79 /* Identifier.swift */; };
+		OBJ_162 /* LocationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_80 /* LocationHeader.swift */; };
+		OBJ_163 /* OrderedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_81 /* OrderedDictionary.swift */; };
+		OBJ_164 /* Perform.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_82 /* Perform.swift */; };
+		OBJ_165 /* RequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_83 /* RequestConvertible.swift */; };
+		OBJ_166 /* ResourceUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_84 /* ResourceUtils.swift */; };
+		OBJ_167 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_85 /* Router.swift */; };
+		OBJ_168 /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_86 /* Segue.swift */; };
+		OBJ_169 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_87 /* ServiceError.swift */; };
+		OBJ_176 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_187 /* UIKitAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_90 /* UIKitAdditionsTests.swift */; };
+		OBJ_188 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_91 /* XCTestManifests.swift */; };
+		OBJ_190 /* UIKitAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "UIKitAdditions::UIKitAdditions::Product" /* UIKitAdditions.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1EF1B9EF23371E0900417D87 /* PBXContainerItemProxy */ = {
+		1EF1BA1E2337C7FC00417D87 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "UIKitAdditions::UIKitAdditions";
 			remoteInfo = UIKitAdditions;
 		};
-		1EF1B9F023371E0B00417D87 /* PBXContainerItemProxy */ = {
+		1EF1BA1F2337C7FE00417D87 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
@@ -182,31 +182,30 @@
 		OBJ_87 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		OBJ_90 /* UIKitAdditionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitAdditionsTests.swift; sourceTree = "<group>"; };
 		OBJ_91 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
-		OBJ_95 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		OBJ_96 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		OBJ_99 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		"UIKitAdditions::UIKitAdditions::Product" /* UIKitAdditions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIKitAdditions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"UIKitAdditions::UIKitAdditionsTests::Product" /* UIKitAdditionsTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = UIKitAdditionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		OBJ_166 /* Frameworks */ = {
+		OBJ_170 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				1EF1B9F323371F0400417D87 /* PromiseKit in Frameworks */,
-				1EF1BA092337235400417D87 /* DataSource in Frameworks */,
-				1EF1B9FC233720A700417D87 /* Alamofire in Frameworks */,
-				1EF1B9F62337201A00417D87 /* PhoneNumberKit in Frameworks */,
-				1EF1B9FF233720E600417D87 /* SwiftAdditions in Frameworks */,
-				1EF1B9F92337205200417D87 /* SwiftDate in Frameworks */,
+				1EF1BA222337CA6500417D87 /* PromiseKit in Frameworks */,
+				1EF1BA2B2337CAA700417D87 /* PhoneNumberKit in Frameworks */,
+				1EF1BA2E2337CABD00417D87 /* SwiftDate in Frameworks */,
+				1EF1BA312337CB1300417D87 /* Alamofire in Frameworks */,
+				1EF1BA282337CA8C00417D87 /* SwiftAdditions in Frameworks */,
+				1EF1BA252337CA7400417D87 /* DataSource in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_185 /* Frameworks */ = {
+		OBJ_189 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_186 /* UIKitAdditions.framework in Frameworks */,
+				OBJ_190 /* UIKitAdditions.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,11 +294,11 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
+				OBJ_99 /* Cartfile */,
 				OBJ_7 /* Sources */,
 				OBJ_88 /* Tests */,
-				OBJ_92 /* Products */,
-				OBJ_95 /* LICENSE */,
-				OBJ_96 /* README.md */,
+				OBJ_92 /* Dependencies */,
+				OBJ_93 /* Products */,
 			);
 			name = "";
 			sourceTree = "<group>";
@@ -444,11 +443,18 @@
 			path = Animators;
 			sourceTree = "<group>";
 		};
-		OBJ_92 /* Products */ = {
+		OBJ_92 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				"UIKitAdditions::UIKitAdditions::Product" /* UIKitAdditions.framework */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		OBJ_93 /* Products */ = {
+			isa = PBXGroup;
+			children = (
 				"UIKitAdditions::UIKitAdditionsTests::Product" /* UIKitAdditionsTests.xctest */,
+				"UIKitAdditions::UIKitAdditions::Product" /* UIKitAdditions.framework */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -458,9 +464,9 @@
 /* Begin PBXNativeTarget section */
 		"UIKitAdditions::SwiftPMPackageDescription" /* UIKitAdditionsPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_168 /* Build configuration list for PBXNativeTarget "UIKitAdditionsPackageDescription" */;
+			buildConfigurationList = OBJ_172 /* Build configuration list for PBXNativeTarget "UIKitAdditionsPackageDescription" */;
 			buildPhases = (
-				OBJ_171 /* Sources */,
+				OBJ_175 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -472,10 +478,10 @@
 		};
 		"UIKitAdditions::UIKitAdditions" /* UIKitAdditions */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_98 /* Build configuration list for PBXNativeTarget "UIKitAdditions" */;
+			buildConfigurationList = OBJ_102 /* Build configuration list for PBXNativeTarget "UIKitAdditions" */;
 			buildPhases = (
-				OBJ_101 /* Sources */,
-				OBJ_166 /* Frameworks */,
+				OBJ_105 /* Sources */,
+				OBJ_170 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -483,12 +489,12 @@
 			);
 			name = UIKitAdditions;
 			packageProductDependencies = (
-				1EF1B9F223371F0400417D87 /* PromiseKit */,
-				1EF1B9F52337201A00417D87 /* PhoneNumberKit */,
-				1EF1B9F82337205200417D87 /* SwiftDate */,
-				1EF1B9FB233720A700417D87 /* Alamofire */,
-				1EF1B9FE233720E600417D87 /* SwiftAdditions */,
-				1EF1BA082337235400417D87 /* DataSource */,
+				1EF1BA212337CA6500417D87 /* PromiseKit */,
+				1EF1BA242337CA7400417D87 /* DataSource */,
+				1EF1BA272337CA8C00417D87 /* SwiftAdditions */,
+				1EF1BA2A2337CAA700417D87 /* PhoneNumberKit */,
+				1EF1BA2D2337CABD00417D87 /* SwiftDate */,
+				1EF1BA302337CB1300417D87 /* Alamofire */,
 			);
 			productName = UIKitAdditions;
 			productReference = "UIKitAdditions::UIKitAdditions::Product" /* UIKitAdditions.framework */;
@@ -496,15 +502,15 @@
 		};
 		"UIKitAdditions::UIKitAdditionsTests" /* UIKitAdditionsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_179 /* Build configuration list for PBXNativeTarget "UIKitAdditionsTests" */;
+			buildConfigurationList = OBJ_183 /* Build configuration list for PBXNativeTarget "UIKitAdditionsTests" */;
 			buildPhases = (
-				OBJ_182 /* Sources */,
-				OBJ_185 /* Frameworks */,
+				OBJ_186 /* Sources */,
+				OBJ_189 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				OBJ_187 /* PBXTargetDependency */,
+				OBJ_191 /* PBXTargetDependency */,
 			);
 			name = UIKitAdditionsTests;
 			productName = UIKitAdditionsTests;
@@ -529,14 +535,14 @@
 			);
 			mainGroup = OBJ_5 /*  */;
 			packageReferences = (
-				1EF1B9F123371F0400417D87 /* XCRemoteSwiftPackageReference "PromiseKit" */,
-				1EF1B9F42337201A00417D87 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */,
-				1EF1B9F72337205200417D87 /* XCRemoteSwiftPackageReference "SwiftDate" */,
-				1EF1B9FA233720A700417D87 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				1EF1B9FD233720E600417D87 /* XCRemoteSwiftPackageReference "swift-additions" */,
-				1EF1BA072337235400417D87 /* XCRemoteSwiftPackageReference "datasource" */,
+				1EF1BA202337CA6500417D87 /* XCRemoteSwiftPackageReference "PromiseKit" */,
+				1EF1BA232337CA7400417D87 /* XCRemoteSwiftPackageReference "datasource" */,
+				1EF1BA262337CA8C00417D87 /* XCRemoteSwiftPackageReference "swift-additions" */,
+				1EF1BA292337CAA700417D87 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */,
+				1EF1BA2C2337CABD00417D87 /* XCRemoteSwiftPackageReference "SwiftDate" */,
+				1EF1BA2F2337CB1300417D87 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
-			productRefGroup = OBJ_92 /* Products */;
+			productRefGroup = OBJ_93 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -549,111 +555,111 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		OBJ_101 /* Sources */ = {
+		OBJ_105 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_102 /* Animator.swift in Sources */,
-				OBJ_103 /* FadeInOutAnimator.swift in Sources */,
-				OBJ_104 /* ScaleInOutAnimator.swift in Sources */,
-				OBJ_105 /* SemiModalAnimator.swift in Sources */,
-				OBJ_106 /* SlideInFromBottomAnimator.swift in Sources */,
-				OBJ_107 /* TransitionRightLeftAnimator.swift in Sources */,
-				OBJ_108 /* Alamofire+PromiseKit.swift in Sources */,
-				OBJ_109 /* Keychain+Keys.swift in Sources */,
-				OBJ_110 /* NSAttributedString+Extension.swift in Sources */,
-				OBJ_111 /* SwiftDate+Extension.swift in Sources */,
-				OBJ_112 /* UIButton+Extension.swift in Sources */,
-				OBJ_113 /* UICollectionView+Extension.swift in Sources */,
-				OBJ_114 /* UIColor+Extension.swift in Sources */,
-				OBJ_115 /* UIEdgeInsets+Extension.swift in Sources */,
-				OBJ_116 /* UIFont+Custom.swift in Sources */,
-				OBJ_117 /* UIImage+Extension.swift in Sources */,
-				OBJ_118 /* UIImageView+Extension.swift in Sources */,
-				OBJ_119 /* UINavigationController+Extension.swift in Sources */,
-				OBJ_120 /* UIScrollView+Extension.swift in Sources */,
-				OBJ_121 /* UIStoryboard+Extension.swift in Sources */,
-				OBJ_122 /* UITableView+Extension.swift in Sources */,
-				OBJ_123 /* UITextField+Extension.swift in Sources */,
-				OBJ_124 /* UIView+AutoLayout.swift in Sources */,
-				OBJ_125 /* UIView+Extension.swift in Sources */,
-				OBJ_126 /* UIViewController+Alert.swift in Sources */,
-				OBJ_127 /* UIViewController+Extension.swift in Sources */,
-				OBJ_128 /* UIViewController+Present.swift in Sources */,
-				OBJ_129 /* UIViewController+Promise.swift in Sources */,
-				OBJ_130 /* AppInfo.swift in Sources */,
-				OBJ_131 /* KeyboardManager.swift in Sources */,
-				OBJ_132 /* SemiModalPresentationController.swift in Sources */,
-				OBJ_133 /* BusyButton.swift in Sources */,
-				OBJ_134 /* Button.swift in Sources */,
-				OBJ_135 /* FormViewController.swift in Sources */,
-				OBJ_136 /* InputAccessoryView.swift in Sources */,
-				OBJ_137 /* CountingLabel.swift in Sources */,
-				OBJ_138 /* SearchController.swift in Sources */,
-				OBJ_139 /* SearchResultsController.swift in Sources */,
-				OBJ_140 /* CreditCardFormatter.swift in Sources */,
-				OBJ_141 /* CreditCardTextField.swift in Sources */,
-				OBJ_142 /* PhoneNumberTextField.swift in Sources */,
-				OBJ_143 /* TextField.swift in Sources */,
-				OBJ_144 /* Toast.swift in Sources */,
-				OBJ_145 /* AccordionView.swift in Sources */,
-				OBJ_146 /* AutoCompleteView.swift in Sources */,
-				OBJ_147 /* GradientView.swift in Sources */,
-				OBJ_148 /* ListInputView.swift in Sources */,
-				OBJ_149 /* MonthYearInputView.swift in Sources */,
-				OBJ_150 /* NibLoadedView.swift in Sources */,
-				OBJ_151 /* PlayerView.swift in Sources */,
-				OBJ_152 /* QRCode.swift in Sources */,
-				OBJ_153 /* TextView.swift in Sources */,
-				OBJ_154 /* DateFormats.swift in Sources */,
-				OBJ_155 /* Disk+Image.swift in Sources */,
-				OBJ_156 /* Disk.swift in Sources */,
-				OBJ_157 /* Identifier.swift in Sources */,
-				OBJ_158 /* LocationHeader.swift in Sources */,
-				OBJ_159 /* OrderedDictionary.swift in Sources */,
-				OBJ_160 /* Perform.swift in Sources */,
-				OBJ_161 /* RequestConvertible.swift in Sources */,
-				OBJ_162 /* ResourceUtils.swift in Sources */,
-				OBJ_163 /* Router.swift in Sources */,
-				OBJ_164 /* Segue.swift in Sources */,
-				OBJ_165 /* ServiceError.swift in Sources */,
+				OBJ_106 /* Animator.swift in Sources */,
+				OBJ_107 /* FadeInOutAnimator.swift in Sources */,
+				OBJ_108 /* ScaleInOutAnimator.swift in Sources */,
+				OBJ_109 /* SemiModalAnimator.swift in Sources */,
+				OBJ_110 /* SlideInFromBottomAnimator.swift in Sources */,
+				OBJ_111 /* TransitionRightLeftAnimator.swift in Sources */,
+				OBJ_112 /* Alamofire+PromiseKit.swift in Sources */,
+				OBJ_113 /* Keychain+Keys.swift in Sources */,
+				OBJ_114 /* NSAttributedString+Extension.swift in Sources */,
+				OBJ_115 /* SwiftDate+Extension.swift in Sources */,
+				OBJ_116 /* UIButton+Extension.swift in Sources */,
+				OBJ_117 /* UICollectionView+Extension.swift in Sources */,
+				OBJ_118 /* UIColor+Extension.swift in Sources */,
+				OBJ_119 /* UIEdgeInsets+Extension.swift in Sources */,
+				OBJ_120 /* UIFont+Custom.swift in Sources */,
+				OBJ_121 /* UIImage+Extension.swift in Sources */,
+				OBJ_122 /* UIImageView+Extension.swift in Sources */,
+				OBJ_123 /* UINavigationController+Extension.swift in Sources */,
+				OBJ_124 /* UIScrollView+Extension.swift in Sources */,
+				OBJ_125 /* UIStoryboard+Extension.swift in Sources */,
+				OBJ_126 /* UITableView+Extension.swift in Sources */,
+				OBJ_127 /* UITextField+Extension.swift in Sources */,
+				OBJ_128 /* UIView+AutoLayout.swift in Sources */,
+				OBJ_129 /* UIView+Extension.swift in Sources */,
+				OBJ_130 /* UIViewController+Alert.swift in Sources */,
+				OBJ_131 /* UIViewController+Extension.swift in Sources */,
+				OBJ_132 /* UIViewController+Present.swift in Sources */,
+				OBJ_133 /* UIViewController+Promise.swift in Sources */,
+				OBJ_134 /* AppInfo.swift in Sources */,
+				OBJ_135 /* KeyboardManager.swift in Sources */,
+				OBJ_136 /* SemiModalPresentationController.swift in Sources */,
+				OBJ_137 /* BusyButton.swift in Sources */,
+				OBJ_138 /* Button.swift in Sources */,
+				OBJ_139 /* FormViewController.swift in Sources */,
+				OBJ_140 /* InputAccessoryView.swift in Sources */,
+				OBJ_141 /* CountingLabel.swift in Sources */,
+				OBJ_142 /* SearchController.swift in Sources */,
+				OBJ_143 /* SearchResultsController.swift in Sources */,
+				OBJ_144 /* CreditCardFormatter.swift in Sources */,
+				OBJ_145 /* CreditCardTextField.swift in Sources */,
+				OBJ_146 /* PhoneNumberTextField.swift in Sources */,
+				OBJ_147 /* TextField.swift in Sources */,
+				OBJ_148 /* Toast.swift in Sources */,
+				OBJ_149 /* AccordionView.swift in Sources */,
+				OBJ_150 /* AutoCompleteView.swift in Sources */,
+				OBJ_151 /* GradientView.swift in Sources */,
+				OBJ_152 /* ListInputView.swift in Sources */,
+				OBJ_153 /* MonthYearInputView.swift in Sources */,
+				OBJ_154 /* NibLoadedView.swift in Sources */,
+				OBJ_155 /* PlayerView.swift in Sources */,
+				OBJ_156 /* QRCode.swift in Sources */,
+				OBJ_157 /* TextView.swift in Sources */,
+				OBJ_158 /* DateFormats.swift in Sources */,
+				OBJ_159 /* Disk+Image.swift in Sources */,
+				OBJ_160 /* Disk.swift in Sources */,
+				OBJ_161 /* Identifier.swift in Sources */,
+				OBJ_162 /* LocationHeader.swift in Sources */,
+				OBJ_163 /* OrderedDictionary.swift in Sources */,
+				OBJ_164 /* Perform.swift in Sources */,
+				OBJ_165 /* RequestConvertible.swift in Sources */,
+				OBJ_166 /* ResourceUtils.swift in Sources */,
+				OBJ_167 /* Router.swift in Sources */,
+				OBJ_168 /* Segue.swift in Sources */,
+				OBJ_169 /* ServiceError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_171 /* Sources */ = {
+		OBJ_175 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_172 /* Package.swift in Sources */,
+				OBJ_176 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_182 /* Sources */ = {
+		OBJ_186 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_183 /* UIKitAdditionsTests.swift in Sources */,
-				OBJ_184 /* XCTestManifests.swift in Sources */,
+				OBJ_187 /* UIKitAdditionsTests.swift in Sources */,
+				OBJ_188 /* XCTestManifests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		OBJ_177 /* PBXTargetDependency */ = {
+		OBJ_181 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "UIKitAdditions::UIKitAdditionsTests" /* UIKitAdditionsTests */;
-			targetProxy = 1EF1B9F023371E0B00417D87 /* PBXContainerItemProxy */;
+			targetProxy = 1EF1BA1F2337C7FE00417D87 /* PBXContainerItemProxy */;
 		};
-		OBJ_187 /* PBXTargetDependency */ = {
+		OBJ_191 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "UIKitAdditions::UIKitAdditions" /* UIKitAdditions */;
-			targetProxy = 1EF1B9EF23371E0900417D87 /* PBXContainerItemProxy */;
+			targetProxy = 1EF1BA1E2337C7FC00417D87 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		OBJ_100 /* Release */ = {
+		OBJ_103 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -668,24 +674,54 @@
 					"$(inherited)",
 					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = UIKitAdditions;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 5.0;
 				TARGET_NAME = UIKitAdditions;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+				TVOS_DEPLOYMENT_TARGET = 11.4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.3;
+			};
+			name = Debug;
+		};
+		OBJ_104 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = UIKitAdditions.xcodeproj/UIKitAdditions_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = UIKitAdditions;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = UIKitAdditions;
+				TVOS_DEPLOYMENT_TARGET = 11.4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.3;
 			};
 			name = Release;
 		};
-		OBJ_169 /* Debug */ = {
+		OBJ_173 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
@@ -694,7 +730,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_170 /* Release */ = {
+		OBJ_174 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
@@ -703,19 +739,19 @@
 			};
 			name = Release;
 		};
-		OBJ_175 /* Debug */ = {
+		OBJ_179 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
 			name = Debug;
 		};
-		OBJ_176 /* Release */ = {
+		OBJ_180 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
 			name = Release;
 		};
-		OBJ_180 /* Debug */ = {
+		OBJ_184 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -744,7 +780,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_181 /* Release */ = {
+		OBJ_185 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -789,14 +825,15 @@
 					"DEBUG=1",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE DEBUG";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USE_HEADERMAP = NO;
 			};
 			name = Debug;
@@ -815,76 +852,54 @@
 					"SWIFT_PACKAGE=1",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE";
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USE_HEADERMAP = NO;
 			};
 			name = Release;
 		};
-		OBJ_99 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = UIKitAdditions.xcodeproj/UIKitAdditions_Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				OTHER_CFLAGS = "$(inherited)";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = UIKitAdditions;
-				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 5.0;
-				TARGET_NAME = UIKitAdditions;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		OBJ_168 /* Build configuration list for PBXNativeTarget "UIKitAdditionsPackageDescription" */ = {
+		OBJ_102 /* Build configuration list for PBXNativeTarget "UIKitAdditions" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_169 /* Debug */,
-				OBJ_170 /* Release */,
+				OBJ_103 /* Debug */,
+				OBJ_104 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_174 /* Build configuration list for PBXAggregateTarget "UIKitAdditionsPackageTests" */ = {
+		OBJ_172 /* Build configuration list for PBXNativeTarget "UIKitAdditionsPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_175 /* Debug */,
-				OBJ_176 /* Release */,
+				OBJ_173 /* Debug */,
+				OBJ_174 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_179 /* Build configuration list for PBXNativeTarget "UIKitAdditionsTests" */ = {
+		OBJ_178 /* Build configuration list for PBXAggregateTarget "UIKitAdditionsPackageTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_180 /* Debug */,
-				OBJ_181 /* Release */,
+				OBJ_179 /* Debug */,
+				OBJ_180 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_183 /* Build configuration list for PBXNativeTarget "UIKitAdditionsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_184 /* Debug */,
+				OBJ_185 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -898,19 +913,10 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_98 /* Build configuration list for PBXNativeTarget "UIKitAdditions" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				OBJ_99 /* Debug */,
-				OBJ_100 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		1EF1B9F123371F0400417D87 /* XCRemoteSwiftPackageReference "PromiseKit" */ = {
+		1EF1BA202337CA6500417D87 /* XCRemoteSwiftPackageReference "PromiseKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:mxcl/PromiseKit.git";
 			requirement = {
@@ -918,31 +924,15 @@
 				minimumVersion = 6.11.0;
 			};
 		};
-		1EF1B9F42337201A00417D87 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */ = {
+		1EF1BA232337CA7400417D87 /* XCRemoteSwiftPackageReference "datasource" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:marmelroy/PhoneNumberKit.git";
+			repositoryURL = "git@github.com:Prince2k3/datasource.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
+				minimumVersion = 1.1.1;
 			};
 		};
-		1EF1B9F72337205200417D87 /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:malcommac/SwiftDate.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.1.0;
-			};
-		};
-		1EF1B9FA233720A700417D87 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:Alamofire/Alamofire.git";
-			requirement = {
-				branch = "5.0.0-rc.2";
-				kind = branch;
-			};
-		};
-		1EF1B9FD233720E600417D87 /* XCRemoteSwiftPackageReference "swift-additions" */ = {
+		1EF1BA262337CA8C00417D87 /* XCRemoteSwiftPackageReference "swift-additions" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:Prince2k3/swift-additions.git";
 			requirement = {
@@ -950,46 +940,62 @@
 				minimumVersion = 1.1.1;
 			};
 		};
-		1EF1BA072337235400417D87 /* XCRemoteSwiftPackageReference "datasource" */ = {
+		1EF1BA292337CAA700417D87 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:Prince2k3/datasource.git";
+			repositoryURL = "git@github.com:marmelroy/PhoneNumberKit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.0;
+				minimumVersion = 3.0.0;
+			};
+		};
+		1EF1BA2C2337CABD00417D87 /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:malcommac/SwiftDate.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.1.0;
+			};
+		};
+		1EF1BA2F2337CB1300417D87 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:Alamofire/Alamofire.git";
+			requirement = {
+				branch = "5.0.0-rc.2";
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1EF1B9F223371F0400417D87 /* PromiseKit */ = {
+		1EF1BA212337CA6500417D87 /* PromiseKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1EF1B9F123371F0400417D87 /* XCRemoteSwiftPackageReference "PromiseKit" */;
+			package = 1EF1BA202337CA6500417D87 /* XCRemoteSwiftPackageReference "PromiseKit" */;
 			productName = PromiseKit;
 		};
-		1EF1B9F52337201A00417D87 /* PhoneNumberKit */ = {
+		1EF1BA242337CA7400417D87 /* DataSource */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1EF1B9F42337201A00417D87 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */;
-			productName = PhoneNumberKit;
+			package = 1EF1BA232337CA7400417D87 /* XCRemoteSwiftPackageReference "datasource" */;
+			productName = DataSource;
 		};
-		1EF1B9F82337205200417D87 /* SwiftDate */ = {
+		1EF1BA272337CA8C00417D87 /* SwiftAdditions */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1EF1B9F72337205200417D87 /* XCRemoteSwiftPackageReference "SwiftDate" */;
-			productName = SwiftDate;
-		};
-		1EF1B9FB233720A700417D87 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1EF1B9FA233720A700417D87 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-		1EF1B9FE233720E600417D87 /* SwiftAdditions */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1EF1B9FD233720E600417D87 /* XCRemoteSwiftPackageReference "swift-additions" */;
+			package = 1EF1BA262337CA8C00417D87 /* XCRemoteSwiftPackageReference "swift-additions" */;
 			productName = SwiftAdditions;
 		};
-		1EF1BA082337235400417D87 /* DataSource */ = {
+		1EF1BA2A2337CAA700417D87 /* PhoneNumberKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1EF1BA072337235400417D87 /* XCRemoteSwiftPackageReference "datasource" */;
-			productName = DataSource;
+			package = 1EF1BA292337CAA700417D87 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */;
+			productName = PhoneNumberKit;
+		};
+		1EF1BA2D2337CABD00417D87 /* SwiftDate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1EF1BA2C2337CABD00417D87 /* XCRemoteSwiftPackageReference "SwiftDate" */;
+			productName = SwiftDate;
+		};
+		1EF1BA302337CB1300417D87 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1EF1BA2F2337CB1300417D87 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -1,11 +1,3 @@
-//
-//  Keychain+Keys.swift
-//  Tradelytics
-//
-//  Created by Prince Ugwuh on 2/14/19.
-//  Copyright © 2019 Alerting Options. All rights reserved.
-//
-
 import Foundation
 import SwiftAdditions
 

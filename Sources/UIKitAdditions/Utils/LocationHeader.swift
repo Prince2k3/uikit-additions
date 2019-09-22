@@ -1,11 +1,3 @@
-//
-//  LocationHeader.swift
-//  UIKitAdditions
-//
-//  Created by Prince Ugwuh on 7/20/19.
-//  Copyright © 2019 Prince Ugwuh. All rights reserved.
-//
-
 import Foundation
 
 public struct LocationHeader {

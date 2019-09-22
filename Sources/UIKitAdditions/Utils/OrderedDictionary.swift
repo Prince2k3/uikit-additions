@@ -1,11 +1,3 @@
-//
-//  OrderedDictionary.swift
-//  Toolkit
-//
-//  Created by Prince Ugwuh on 3/4/18.
-//  Copyright © 2018 Silvercar Inc. All rights reserved.
-//
-
 public struct OrderedDictionary<Key: Hashable, Value> {
     private(set) var keys: [Key] = []
     private(set) var values: [Key: Value] = [:]
