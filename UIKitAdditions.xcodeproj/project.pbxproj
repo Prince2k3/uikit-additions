@@ -3,30 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		"UIKitAdditions::UIKitAdditionsPackageTests::ProductTarget" /* UIKitAdditionsPackageTests */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = OBJ_178 /* Build configuration list for PBXAggregateTarget "UIKitAdditionsPackageTests" */;
-			buildPhases = (
-			);
-			dependencies = (
-				OBJ_181 /* PBXTargetDependency */,
-			);
-			name = UIKitAdditionsPackageTests;
-			productName = UIKitAdditionsPackageTests;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
-		1EF1BA222337CA6500417D87 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1EF1BA212337CA6500417D87 /* PromiseKit */; };
-		1EF1BA252337CA7400417D87 /* DataSource in Frameworks */ = {isa = PBXBuildFile; productRef = 1EF1BA242337CA7400417D87 /* DataSource */; };
-		1EF1BA282337CA8C00417D87 /* SwiftAdditions in Frameworks */ = {isa = PBXBuildFile; productRef = 1EF1BA272337CA8C00417D87 /* SwiftAdditions */; };
-		1EF1BA2B2337CAA700417D87 /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1EF1BA2A2337CAA700417D87 /* PhoneNumberKit */; };
-		1EF1BA2E2337CABD00417D87 /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 1EF1BA2D2337CABD00417D87 /* SwiftDate */; };
-		1EF1BA312337CB1300417D87 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1EF1BA302337CB1300417D87 /* Alamofire */; };
+		1E146A972337F25D00232770 /* PhoneNumberKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E146A912337F25D00232770 /* PhoneNumberKit.framework */; };
+		1E146A982337F25D00232770 /* PhoneNumberKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E146A912337F25D00232770 /* PhoneNumberKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1E146A992337F25D00232770 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E146A922337F25D00232770 /* PromiseKit.framework */; };
+		1E146A9A2337F25D00232770 /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E146A922337F25D00232770 /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1E146A9B2337F25D00232770 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E146A932337F25D00232770 /* Alamofire.framework */; };
+		1E146A9C2337F25D00232770 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E146A932337F25D00232770 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1E146A9D2337F25D00232770 /* DataSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E146A942337F25D00232770 /* DataSource.framework */; };
+		1E146A9E2337F25D00232770 /* DataSource.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E146A942337F25D00232770 /* DataSource.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1E146A9F2337F25D00232770 /* SwiftAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E146A952337F25D00232770 /* SwiftAdditions.framework */; };
+		1E146AA02337F25D00232770 /* SwiftAdditions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E146A952337F25D00232770 /* SwiftAdditions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1E146AA12337F25E00232770 /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E146A962337F25D00232770 /* SwiftDate.framework */; };
+		1E146AA22337F25E00232770 /* SwiftDate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E146A962337F25D00232770 /* SwiftDate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		OBJ_106 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Animator.swift */; };
 		OBJ_107 /* FadeInOutAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* FadeInOutAnimator.swift */; };
 		OBJ_108 /* ScaleInOutAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* ScaleInOutAnimator.swift */; };
@@ -91,7 +83,6 @@
 		OBJ_167 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_85 /* Router.swift */; };
 		OBJ_168 /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_86 /* Segue.swift */; };
 		OBJ_169 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_87 /* ServiceError.swift */; };
-		OBJ_176 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_187 /* UIKitAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_90 /* UIKitAdditionsTests.swift */; };
 		OBJ_188 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_91 /* XCTestManifests.swift */; };
 		OBJ_190 /* UIKitAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "UIKitAdditions::UIKitAdditions::Product" /* UIKitAdditions.framework */; };
@@ -105,16 +96,34 @@
 			remoteGlobalIDString = "UIKitAdditions::UIKitAdditions";
 			remoteInfo = UIKitAdditions;
 		};
-		1EF1BA1F2337C7FE00417D87 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "UIKitAdditions::UIKitAdditionsTests";
-			remoteInfo = UIKitAdditionsTests;
-		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1E146AA32337F25E00232770 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1E146AA02337F25D00232770 /* SwiftAdditions.framework in Embed Frameworks */,
+				1E146A982337F25D00232770 /* PhoneNumberKit.framework in Embed Frameworks */,
+				1E146A9C2337F25D00232770 /* Alamofire.framework in Embed Frameworks */,
+				1E146A9A2337F25D00232770 /* PromiseKit.framework in Embed Frameworks */,
+				1E146AA22337F25E00232770 /* SwiftDate.framework in Embed Frameworks */,
+				1E146A9E2337F25D00232770 /* DataSource.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		1E146A912337F25D00232770 /* PhoneNumberKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhoneNumberKit.framework; path = Carthage/Build/iOS/PhoneNumberKit.framework; sourceTree = "<group>"; };
+		1E146A922337F25D00232770 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
+		1E146A932337F25D00232770 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		1E146A942337F25D00232770 /* DataSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DataSource.framework; path = Carthage/Build/iOS/DataSource.framework; sourceTree = "<group>"; };
+		1E146A952337F25D00232770 /* SwiftAdditions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftAdditions.framework; path = Carthage/Build/iOS/SwiftAdditions.framework; sourceTree = "<group>"; };
+		1E146A962337F25D00232770 /* SwiftDate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftDate.framework; path = Carthage/Build/iOS/SwiftDate.framework; sourceTree = "<group>"; };
 		OBJ_10 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		OBJ_11 /* FadeInOutAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeInOutAnimator.swift; sourceTree = "<group>"; };
 		OBJ_12 /* ScaleInOutAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleInOutAnimator.swift; sourceTree = "<group>"; };
@@ -155,7 +164,6 @@
 		OBJ_56 /* SearchResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		OBJ_58 /* CreditCardFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardFormatter.swift; sourceTree = "<group>"; };
 		OBJ_59 /* CreditCardTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardTextField.swift; sourceTree = "<group>"; };
-		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		OBJ_60 /* PhoneNumberTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberTextField.swift; sourceTree = "<group>"; };
 		OBJ_61 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		OBJ_63 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
@@ -192,12 +200,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				1EF1BA222337CA6500417D87 /* PromiseKit in Frameworks */,
-				1EF1BA2B2337CAA700417D87 /* PhoneNumberKit in Frameworks */,
-				1EF1BA2E2337CABD00417D87 /* SwiftDate in Frameworks */,
-				1EF1BA312337CB1300417D87 /* Alamofire in Frameworks */,
-				1EF1BA282337CA8C00417D87 /* SwiftAdditions in Frameworks */,
-				1EF1BA252337CA7400417D87 /* DataSource in Frameworks */,
+				1E146A9F2337F25D00232770 /* SwiftAdditions.framework in Frameworks */,
+				1E146A972337F25D00232770 /* PhoneNumberKit.framework in Frameworks */,
+				1E146A9B2337F25D00232770 /* Alamofire.framework in Frameworks */,
+				1E146A992337F25D00232770 /* PromiseKit.framework in Frameworks */,
+				1E146AA12337F25E00232770 /* SwiftDate.framework in Frameworks */,
+				1E146A9D2337F25D00232770 /* DataSource.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +220,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E146A902337F25D00232770 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1E146A932337F25D00232770 /* Alamofire.framework */,
+				1E146A942337F25D00232770 /* DataSource.framework */,
+				1E146A912337F25D00232770 /* PhoneNumberKit.framework */,
+				1E146A922337F25D00232770 /* PromiseKit.framework */,
+				1E146A952337F25D00232770 /* SwiftAdditions.framework */,
+				1E146A962337F25D00232770 /* SwiftDate.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		OBJ_16 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,17 +311,15 @@
 			path = Form;
 			sourceTree = "<group>";
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
-				OBJ_6 /* Package.swift */,
 				OBJ_99 /* Cartfile */,
 				OBJ_7 /* Sources */,
 				OBJ_88 /* Tests */,
-				OBJ_92 /* Dependencies */,
 				OBJ_93 /* Products */,
+				1E146A902337F25D00232770 /* Frameworks */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_50 /* InputAccessoryView */ = {
@@ -443,13 +462,6 @@
 			path = Animators;
 			sourceTree = "<group>";
 		};
-		OBJ_92 /* Dependencies */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Dependencies;
-			sourceTree = "<group>";
-		};
 		OBJ_93 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -462,26 +474,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		"UIKitAdditions::SwiftPMPackageDescription" /* UIKitAdditionsPackageDescription */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_172 /* Build configuration list for PBXNativeTarget "UIKitAdditionsPackageDescription" */;
-			buildPhases = (
-				OBJ_175 /* Sources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = UIKitAdditionsPackageDescription;
-			productName = UIKitAdditionsPackageDescription;
-			productType = "com.apple.product-type.framework";
-		};
 		"UIKitAdditions::UIKitAdditions" /* UIKitAdditions */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = OBJ_102 /* Build configuration list for PBXNativeTarget "UIKitAdditions" */;
 			buildPhases = (
 				OBJ_105 /* Sources */,
 				OBJ_170 /* Frameworks */,
+				1E146AA32337F25E00232770 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -489,12 +488,6 @@
 			);
 			name = UIKitAdditions;
 			packageProductDependencies = (
-				1EF1BA212337CA6500417D87 /* PromiseKit */,
-				1EF1BA242337CA7400417D87 /* DataSource */,
-				1EF1BA272337CA8C00417D87 /* SwiftAdditions */,
-				1EF1BA2A2337CAA700417D87 /* PhoneNumberKit */,
-				1EF1BA2D2337CABD00417D87 /* SwiftDate */,
-				1EF1BA302337CB1300417D87 /* Alamofire */,
 			);
 			productName = UIKitAdditions;
 			productReference = "UIKitAdditions::UIKitAdditions::Product" /* UIKitAdditions.framework */;
@@ -533,22 +526,14 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			packageReferences = (
-				1EF1BA202337CA6500417D87 /* XCRemoteSwiftPackageReference "PromiseKit" */,
-				1EF1BA232337CA7400417D87 /* XCRemoteSwiftPackageReference "datasource" */,
-				1EF1BA262337CA8C00417D87 /* XCRemoteSwiftPackageReference "swift-additions" */,
-				1EF1BA292337CAA700417D87 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */,
-				1EF1BA2C2337CABD00417D87 /* XCRemoteSwiftPackageReference "SwiftDate" */,
-				1EF1BA2F2337CB1300417D87 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = OBJ_93 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				"UIKitAdditions::UIKitAdditions" /* UIKitAdditions */,
-				"UIKitAdditions::SwiftPMPackageDescription" /* UIKitAdditionsPackageDescription */,
-				"UIKitAdditions::UIKitAdditionsPackageTests::ProductTarget" /* UIKitAdditionsPackageTests */,
 				"UIKitAdditions::UIKitAdditionsTests" /* UIKitAdditionsTests */,
 			);
 		};
@@ -626,14 +611,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_175 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 0;
-			files = (
-				OBJ_176 /* Package.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		OBJ_186 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
@@ -646,11 +623,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		OBJ_181 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "UIKitAdditions::UIKitAdditionsTests" /* UIKitAdditionsTests */;
-			targetProxy = 1EF1BA1F2337C7FE00417D87 /* PBXContainerItemProxy */;
-		};
 		OBJ_191 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "UIKitAdditions::UIKitAdditions" /* UIKitAdditions */;
@@ -666,14 +638,12 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = UIKitAdditions.xcodeproj/UIKitAdditions_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -697,14 +667,12 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = UIKitAdditions.xcodeproj/UIKitAdditions_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -721,36 +689,6 @@
 			};
 			name = Release;
 		};
-		OBJ_173 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -package-description-version 5.1";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		OBJ_174 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -package-description-version 5.1";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-		OBJ_179 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-			};
-			name = Debug;
-		};
-		OBJ_180 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-			};
-			name = Release;
-		};
 		OBJ_184 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -763,11 +701,7 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = UIKitAdditions.xcodeproj/UIKitAdditionsTests_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@loader_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -792,11 +726,7 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = UIKitAdditions.xcodeproj/UIKitAdditionsTests_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@loader_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -858,8 +788,7 @@
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE";
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USE_HEADERMAP = NO;
 			};
@@ -873,24 +802,6 @@
 			buildConfigurations = (
 				OBJ_103 /* Debug */,
 				OBJ_104 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		OBJ_172 /* Build configuration list for PBXNativeTarget "UIKitAdditionsPackageDescription" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				OBJ_173 /* Debug */,
-				OBJ_174 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		OBJ_178 /* Build configuration list for PBXAggregateTarget "UIKitAdditionsPackageTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				OBJ_179 /* Debug */,
-				OBJ_180 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -914,90 +825,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		1EF1BA202337CA6500417D87 /* XCRemoteSwiftPackageReference "PromiseKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:mxcl/PromiseKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.11.0;
-			};
-		};
-		1EF1BA232337CA7400417D87 /* XCRemoteSwiftPackageReference "datasource" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:Prince2k3/datasource.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.1;
-			};
-		};
-		1EF1BA262337CA8C00417D87 /* XCRemoteSwiftPackageReference "swift-additions" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:Prince2k3/swift-additions.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.1;
-			};
-		};
-		1EF1BA292337CAA700417D87 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:marmelroy/PhoneNumberKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
-		1EF1BA2C2337CABD00417D87 /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:malcommac/SwiftDate.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.1.0;
-			};
-		};
-		1EF1BA2F2337CB1300417D87 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:Alamofire/Alamofire.git";
-			requirement = {
-				branch = "5.0.0-rc.2";
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		1EF1BA212337CA6500417D87 /* PromiseKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1EF1BA202337CA6500417D87 /* XCRemoteSwiftPackageReference "PromiseKit" */;
-			productName = PromiseKit;
-		};
-		1EF1BA242337CA7400417D87 /* DataSource */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1EF1BA232337CA7400417D87 /* XCRemoteSwiftPackageReference "datasource" */;
-			productName = DataSource;
-		};
-		1EF1BA272337CA8C00417D87 /* SwiftAdditions */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1EF1BA262337CA8C00417D87 /* XCRemoteSwiftPackageReference "swift-additions" */;
-			productName = SwiftAdditions;
-		};
-		1EF1BA2A2337CAA700417D87 /* PhoneNumberKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1EF1BA292337CAA700417D87 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */;
-			productName = PhoneNumberKit;
-		};
-		1EF1BA2D2337CABD00417D87 /* SwiftDate */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1EF1BA2C2337CABD00417D87 /* XCRemoteSwiftPackageReference "SwiftDate" */;
-			productName = SwiftDate;
-		};
-		1EF1BA302337CB1300417D87 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1EF1BA2F2337CB1300417D87 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = OBJ_1 /* Project object */;
 }
