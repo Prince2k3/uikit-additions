@@ -1,12 +1,4 @@
-//
-//  Animator.swift
-//  UIKitAdditions
-//
-//  Created by Prince Ugwuh on 2/19/19.
-//  Copyright © 2019 Prince Ugwuh. All rights reserved.
-//
-
-import Foundation
+import UIKit
 
 @objc public protocol Animator: class, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning {
     var isPresenting: Bool { get set }

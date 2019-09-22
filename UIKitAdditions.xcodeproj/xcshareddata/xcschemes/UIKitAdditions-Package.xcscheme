@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1010"
+   LastUpgradeVersion = "9999"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1EE639FF220D007F00E93E88"
+               BlueprintIdentifier = "UIKitAdditions::UIKitAdditions"
                BuildableName = "UIKitAdditions.framework"
                BlueprintName = "UIKitAdditions"
                ReferencedContainer = "container:UIKitAdditions.xcodeproj">
@@ -28,9 +28,17 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "UIKitAdditions::UIKitAdditionsTests"
+               BuildableName = "UIKitAdditionsTests.xctest"
+               BlueprintName = "UIKitAdditionsTests"
+               ReferencedContainer = "container:UIKitAdditions.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -42,17 +50,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1EE639FF220D007F00E93E88"
-            BuildableName = "UIKitAdditions.framework"
-            BlueprintName = "UIKitAdditions"
-            ReferencedContainer = "container:UIKitAdditions.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -60,15 +57,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1EE639FF220D007F00E93E88"
-            BuildableName = "UIKitAdditions.framework"
-            BlueprintName = "UIKitAdditions"
-            ReferencedContainer = "container:UIKitAdditions.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

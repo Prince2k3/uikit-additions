@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 extension String {
     public func attributedString(prefixed image: UIImage) -> NSAttributedString {

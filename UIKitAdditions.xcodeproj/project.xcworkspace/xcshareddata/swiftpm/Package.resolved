@@ -1,0 +1,61 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Alamofire",
+        "repositoryURL": "git@github.com:Alamofire/Alamofire.git",
+        "state": {
+          "branch": "5.0.0-rc.2",
+          "revision": "c1d14588e5558a3669fd03510d135d88c5109069",
+          "version": null
+        }
+      },
+      {
+        "package": "DataSource",
+        "repositoryURL": "git@github.com:Prince2k3/datasource.git",
+        "state": {
+          "branch": null,
+          "revision": "2c657e3ee6d53fe9a7ae2a03112e473b1fd00547",
+          "version": "1.1.0"
+        }
+      },
+      {
+        "package": "PhoneNumberKit",
+        "repositoryURL": "git@github.com:marmelroy/PhoneNumberKit.git",
+        "state": {
+          "branch": null,
+          "revision": "c33b661a37367eb3d9327af33facffa50800136c",
+          "version": "3.0.0"
+        }
+      },
+      {
+        "package": "PromiseKit",
+        "repositoryURL": "git@github.com:mxcl/PromiseKit.git",
+        "state": {
+          "branch": null,
+          "revision": "4d8d1287d2e50c53a9f8430ffe88925292838c57",
+          "version": "6.11.0"
+        }
+      },
+      {
+        "package": "SwiftAdditions",
+        "repositoryURL": "git@github.com:Prince2k3/swift-additions.git",
+        "state": {
+          "branch": null,
+          "revision": "c331f42e890f17fb33dca539a768174040857688",
+          "version": "1.1.1"
+        }
+      },
+      {
+        "package": "SwiftDate",
+        "repositoryURL": "git@github.com:malcommac/SwiftDate.git",
+        "state": {
+          "branch": null,
+          "revision": "700dde1b3417fd4a7fd2bec9f5bc8ab2de1b96b4",
+          "version": "6.1.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

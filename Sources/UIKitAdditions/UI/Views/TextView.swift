@@ -1,12 +1,4 @@
-//
-//  TextView.swift
-//  UIKitAdditions
-//
-//  Created by Prince Ugwuh on 4/27/19.
-//  Copyright © 2019 Prince Ugwuh. All rights reserved.
-//
-
-import Foundation
+import UIKit
 
 open class TextView: UITextView {
     @IBInspectable var placeholderTextColor: UIColor = .lightGray {
