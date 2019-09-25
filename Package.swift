@@ -16,7 +16,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/mxcl/PromiseKit.git", from: "6.8.4"),
-        .package(url: "https://github.com/Prince2k3/datasource.git", .branch("master")),
+        .package(url: "https://github.com/Prince2k3/datasource.git", from: "2.0.0"),
         .package(url: "https://github.com/Prince2k3/swift-additions.git", from: "1.1.1"),
         .package(url: "https://github.com/marmelroy/PhoneNumberKit.git", from: "3.0.0"),
         .package(url: "https://github.com/malcommac/SwiftDate.git", from: "6.1.0"),
