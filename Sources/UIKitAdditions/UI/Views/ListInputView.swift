@@ -7,10 +7,10 @@ public class ListInputView: UIView, UITableViewDelegate {
     }
     
     private var tableView: UITableView!
-    private lazy var dataSource: DataSource<Section> = {
-        let d = DataSource<Section>(sections: Section.allCases) { tv, indexPath, item in
+    private lazy var dataSource: DataSource<Section, String> = {
+        let d = DataSource<Section, String>(sections: Section.allCases) { tv, indexPath, string in
             let cell = tv.dequeueReusableCell(withIdentifier: ListInputCell.identifier, for: indexPath) as? ListInputCell
-            cell?.title = item as? String ?? ""
+            cell?.title = string
             return cell
         }
         return d

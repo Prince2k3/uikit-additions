@@ -1,12 +1,12 @@
 import UIKit
 import DataSource
 
-public class AutoCompleteView: UIView, UITableViewDelegate {
+public class AutoCompleteView<CompletionItem: Hashable>: UIView, UITableViewDelegate {
     public enum Section: String, CaseIterable {
         case main
     }
     
-    public typealias CompletionHandler = (_ selected: Any) -> Void
+    public typealias CompletionHandler = (_ selected: CompletionItem) -> Void
     public typealias TextDidChangeHandler = (_ text: String) -> Void
 
     
@@ -20,19 +20,19 @@ public class AutoCompleteView: UIView, UITableViewDelegate {
         return view
     }()
     
-    private lazy var dataSource: DataSource<Section> = {
-        return DataSource<Section>(sections: Section.allCases, tableViewCellProvider: tableViewCellProvider)
+    private lazy var dataSource: DataSource<Section, CompletionItem> = {
+        return DataSource<Section, CompletionItem>(sections: Section.allCases, tableViewCellProvider: tableViewCellProvider)
     }()
     
     private var keyboardManager: KeyboardManager? = KeyboardManager()
-    private var tableViewCellProvider: DataSource<Section>.TableViewCellProvider!
+    private var tableViewCellProvider: DataSource<Section, CompletionItem>.TableViewCellProvider!
     
     private weak var textField: UITextField!
     private weak var presentingView: UIView!
     
     public var completionSelected: CompletionHandler?
     public var textDidChange: TextDidChangeHandler?
-    public var completions: [Any] = [] {
+    public var completions: [CompletionItem] = [] {
         didSet {
             dataSource.items[.main] = completions
             tableView.reloadData()
@@ -48,7 +48,7 @@ public class AutoCompleteView: UIView, UITableViewDelegate {
         keyboardManager = nil
     }
 
-    public convenience init(textField: UITextField, presentingView: UIView, tableViewCellProvider: @escaping DataSource<Section>.TableViewCellProvider) {
+    public convenience init(textField: UITextField, presentingView: UIView, tableViewCellProvider: @escaping DataSource<Section, CompletionItem>.TableViewCellProvider) {
         self.init()
         self.textField = textField
         self.presentingView = presentingView
