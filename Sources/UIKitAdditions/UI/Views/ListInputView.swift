@@ -2,24 +2,35 @@ import UIKit
 import DataSource
 
 public class ListInputView: UIView, UITableViewDelegate {
+    enum Section: String, CaseIterable {
+        case main
+    }
+    
     private var tableView: UITableView!
-    private var dataSource: DataSource = DataSource(cellIdentifier: ListInputCell.identifier)
+    private lazy var dataSource: DataSource<Section, String> = {
+        let d = DataSource<Section, String>(sections: Section.allCases) { tv, indexPath, string in
+            let cell = tv.dequeueReusableCell(withIdentifier: ListInputCell.identifier, for: indexPath) as? ListInputCell
+            cell?.title = string
+            return cell
+        }
+        return d
+    }()
 
     public var didSelectItem: ((String?) -> Void)?
     public var items: [String] = [] {
         didSet {
-            self.dataSource.items = self.items
-            self.tableView.reloadData()
+            dataSource.items[.main] = items
+            tableView.reloadData()
         }
     }
 
     public var selectedItem: String? {
         didSet {
             if let selectedItem = self.selectedItem,
-                let index = self.items.firstIndex(of: selectedItem),
-                self.items.contains(selectedItem) {
+                let index = items.firstIndex(of: selectedItem),
+                items.contains(selectedItem) {
 
-                self.tableView.selectRow(at: IndexPath(row: index, section: 0), animated: true, scrollPosition: .top)
+                tableView.selectRow(at: IndexPath(row: index, section: 0), animated: true, scrollPosition: .top)
             }
         }
     }
@@ -35,30 +46,31 @@ public class ListInputView: UIView, UITableViewDelegate {
     }
 
     func commonInit() {
-        self.tableView = UITableView(frame: .zero, style: .plain)
-        addSubview(self.tableView)
-        self.tableView.estimatedRowHeight = 54
-        self.tableView.rowHeight = 54
+        tableView = UITableView(frame: .zero, style: .plain)
+        addSubview(tableView)
+        tableView.estimatedRowHeight = 54
+        tableView.rowHeight = 54
 
-        self.tableView.translatesAutoresizingMaskIntoConstraints = false
-        self.tableView.anchorToSuperview()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.anchorToSuperview()
 
-        self.tableView.register(class: ListInputCell.self)
-        self.tableView.dataSource = self.dataSource
-        self.tableView.delegate = self
-        self.tableView.reloadData()
+        tableView.register(class: ListInputCell.self)
+        tableView.dataSource = dataSource
+        tableView.delegate = self
+        tableView.reloadData()
     }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.didSelectItem?(self.items[indexPath.row])
+        self.didSelectItem?(items[indexPath.row])
     }
 }
 
-fileprivate class ListInputCell: UITableViewCell, DataSourceConfigurable {
+fileprivate class ListInputCell: UITableViewCell {
     private var itemLabel: UILabel!
 
     var title: String? {
-        return itemLabel.text
+        get { return itemLabel.text }
+        set { itemLabel.text = newValue }
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -73,20 +85,16 @@ fileprivate class ListInputCell: UITableViewCell, DataSourceConfigurable {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        self.accessoryType = selected ? .checkmark : .none
+        accessoryType = selected ? .checkmark : .none
     }
 
     func commonInit() {
-        self.selectionStyle = .none
+        selectionStyle = .none
 
-        self.itemLabel = UILabel()
-        addSubview(self.itemLabel)
-        self.itemLabel.numberOfLines = 0
-        self.itemLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.itemLabel.anchorToSuperview(edgeInset: UIEdgeInsets(right: 20, left: 20))
-    }
-
-    func configure(_ data: Any?) {
-        itemLabel.text = data as? String
+        itemLabel = UILabel()
+        addSubview(itemLabel)
+        itemLabel.numberOfLines = 0
+        itemLabel.translatesAutoresizingMaskIntoConstraints = false
+        itemLabel.anchorToSuperview(edgeInset: UIEdgeInsets(right: 20, left: 20))
     }
 }

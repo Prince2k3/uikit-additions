@@ -1,10 +1,15 @@
 import UIKit
 import DataSource
 
-public class AutoCompleteView: UIView {
-    public typealias CompletionHandler = (_ selected: Any) -> Void
+public class AutoCompleteView<CompletionItem: Hashable>: UIView, UITableViewDelegate {
+    public enum Section: String, CaseIterable {
+        case main
+    }
+    
+    public typealias CompletionHandler = (_ selected: CompletionItem) -> Void
     public typealias TextDidChangeHandler = (_ text: String) -> Void
 
+    
     private lazy var tableView: UITableView = {
         let view = UITableView(frame: .zero, style: .plain)
         view.delegate = self
@@ -14,18 +19,23 @@ public class AutoCompleteView: UIView {
         view.rowHeight = UITableView.automaticDimension
         return view
     }()
-
-    private var dataSource: DataSource = DataSource(cellIdentifier: "")
+    
+    private lazy var dataSource: DataSource<Section, CompletionItem> = {
+        return DataSource<Section, CompletionItem>(sections: Section.allCases, tableViewCellProvider: tableViewCellProvider)
+    }()
+    
     private var keyboardManager: KeyboardManager? = KeyboardManager()
-    private weak var textField: UITextField?
-    private var presentingView: UIView?
+    private var tableViewCellProvider: DataSource<Section, CompletionItem>.TableViewCellProvider!
+    
+    private weak var textField: UITextField!
+    private weak var presentingView: UIView!
     
     public var completionSelected: CompletionHandler?
     public var textDidChange: TextDidChangeHandler?
-    public var completions: [Any] = [] {
+    public var completions: [CompletionItem] = [] {
         didSet {
-            self.dataSource.items = self.completions
-            self.tableView.reloadData()
+            dataSource.items[.main] = completions
+            tableView.reloadData()
         }
     }
     
@@ -35,51 +45,53 @@ public class AutoCompleteView: UIView {
     }
 
     deinit {
-        self.keyboardManager = nil
+        keyboardManager = nil
     }
 
-    public convenience init(textField: UITextField, presentingView: UIView) {
+    public convenience init(textField: UITextField, presentingView: UIView, tableViewCellProvider: @escaping DataSource<Section, CompletionItem>.TableViewCellProvider) {
         self.init()
         self.textField = textField
         self.presentingView = presentingView
+        self.tableViewCellProvider = tableViewCellProvider
+        
+        self.textField.addTarget(self, action: #selector(textFieldDidBegan), for: .editingDidBegin)
+        self.textField.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
+        self.textField.addTarget(self, action: #selector(textFieldDidEnd), for: .editingDidEnd)
 
-        textField.addTarget(self, action: #selector(textFieldDidBegan), for: .editingDidBegin)
-        textField.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
-        textField.addTarget(self, action: #selector(textFieldDidEnd), for: .editingDidEnd)
+        self.presentingView.addSubview(self)
 
-        presentingView.addSubview(self)
-
-        let textFieldFrame = presentingView.convert(self.textField!.frame, from: self.textField!.superview)
-        self.topAnchor.constraint(equalTo: presentingView.topAnchor, constant: textFieldFrame.maxY + 8).isActive = true
-        self.leftAnchor.constraint(equalTo: presentingView.safeAreaLayoutGuide.leftAnchor, constant: 8).isActive = true
-        self.rightAnchor.constraint(equalTo: presentingView.safeAreaLayoutGuide.rightAnchor, constant: -8).isActive = true
+        let textFieldFrame = self.presentingView.convert(self.textField.frame, from: self.textField.superview)
+        topAnchor.constraint(equalTo: self.presentingView.topAnchor, constant: textFieldFrame.maxY + 8).isActive = true
+        leftAnchor.constraint(equalTo: self.presentingView.safeAreaLayoutGuide.leftAnchor, constant: 8).isActive = true
+        rightAnchor.constraint(equalTo: self.presentingView.safeAreaLayoutGuide.rightAnchor, constant: -8).isActive = true
 
         commonInit()
     }
 
     private func commonInit() {
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.clipsToBounds = true
-        self.isHidden = true
+        translatesAutoresizingMaskIntoConstraints = false
+        clipsToBounds = true
+        isHidden = true
 
-        self.tableView.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(self.tableView)
-        self.tableView.anchorToSuperview()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(tableView)
+        tableView.anchorToSuperview()
+        tableView.dataSource = dataSource
+        
+        layer.cornerRadius = 10
+        layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 1)
+        layer.shadowOpacity = 1.0
+        layer.shadowRadius = 2.0
+        layer.masksToBounds = false
 
-        self.layer.cornerRadius = 10
-        self.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
-        self.layer.shadowOffset = CGSize(width: 0, height: 1)
-        self.layer.shadowOpacity = 1.0
-        self.layer.shadowRadius = 2.0
-        self.layer.masksToBounds = false
-
-        self.keyboardManager?.keyboardDidShowHandler = self.keyboardDidShow
+        keyboardManager?.keyboardDidShowHandler = keyboardDidShow
         layoutIfNeeded()
     }
 
     private func keyboardDidShow() {
         guard
-            let endFrame = self.keyboardManager?.keyboardInfo?.frameEnd,
+            let endFrame = keyboardManager?.keyboardInfo?.frameEnd,
             let textField = self.textField,
             let presentingView = self.presentingView
             else { return }
@@ -88,7 +100,7 @@ public class AutoCompleteView: UIView {
         frame.size.height -= endFrame.height
         frame.size.height -= (textField.frame.maxY + 64)
 
-        self.heightAnchor.constraint(equalToConstant: frame.height).isActive = true
+        heightAnchor.constraint(equalToConstant: frame.height).isActive = true
         layoutIfNeeded()
     }
 
@@ -99,44 +111,38 @@ public class AutoCompleteView: UIView {
 
         self.textDidChange?(text)
         if text.isEmpty {
-            self.completions = []
+            completions = []
         }
 
-        self.isHidden = text.isEmpty
+        isHidden = text.isEmpty
     }
 
     @objc public func textFieldDidBegan(_ textField: UITextField) {
         guard
             let text = textField.text
             else { return }
-        self.isHidden = text.isEmpty
+        isHidden = text.isEmpty
     }
 
     @objc public func textFieldDidEnd(_ textField: UITextField) {
-        self.isHidden = true
+        isHidden = true
+    }
+    
+    @objc public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        textField?.removeTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
+        tableView.deselectRow(at: indexPath, animated: true)
+        completionSelected?(completions[indexPath.row])
+        isHidden = true
+        textField?.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
     }
 }
 
 extension AutoCompleteView {
     public func register<T: Identifiable>(nib cls: T.Type, bundle: Bundle? = nil) {
-        self.tableView.register(nib: cls, bundle: bundle)
-        self.dataSource = DataSource(cellIdentifier: cls.identifier)
-        self.tableView.dataSource = self.dataSource
+        tableView.register(nib: cls, bundle: bundle)
     }
 
     public func register<T: Identifiable>(`class` cls: T.Type) {
-        self.tableView.register(class: cls)
-        self.dataSource = DataSource(cellIdentifier: cls.identifier)
-        self.tableView.dataSource = self.dataSource
-    }
-}
-
-extension AutoCompleteView: UITableViewDelegate {
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.textField?.removeTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
-        tableView.deselectRow(at: indexPath, animated: true)
-        self.completionSelected?(self.completions[indexPath.row])
-        self.isHidden = true
-        self.textField?.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
+        tableView.register(class: cls)
     }
 }
