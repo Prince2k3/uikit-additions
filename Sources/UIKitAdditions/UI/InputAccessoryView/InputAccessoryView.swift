@@ -21,7 +21,6 @@ public class InputAccessoryView: UIView {
         let button = UIButton()
         button.setImage(InputAccessoryIcons.imageOfArrowup, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.heightAnchor.constraint(equalToConstant: 44).isActive = true
         return button
     }()
     
@@ -29,7 +28,6 @@ public class InputAccessoryView: UIView {
         let button = UIButton()
         button.setImage(InputAccessoryIcons.imageOfArrowdown, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.heightAnchor.constraint(equalToConstant: 44).isActive = true
         return button
     }()
     
@@ -37,7 +35,6 @@ public class InputAccessoryView: UIView {
         let button = UIButton()
         button.setTitle("Done".localized(), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.heightAnchor.constraint(equalToConstant: 44).isActive = true
         button.widthAnchor.constraint(equalToConstant: 80).isActive = true
         return button
     }()
@@ -46,7 +43,7 @@ public class InputAccessoryView: UIView {
         let view = UIStackView(arrangedSubviews: [previousButton, nextButton])
         view.translatesAutoresizingMaskIntoConstraints = false
         view.distribution = .fillEqually
-        view.alignment = .center
+        view.alignment = .fill
         view.axis = .horizontal
         return view
     }()
@@ -59,7 +56,7 @@ public class InputAccessoryView: UIView {
         let view = UIStackView(arrangedSubviews: [buttonsStackView, spacer, doneButton])
         view.translatesAutoresizingMaskIntoConstraints = false
         view.distribution = .fill
-        view.alignment = .center
+        view.alignment = .fill
         view.axis = .horizontal
         return view
     }()
