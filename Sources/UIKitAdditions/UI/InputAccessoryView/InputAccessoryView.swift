@@ -125,7 +125,7 @@ public class InputAccessoryView: UIView {
     }
     
     public override init(frame: CGRect) {
-        super.init(frame: .zero)
+        super.init(frame: frame)
         commonInit()
     }
     
