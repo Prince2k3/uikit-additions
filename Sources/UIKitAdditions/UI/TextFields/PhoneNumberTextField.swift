@@ -4,51 +4,51 @@ import PhoneNumberKit
 public class PhoneNumberTextField: TextField {
     private let phoneNumberKit = PhoneNumberKit()
     
-    private(set) var partialFormatter: PartialFormatter?
+    private(set) lazy var partialFormatter: PartialFormatter = {
+        return PartialFormatter(phoneNumberKit: phoneNumberKit, defaultRegion: defaultRegion, withPrefix: withPrefix)
+    }()
     
     public var isPartialFormatterEnabled = true
     public var defaultRegion = PhoneNumberKit.defaultRegionCode() {
         didSet {
-            self.partialFormatter?.defaultRegion = defaultRegion
+            partialFormatter.defaultRegion = defaultRegion
         }
     }
     
     public var withPrefix: Bool = true {
         didSet {
-            self.partialFormatter = PartialFormatter(phoneNumberKit: self.phoneNumberKit, defaultRegion: self.defaultRegion, withPrefix: self.withPrefix)
-            
-            if self.withPrefix == false {
-                self.keyboardType = UIKeyboardType.numberPad
+            partialFormatter = PartialFormatter(phoneNumberKit: phoneNumberKit, defaultRegion: defaultRegion, withPrefix: withPrefix)
+            if withPrefix == false {
+                keyboardType = .numberPad
             } else {
-                self.keyboardType = UIKeyboardType.phonePad
+                keyboardType = .phonePad
             }
         }
     }
     
     public var currentRegion: String {
-        return self.partialFormatter?.currentRegion ?? ""
+        return partialFormatter.currentRegion
     }
     
     public var nationalNumber: String {
-        let rawNumber = self.text ?? ""
-        return self.partialFormatter?.nationalNumber(from: rawNumber) ?? ""
+        let rawNumber = text ?? ""
+        return partialFormatter.nationalNumber(from: rawNumber)
     }
     
     public override func setup() {
-        self.partialFormatter = PartialFormatter(phoneNumberKit: self.phoneNumberKit, defaultRegion: self.defaultRegion, withPrefix: self.withPrefix)
-        self.autocorrectionType = .no
-        self.keyboardType = UIKeyboardType.phonePad
+        autocorrectionType = .no
+        keyboardType = .phonePad
 
         super.setup()
     }
     
     public override func validate() -> Bool {
         do {
-            _ = try phoneNumberKit.parse(self.text ?? "", withRegion: self.currentRegion)
-            self.hasError = false
+            _ = try phoneNumberKit.parse(text ?? "", withRegion: currentRegion)
+            hasError = false
             return true
         } catch {
-            self.hasError = true
+            hasError = true
             return false
         }
     }
@@ -59,6 +59,19 @@ public class PhoneNumberTextField: TextField {
     }
     
     private func formatPhoneNumber(_ value: inout String) {
-        value = self.partialFormatter?.formatPartial(value) ?? value
+        value = partialFormatter.formatPartial(value)
+    }
+}
+
+extension PhoneNumberKit {
+    public override convenience init() {
+        self.init(metadataCallback: PhoneNumberKit.bundleMetadataCallback)
+    }
+
+    public static func bundleMetadataCallback() throws -> Data? {
+        guard
+            let jsonPath = Bundle.main.path(forResource: "PhoneNumberMetadata", ofType: "json")
+            else { throw PhoneNumberError.metadataNotFound }
+        return try Data(contentsOf: URL(fileURLWithPath: jsonPath))
     }
 }
