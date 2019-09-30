@@ -46,6 +46,7 @@ public class InputAccessoryView: UIView {
         let view = UIStackView(arrangedSubviews: [previousButton, nextButton])
         view.translatesAutoresizingMaskIntoConstraints = false
         view.distribution = .fillEqually
+        view.alignment = .center
         view.axis = .horizontal
         return view
     }()
@@ -58,6 +59,7 @@ public class InputAccessoryView: UIView {
         let view = UIStackView(arrangedSubviews: [buttonsStackView, spacer, doneButton])
         view.translatesAutoresizingMaskIntoConstraints = false
         view.distribution = .fill
+        view.alignment = .center
         view.axis = .horizontal
         return view
     }()
@@ -137,7 +139,7 @@ public class InputAccessoryView: UIView {
     
     func commonInit() {
         formView.addSubview(formStackView)
-        formStackView.anchorToSuperview()
+        formStackView.anchorToSuperview(edgeInset: UIEdgeInsets(right: 16, left: 16))
         
         addSubview(formView)
         formView.anchorToSuperview()
