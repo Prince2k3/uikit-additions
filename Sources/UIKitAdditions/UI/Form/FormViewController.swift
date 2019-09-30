@@ -31,7 +31,9 @@ open class FormViewController: UITableViewController {
     }
 
     private lazy var textFieldInputAccessoryView: InputAccessoryView = {
-        let inputAccessoryView = InputAccessoryView(frame: CGRect(width: view.bounds.width, height: 44.0))
+        let inputAccessoryView = InputAccessoryView()
+        inputAccessoryView.tintColor = view.tintColor
+        inputAccessoryView.backgroundColor = inputAccessoryBackgroundColor
         inputAccessoryView.doneTitle = "Done".localized()
         inputAccessoryView.doneHandler = { textField in
             self.view.endEditing(true)
@@ -72,6 +74,7 @@ open class FormViewController: UITableViewController {
     private var hideRows: Bool = false
     private var isCountryUS = true
 
+    public var inputAccessoryBackgroundColor: UIColor = UIColor(hex: 0xefefef)
     public weak var delegate: FormViewControllerDelegate?
     
     public var state: FormState = .none {

@@ -7,7 +7,6 @@ public class InputAccessoryView: UIView {
     
     private lazy var formView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(hex: 0xefefef)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -23,6 +22,9 @@ public class InputAccessoryView: UIView {
         button.addTarget(self, action: #selector(previousButtonAction), for: .touchUpInside)
         button.setImage(InputAccessoryIcons.imageOfArrowup, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 44).isActive = true
+        button.tintColor = tintColor
         return button
     }()
     
@@ -31,6 +33,9 @@ public class InputAccessoryView: UIView {
         button.addTarget(self, action: #selector(nextButtonAction), for: .touchUpInside)
         button.setImage(InputAccessoryIcons.imageOfArrowdown, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 44).isActive = true
+        button.tintColor = tintColor
         return button
     }()
     
@@ -40,6 +45,7 @@ public class InputAccessoryView: UIView {
         button.addTarget(self, action: #selector(doneButtonAction), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        button.tintColor = tintColor
         return button
     }()
     
@@ -47,7 +53,7 @@ public class InputAccessoryView: UIView {
         let view = UIStackView(arrangedSubviews: [previousButton, nextButton])
         view.translatesAutoresizingMaskIntoConstraints = false
         view.distribution = .fillEqually
-        view.alignment = .fill
+        view.alignment = .center
         view.axis = .horizontal
         view.spacing = 8
         return view
@@ -130,7 +136,7 @@ public class InputAccessoryView: UIView {
     }
     
     public override init(frame: CGRect) {
-        super.init(frame: frame)
+        super.init(frame: CGRect(width: UIScreen.main.bounds.width, height: 44))
         commonInit()
     }
     
@@ -141,7 +147,7 @@ public class InputAccessoryView: UIView {
     
     func commonInit() {
         formView.addSubview(formStackView)
-        formStackView.anchorToSuperview(edgeInset: UIEdgeInsets(right: -16, left: 16))
+        formStackView.anchorToSuperview(edgeInset: UIEdgeInsets(right: -8, left: 16))
         
         addSubview(formView)
         formView.anchorToSuperview()
