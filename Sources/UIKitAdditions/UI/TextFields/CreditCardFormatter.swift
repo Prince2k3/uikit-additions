@@ -44,21 +44,21 @@ public enum CreditCardFormatter: String, Codable {
     public var image: UIImage? {
         switch self {
         case .visa:
-            return UIImage(named: "visa")
+            return CreditCardIcons.imageOfVisa
         case .masterCard:
-            return UIImage(named: "mastercard")
+            return CreditCardIcons.imageOfMastercard
         case .maestro:
-            return UIImage(named: "maestro")
+            return CreditCardIcons.imageOfMaestro
         case .discover:
-            return UIImage(named: "discover")
+            return CreditCardIcons.imageOfDiscover
         case .amex:
-            return UIImage(named: "amex")
+            return CreditCardIcons.imageOfAmex
         case .dinersClub:
-            return UIImage(named: "dinersclub")
+            return CreditCardIcons.imageOfDiners
         case .jcb:
-            return UIImage(named: "jcb")
+            return CreditCardIcons.imageOfJcb
         case .unknown:
-            return UIImage(named: "unknown")
+            return CreditCardIcons.imageOfUnknown
         }
     }
 }

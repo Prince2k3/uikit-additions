@@ -5,12 +5,35 @@ public class InputAccessoryView: NibLoadedView {
         case form, button
     }
     
-    @IBOutlet private var formView: UIView!
-    @IBOutlet private var buttonView: UIView!
-    @IBOutlet private var previousButton: UIButton!
-    @IBOutlet private var nextButton: UIButton!
-    @IBOutlet private var doneButton: UIButton!
-    @IBOutlet private var button: UIButton!
+    private var formView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    private var buttonView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    private var previousButton: UIButton = {
+        let button = UIButton()
+        return button
+    }()
+    
+    private var nextButton: UIButton = {
+       let button = UIButton()
+       return button
+    }()
+    
+    private var doneButton: UIButton = {
+       let button = UIButton()
+       return button
+    }()
+    
+    private var button: UIButton = {
+       let button = UIButton()
+       return button
+    }()
 
     public weak var view: UIView?
     
