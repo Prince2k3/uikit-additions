@@ -30,7 +30,45 @@ open class FormViewController: UITableViewController {
         }
     }
 
-    private let textFieldInputAccessoryView: InputAccessoryView = InputAccessoryView()
+    private lazy var textFieldInputAccessoryView: InputAccessoryView = {
+        let inputAccessoryView = InputAccessoryView(frame: CGRect(width: view.bounds.width, height: 44.0))
+        inputAccessoryView.doneTitle = "Done".localized()
+        inputAccessoryView.doneHandler = { textField in
+            self.view.endEditing(true)
+        }
+
+        inputAccessoryView.moveToNextHandler = { current in
+            guard
+                let current = current as? TextField,
+                let index = self.textFields.firstIndex(of: current)
+                else { return }
+
+            if (index + 1) < self.textFields.count {
+                let textField = self.textFields[safe: index + 1]
+                textField?.becomeFirstResponder()
+            } else {
+                let textField = self.textFields[safe: 0]
+                textField?.becomeFirstResponder()
+            }
+        }
+
+        inputAccessoryView.moveToPreviousHandler = { current in
+            guard
+                let current = current as? TextField,
+                let index = self.textFields.firstIndex(of: current)
+                else { return }
+
+            if (index - 1) > -1 {
+                let textField = self.textFields[safe: index - 1]
+                textField?.becomeFirstResponder()
+            } else {
+                let textField = self.textFields[safe: self.textFields.count - 1]
+                textField?.becomeFirstResponder()
+            }
+        }
+        return inputAccessoryView
+    }()
+    
     private var hideRows: Bool = false
     private var isCountryUS = true
 
@@ -47,41 +85,6 @@ open class FormViewController: UITableViewController {
     }
 
     open override var inputAccessoryView: UIView? {
-        self.textFieldInputAccessoryView.formDoneTitle = "Done"
-        self.textFieldInputAccessoryView.doneHandler = { textField in
-            self.view.endEditing(true)
-        }
-
-        self.textFieldInputAccessoryView.moveToNextHandler = { current in
-            guard
-                let current = current as? TextField,
-                let index = self.textFields.firstIndex(of: current)
-                else { return }
-
-            if (index + 1) < self.textFields.count {
-                let textField = self.textFields[safe: index + 1]
-                textField?.becomeFirstResponder()
-            } else {
-                let textField = self.textFields[safe: 0]
-                textField?.becomeFirstResponder()
-            }
-        }
-
-        self.textFieldInputAccessoryView.moveToPreviousHandler = { current in
-            guard
-                let current = current as? TextField,
-                let index = self.textFields.firstIndex(of: current)
-                else { return }
-
-            if (index - 1) > -1 {
-                let textField = self.textFields[safe: index - 1]
-                textField?.becomeFirstResponder()
-            } else {
-                let textField = self.textFields[safe: self.textFields.count - 1]
-                textField?.becomeFirstResponder()
-            }
-        }
-
         return self.textFieldInputAccessoryView
     }
 
@@ -107,9 +110,9 @@ open class FormViewController: UITableViewController {
         case .state where self.isCountryUS:
             let states = ResourceUtils.states.map { $0.name }.sorted()
             listInputView(for: textField, items: states)
-            textField.placeholder = "State"
+            textField.placeholder = "State".localized()
         case .state where !self.isCountryUS:
-            textField.placeholder = "Province/Region"
+            textField.placeholder = "Province/Region".localized()
             textField.inputView = nil
         case .country:
             var countries = ResourceUtils.countries.map { $0.region }.sorted()
@@ -132,7 +135,7 @@ open class FormViewController: UITableViewController {
         
         self.textFields.forEach {
             if $0.tag == FormEntry.state.rawValue {
-                $0.placeholder = self.isCountryUS ? "State" : "Province/Region"
+                $0.placeholder = self.isCountryUS ? "State".localized() : "Province/Region".localized()
             }
         }
     }

@@ -90,13 +90,13 @@ public class InputAccessoryView: UIView {
         }
     }
     
-    public var buttonTitle: String = "Next" {
+    public var buttonTitle: String = "Next".localized() {
         didSet {
             button.setTitle(buttonTitle, for: .normal)
         }
     }
     
-    public var formDoneTitle: String {
+    public var doneTitle: String {
         get { return doneButton.titleLabel?.text ?? "" }
         set { doneButton.setTitle(newValue, for: .normal) }
     }
@@ -149,6 +149,8 @@ public class InputAccessoryView: UIView {
         
         addSubview(buttonView)
         buttonView.anchorToSuperview()
+        
+        buttonView.isHidden = true
     }
     
     func previousButtonAction(_ button: UIButton) {
