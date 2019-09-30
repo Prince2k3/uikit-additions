@@ -67,7 +67,7 @@ public class InputAccessoryView: UIView {
         let view = UIStackView(arrangedSubviews: [buttonsStackView, spacer, doneButton])
         view.translatesAutoresizingMaskIntoConstraints = false
         view.distribution = .fill
-        view.alignment = .fill
+        view.alignment = .center
         view.axis = .horizontal
         return view
     }()
