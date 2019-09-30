@@ -7,6 +7,7 @@ public class InputAccessoryView: UIView {
     
     private lazy var formView: UIView = {
         let view = UIView()
+        view.backgroundColor = UIColor(hex: 0xefefef)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -19,6 +20,7 @@ public class InputAccessoryView: UIView {
     
     private lazy var previousButton: UIButton = {
         let button = UIButton()
+        button.addTarget(self, action: #selector(previousButtonAction), for: .touchUpInside)
         button.setImage(InputAccessoryIcons.imageOfArrowup, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -26,6 +28,7 @@ public class InputAccessoryView: UIView {
     
     private lazy var nextButton: UIButton = {
         let button = UIButton()
+        button.addTarget(self, action: #selector(nextButtonAction), for: .touchUpInside)
         button.setImage(InputAccessoryIcons.imageOfArrowdown, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -34,6 +37,7 @@ public class InputAccessoryView: UIView {
     private lazy var doneButton: UIButton = {
         let button = UIButton()
         button.setTitle("Done".localized(), for: .normal)
+        button.addTarget(self, action: #selector(doneButtonAction), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.widthAnchor.constraint(equalToConstant: 80).isActive = true
         return button
@@ -45,6 +49,7 @@ public class InputAccessoryView: UIView {
         view.distribution = .fillEqually
         view.alignment = .fill
         view.axis = .horizontal
+        view.spacing = 8
         return view
     }()
     
@@ -136,7 +141,7 @@ public class InputAccessoryView: UIView {
     
     func commonInit() {
         formView.addSubview(formStackView)
-        formStackView.anchorToSuperview(edgeInset: UIEdgeInsets(right: 16, left: 16))
+        formStackView.anchorToSuperview(edgeInset: UIEdgeInsets(right: -16, left: 16))
         
         addSubview(formView)
         formView.anchorToSuperview()
@@ -150,19 +155,19 @@ public class InputAccessoryView: UIView {
         buttonView.isHidden = true
     }
     
-    func previousButtonAction(_ button: UIButton) {
+    @objc func previousButtonAction(_ button: UIButton) {
         moveToPreviousHandler?(view)
     }
     
-    func nextButtonAction(_ button: UIButton) {
+    @objc func nextButtonAction(_ button: UIButton) {
         moveToNextHandler?(view)
     }
     
-    func doneButtonAction(_ button: UIButton) {
+    @objc func doneButtonAction(_ button: UIButton) {
         doneHandler?(view)
     }
     
-    func buttonAction() {
+    @objc func buttonAction() {
         buttonActionHandler?()
     }
 }
