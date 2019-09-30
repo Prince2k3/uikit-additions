@@ -16,16 +16,16 @@ extension UIViewController {
     }
 
     public func showImagePickerOptions(delegate: ImagePickerControllerDelegate) {
-        let actionSheetController = UIAlertController(title: "", message: "Choose how you want to edit photo", preferredStyle: .actionSheet)
-        let photoAction = UIAlertAction(title: "Pick a photo", style: .default) { _ in
+        let actionSheetController = UIAlertController(title: "", message: "Choose how you want to edit photo".localized(), preferredStyle: .actionSheet)
+        let photoAction = UIAlertAction(title: "Pick a photo".localized(), style: .default) { _ in
             self.showImagePickerViewController(.photoLibrary, delegate: delegate)
         }
         actionSheetController.addAction(photoAction)
-        let cameraAction = UIAlertAction(title: "Use Camera", style: .default) { _ in
+        let cameraAction = UIAlertAction(title: "Use Camera".localized(), style: .default) { _ in
             self.showImagePickerViewController(.camera, delegate: delegate)
         }
         actionSheetController.addAction(cameraAction)
-        actionSheetController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        actionSheetController.addAction(UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil))
         present(actionSheetController, animated: true, completion: nil)
     }
 

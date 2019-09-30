@@ -2,7 +2,7 @@ import UIKit
 
 extension UIViewController {
     @discardableResult
-    public func presentAlert(title: String, message: String, buttonTitles: [String] = ["OK"], completion: ((UIAlertAction) -> Void)? = nil) -> UIAlertController {
+    public func presentAlert(title: String, message: String, buttonTitles: [String] = ["OK".localized()], completion: ((UIAlertAction) -> Void)? = nil) -> UIAlertController {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         buttonTitles.forEach {
             var style: UIAlertAction.Style = .default
@@ -25,7 +25,7 @@ extension UIViewController {
 
 extension UIApplication {
     @discardableResult
-    public static func presentAlert(title: String, message: String, buttonTitles: [String] = ["OK"], completion: ((UIAlertAction) -> Void)? = nil) -> UIAlertController? {
+    public static func presentAlert(title: String, message: String, buttonTitles: [String] = ["OK".localized()], completion: ((UIAlertAction) -> Void)? = nil) -> UIAlertController? {
         return self.shared.keyWindow?.rootViewController?.presentAlert(title: title, message: message, buttonTitles: buttonTitles, completion: completion)
     }
 }

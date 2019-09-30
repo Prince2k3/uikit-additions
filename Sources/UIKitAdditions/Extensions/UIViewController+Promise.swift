@@ -11,7 +11,7 @@ import PromiseKit
 
 extension UIViewController {
     @discardableResult
-    public func presentAlert(title: String, message: String, buttonTitles: [String] = ["OK"]) -> Guarantee<UIAlertAction> {
+    public func presentAlert(title: String, message: String, buttonTitles: [String] = ["OK".localized()]) -> Guarantee<UIAlertAction> {
         return Guarantee { fulfill in
             self.presentAlert(title: title, message: message, buttonTitles: buttonTitles) { action in
                 fulfill(action)
@@ -22,7 +22,7 @@ extension UIViewController {
 
 extension UIApplication {
     @discardableResult
-    public static func presentAlert(title: String, message: String, buttonTitles: [String] = ["OK"]) -> Guarantee<UIAlertAction> {
+    public static func presentAlert(title: String, message: String, buttonTitles: [String] = ["OK".localized()]) -> Guarantee<UIAlertAction> {
         return Guarantee { fulfill in
             guard
                 let rootViewController = self.shared.keyWindow?.rootViewController

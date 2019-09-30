@@ -1,38 +1,72 @@
 import UIKit
 
-public class InputAccessoryView: NibLoadedView {
+public class InputAccessoryView: UIView {
     public enum Kind {
         case form, button
     }
     
-    private var formView: UIView = {
+    private lazy var formView: UIView = {
         let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    private var buttonView: UIView = {
+    private lazy var buttonView: UIView = {
         let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    private var previousButton: UIButton = {
+    private lazy var previousButton: UIButton = {
         let button = UIButton()
+        button.setImage(InputAccessoryIcons.imageOfArrowup, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.heightAnchor.constraint(equalToConstant: 44).isActive = true
         return button
     }()
     
-    private var nextButton: UIButton = {
-       let button = UIButton()
-       return button
+    private lazy var nextButton: UIButton = {
+        let button = UIButton()
+        button.setImage(InputAccessoryIcons.imageOfArrowdown, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        return button
     }()
     
-    private var doneButton: UIButton = {
-       let button = UIButton()
-       return button
+    private lazy var doneButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Done".localized(), for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        return button
+    }()
+    
+    private lazy var buttonsStackView: UIStackView = {
+        let view = UIStackView(arrangedSubviews: [previousButton, nextButton])
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.distribution = .fillEqually
+        view.axis = .horizontal
+        return view
+    }()
+    
+    private lazy var formStackView: UIStackView = {
+        let spacer = UIView()
+        spacer.translatesAutoresizingMaskIntoConstraints = false
+        spacer.backgroundColor = .clear
+        
+        let view = UIStackView(arrangedSubviews: [buttonsStackView, spacer, doneButton])
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.distribution = .fill
+        view.axis = .horizontal
+        return view
     }()
     
     private var button: UIButton = {
-       let button = UIButton()
-       return button
+        let button = UIButton()
+        button.setTitle("Next".localized(), for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
 
     public weak var view: UIView?
@@ -43,69 +77,91 @@ public class InputAccessoryView: NibLoadedView {
     public var buttonActionHandler: (() -> Void)?
     public var inputType: InputAccessoryView.Kind = .form {
         didSet {
-            self.buttonView.isHidden = self.inputType != .button
-            self.formView.isHidden = self.inputType != .form
+            buttonView.isHidden = inputType != .button
+            formView.isHidden = inputType != .form
         }
     }
 
     public var buttonBackgroundColor: UIColor? {
         didSet {
-            self.button.setBackgroundColor(self.buttonBackgroundColor, for: .normal)
+            button.setBackgroundColor(buttonBackgroundColor, for: .normal)
         }
     }
     
     public var buttonTitle: String = "Next" {
         didSet {
-            self.button.setTitle(self.buttonTitle, for: .normal)
+            button.setTitle(buttonTitle, for: .normal)
         }
     }
     
     public var formDoneTitle: String {
-        get { return self.doneButton?.titleLabel?.text ?? "" }
-        set { self.doneButton.setTitle(newValue, for: .normal) }
+        get { return doneButton.titleLabel?.text ?? "" }
+        set { doneButton.setTitle(newValue, for: .normal) }
     }
 
     public var isPreviousButtonEnabled: Bool = false {
         didSet {
-            previousButton?.isEnabled = self.isPreviousButtonEnabled
-            previousButton?.alpha = self.isPreviousButtonEnabled ? 1 : 0.4
+            previousButton.isEnabled = isPreviousButtonEnabled
+            previousButton.alpha = isPreviousButtonEnabled ? 1 : 0.4
         }
     }
 
     public var isNextButtonEnabled: Bool = false {
         didSet {
-            self.nextButton?.isEnabled = self.isNextButtonEnabled
-            self.nextButton?.alpha = self.isNextButtonEnabled ? 1 : 0.4
+            nextButton.isEnabled = isNextButtonEnabled
+            nextButton.alpha = isNextButtonEnabled ? 1 : 0.4
         }
     }
 
     public var isNextButtonHidden: Bool = false {
         didSet {
-            self.nextButton.isHidden = self.isNextButtonHidden
+            nextButton.isHidden = isNextButtonHidden
         }
     }
 
     public var isPreviousButtonHidden: Bool = false {
         didSet {
-            self.previousButton.isHidden = self.isPreviousButtonHidden
+            previousButton.isHidden = isPreviousButtonHidden
         }
     }
-}
-
-extension InputAccessoryView {
-    @IBAction func previousButtonAction(_ button: UIButton) {
-        self.moveToPreviousHandler?(self.view)
+    
+    public override init(frame: CGRect) {
+        super.init(frame: .zero)
+        commonInit()
     }
     
-    @IBAction func nextButtonAction(_ button: UIButton) {
-        self.moveToNextHandler?(self.view)
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
     }
     
-    @IBAction func doneButtonAction(_ button: UIButton) {
-        self.doneHandler?(self.view)
+    func commonInit() {
+        formView.addSubview(formStackView)
+        formStackView.anchorToSuperview()
+        
+        addSubview(formView)
+        formView.anchorToSuperview()
+        
+        buttonView.addSubview(button)
+        button.anchorToSuperview()
+        
+        addSubview(buttonView)
+        buttonView.anchorToSuperview()
     }
     
-    @IBAction func buttonAction() {
-        self.buttonActionHandler?()
+    func previousButtonAction(_ button: UIButton) {
+        moveToPreviousHandler?(view)
+    }
+    
+    func nextButtonAction(_ button: UIButton) {
+        moveToNextHandler?(view)
+    }
+    
+    func doneButtonAction(_ button: UIButton) {
+        doneHandler?(view)
+    }
+    
+    func buttonAction() {
+        buttonActionHandler?()
     }
 }

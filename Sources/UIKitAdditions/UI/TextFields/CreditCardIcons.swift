@@ -1391,7 +1391,7 @@ public class CreditCardIcons: NSObject {
         }
 
         UIGraphicsBeginImageContextWithOptions(CGSize(width: 780, height: 500), false, 0)
-            CreditCards.drawAmex()
+            CreditCardIcons.drawAmex()
 
         Cache.imageOfAmex = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
@@ -1405,7 +1405,7 @@ public class CreditCardIcons: NSObject {
         }
 
         UIGraphicsBeginImageContextWithOptions(CGSize(width: 780, height: 500), false, 0)
-            CreditCards.drawDiners()
+            CreditCardIcons.drawDiners()
 
         Cache.imageOfDiners = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
@@ -1419,7 +1419,7 @@ public class CreditCardIcons: NSObject {
         }
 
         UIGraphicsBeginImageContextWithOptions(CGSize(width: 780, height: 500), false, 0)
-            CreditCards.drawDiscover()
+            CreditCardIcons.drawDiscover()
 
         Cache.imageOfDiscover = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
@@ -1433,7 +1433,7 @@ public class CreditCardIcons: NSObject {
         }
 
         UIGraphicsBeginImageContextWithOptions(CGSize(width: 780, height: 500), false, 0)
-            CreditCards.drawUnknown()
+            CreditCardIcons.drawUnknown()
 
         Cache.imageOfUnknown = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
@@ -1447,7 +1447,7 @@ public class CreditCardIcons: NSObject {
         }
 
         UIGraphicsBeginImageContextWithOptions(CGSize(width: 780, height: 500), false, 0)
-            CreditCards.drawJcb()
+            CreditCardIcons.drawJcb()
 
         Cache.imageOfJcb = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
@@ -1461,7 +1461,7 @@ public class CreditCardIcons: NSObject {
         }
 
         UIGraphicsBeginImageContextWithOptions(CGSize(width: 780, height: 500), false, 0)
-            CreditCards.drawVisa()
+            CreditCardIcons.drawVisa()
 
         Cache.imageOfVisa = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
@@ -1475,7 +1475,7 @@ public class CreditCardIcons: NSObject {
         }
 
         UIGraphicsBeginImageContextWithOptions(CGSize(width: 750, height: 471), false, 0)
-            CreditCards.drawMaestro()
+            CreditCardIcons.drawMaestro()
 
         Cache.imageOfMaestro = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
@@ -1489,7 +1489,7 @@ public class CreditCardIcons: NSObject {
         }
 
         UIGraphicsBeginImageContextWithOptions(CGSize(width: 750, height: 471), false, 0)
-            CreditCards.drawMastercard()
+            CreditCardIcons.drawMastercard()
 
         Cache.imageOfMastercard = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
@@ -1504,7 +1504,7 @@ public class CreditCardIcons: NSObject {
         set {
             Cache.amexTargets = newValue
             for target: AnyObject in newValue {
-                let _ = target.perform(NSSelectorFromString("setImage:"), with: CreditCards.imageOfAmex)
+                let _ = target.perform(NSSelectorFromString("setImage:"), with: CreditCardIcons.imageOfAmex)
             }
         }
     }
@@ -1514,7 +1514,7 @@ public class CreditCardIcons: NSObject {
         set {
             Cache.dinersTargets = newValue
             for target: AnyObject in newValue {
-                let _ = target.perform(NSSelectorFromString("setImage:"), with: CreditCards.imageOfDiners)
+                let _ = target.perform(NSSelectorFromString("setImage:"), with: CreditCardIcons.imageOfDiners)
             }
         }
     }
@@ -1524,7 +1524,7 @@ public class CreditCardIcons: NSObject {
         set {
             Cache.discoverTargets = newValue
             for target: AnyObject in newValue {
-                let _ = target.perform(NSSelectorFromString("setImage:"), with: CreditCards.imageOfDiscover)
+                let _ = target.perform(NSSelectorFromString("setImage:"), with: CreditCardIcons.imageOfDiscover)
             }
         }
     }
@@ -1534,7 +1534,7 @@ public class CreditCardIcons: NSObject {
         set {
             Cache.unknownTargets = newValue
             for target: AnyObject in newValue {
-                let _ = target.perform(NSSelectorFromString("setImage:"), with: CreditCards.imageOfUnknown)
+                let _ = target.perform(NSSelectorFromString("setImage:"), with: CreditCardIcons.imageOfUnknown)
             }
         }
     }
@@ -1544,7 +1544,7 @@ public class CreditCardIcons: NSObject {
         set {
             Cache.jcbTargets = newValue
             for target: AnyObject in newValue {
-                let _ = target.perform(NSSelectorFromString("setImage:"), with: CreditCards.imageOfJcb)
+                let _ = target.perform(NSSelectorFromString("setImage:"), with: CreditCardIcons.imageOfJcb)
             }
         }
     }
@@ -1554,7 +1554,7 @@ public class CreditCardIcons: NSObject {
         set {
             Cache.visaTargets = newValue
             for target: AnyObject in newValue {
-                let _ = target.perform(NSSelectorFromString("setImage:"), with: CreditCards.imageOfVisa)
+                let _ = target.perform(NSSelectorFromString("setImage:"), with: CreditCardIcons.imageOfVisa)
             }
         }
     }
@@ -1564,7 +1564,7 @@ public class CreditCardIcons: NSObject {
         set {
             Cache.maestroTargets = newValue
             for target: AnyObject in newValue {
-                let _ = target.perform(NSSelectorFromString("setImage:"), with: CreditCards.imageOfMaestro)
+                let _ = target.perform(NSSelectorFromString("setImage:"), with: CreditCardIcons.imageOfMaestro)
             }
         }
     }
@@ -1574,7 +1574,7 @@ public class CreditCardIcons: NSObject {
         set {
             Cache.mastercardTargets = newValue
             for target: AnyObject in newValue {
-                let _ = target.perform(NSSelectorFromString("setImage:"), with: CreditCards.imageOfMastercard)
+                let _ = target.perform(NSSelectorFromString("setImage:"), with: CreditCardIcons.imageOfMastercard)
             }
         }
     }
