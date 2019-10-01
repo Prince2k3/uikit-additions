@@ -2,7 +2,7 @@ import UIKit
 import PhoneNumberKit
 
 public class PhoneNumberTextField: TextField {
-    private let phoneNumberKit = PhoneNumberKit()
+    private let phoneNumberKit = PhoneNumberKit(metadataCallback: PhoneNumberKit.bundleMetadataCallback)
     
     private(set) lazy var partialFormatter: PartialFormatter = {
         return PartialFormatter(phoneNumberKit: phoneNumberKit, defaultRegion: defaultRegion, withPrefix: withPrefix)
@@ -64,10 +64,6 @@ public class PhoneNumberTextField: TextField {
 }
 
 extension PhoneNumberKit {
-    public override convenience init() {
-        self.init(metadataCallback: PhoneNumberKit.bundleMetadataCallback)
-    }
-
     public static func bundleMetadataCallback() throws -> Data? {
         guard
             let jsonPath = Bundle.main.path(forResource: "PhoneNumberMetadata", ofType: "json")
