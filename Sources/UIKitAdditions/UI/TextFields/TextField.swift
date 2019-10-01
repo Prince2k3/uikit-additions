@@ -18,21 +18,22 @@ public class TextField: UITextField {
     @IBInspectable public var inactiveFloatingLabelColor: UIColor = .lightGray
     @IBInspectable public var placeholderTextColor: UIColor = .black {
         didSet {
-            if let placeholder = self.placeholder {
-                self.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [.foregroundColor: self.placeholderTextColor])
+            if let placeholder = placeholder {
+                attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [.foregroundColor: placeholderTextColor])
             }
         }
     }
 
+    @IBInspectable public var underlineActiveViewColor: UIColor = UIColor.lightGray.withAlphaComponent(0.4)
     @IBInspectable public var underlineViewColor: UIColor = UIColor.lightGray.withAlphaComponent(0.4) {
         didSet {
-            self.underlineView?.backgroundColor = self.underlineViewColor
+            underlineView?.backgroundColor = underlineViewColor
         }
     }
 
     @IBInspectable public var enableFloatingPlaceholder: Bool = true {
         didSet {
-            if !self.enableFloatingPlaceholder {
+            if !enableFloatingPlaceholder {
                 hideFloatinglabel(false)
             }
         }
@@ -40,16 +41,16 @@ public class TextField: UITextField {
 
     @IBInspectable public var showUnderline: Bool = false {
         didSet {
-            self.underlineView.alpha = self.showUnderline ? 1 : 0
-            if self.showUnderline {
-                self.borderWidth = 0
+            underlineView.alpha = showUnderline ? 1 : 0
+            if showUnderline {
+                borderWidth = 0
             }
         }
     }
 
     @IBInspectable public var useAsDropDown: Bool = false {
         didSet {
-            UIMenuController.shared.isMenuVisible = !self.useAsDropDown
+            UIMenuController.shared.isMenuVisible = !useAsDropDown
             setNeedsLayout()
         }
     }
@@ -66,28 +67,28 @@ public class TextField: UITextField {
     public var validator: Validator?
     public var hasError: Bool = false {
         didSet {
-            guard self.hasError != oldValue else { return }
+            guard hasError != oldValue else { return }
             updateError()
         }
     }
 
     public var iconPosition: IconPosition = .left {
         didSet {
-            guard self.iconPosition != oldValue else { return }
+            guard iconPosition != oldValue else { return }
             updateIcon()
         }
     }
 
     public var iconSize: CGSize = CGSize(width: 45, height: 24) {
         didSet {
-            guard self.iconSize != oldValue else { return }
+            guard iconSize != oldValue else { return }
             updateIcon()
         }
     }
 
     public var iconImage: UIImage? {
         didSet {
-            guard self.iconImage != oldValue else { return }
+            guard iconImage != oldValue else { return }
             updateIcon()
         }
     }
@@ -98,39 +99,39 @@ public class TextField: UITextField {
         get { return super.text }
 
         set {
-            self._text = newValue ?? ""
-            checkText(&self._text, animated: doAnimation)
-            super.text = self._text
+            _text = newValue ?? ""
+            checkText(&_text, animated: doAnimation)
+            super.text = _text
         }
     }
 
     public override var textAlignment: NSTextAlignment {
         didSet {
-            self.floatingLabel?.textAlignment = self.textAlignment
+            floatingLabel?.textAlignment = textAlignment
         }
     }
 
     public override var font: UIFont? {
         didSet {
-            self.floatingLabel?.font = self.font
+            floatingLabel?.font = font
         }
     }
 
     public override var attributedPlaceholder: NSAttributedString? {
         didSet {
             if let attributedPlaceholder = attributedPlaceholder {
-                self.floatingLabel?.text = nil
-                self.floatingLabel?.attributedText = attributedPlaceholder
+                floatingLabel?.text = nil
+                floatingLabel?.attributedText = attributedPlaceholder
             }
         }
     }
 
     public override var placeholder: String? {
         didSet {
-            if let placeholder = self.placeholder {
-                self.floatingLabel?.attributedText = nil
-                self.floatingLabel?.text = placeholder
-                self.accessibilityLabel = placeholder
+            if let placeholder = placeholder {
+                floatingLabel?.attributedText = nil
+                floatingLabel?.text = placeholder
+                accessibilityLabel = placeholder
             }
         }
     }
@@ -148,11 +149,11 @@ public class TextField: UITextField {
     public override func textRect(forBounds bounds: CGRect) -> CGRect {
         var rect =  super.textRect(forBounds: bounds)
 
-        if let leftView = self.leftView,
-            self.leftViewMode == .always {
+        if let leftView = leftView,
+            leftViewMode == .always {
             rect.origin.x = leftView.frame.maxX + 6
-        } else if let rightView = self.rightView,
-            self.rightViewMode == .always {
+        } else if let rightView = rightView,
+            rightViewMode == .always {
             rect.origin.x = 0
             rect.size.width = bounds.width - rightView.frame.width
         }
@@ -164,7 +165,7 @@ public class TextField: UITextField {
     }
 
     public override func caretRect(for position: UITextPosition) -> CGRect {
-        if self.useAsDropDown {
+        if useAsDropDown {
             return .zero
         }
         return super.caretRect(for: position)
@@ -175,7 +176,7 @@ public class TextField: UITextField {
             action == #selector(UIResponderStandardEditActions.select) &&
             action == #selector(UIResponderStandardEditActions.selectAll) &&
             action == #selector(UIResponderStandardEditActions.copy) &&
-            self.useAsDropDown {
+            useAsDropDown {
 
             return false
         }
@@ -183,7 +184,7 @@ public class TextField: UITextField {
     }
 
     public override func selectionRects(for range: UITextRange) -> [UITextSelectionRect] {
-        if self.useAsDropDown {
+        if useAsDropDown {
             return []
         }
         return super.selectionRects(for: range)
@@ -192,52 +193,52 @@ public class TextField: UITextField {
     func setup() {
 
         // setup underline View
-        self.underlineView = UIView()
-        self.underlineView.backgroundColor = underlineViewColor
-        self.underlineView.translatesAutoresizingMaskIntoConstraints = false
+        underlineView = UIView()
+        underlineView.backgroundColor = underlineViewColor
+        underlineView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(underlineView)
-        self.underlineView.alpha = 0
+        underlineView.alpha = 0
 
         // setup floating label
-        self.floatingLabel = UILabel()
-        addSubview(self.floatingLabel)
-        self.floatingLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.floatingLabel.textAlignment = self.textAlignment
-        self.floatingLabel.textColor = self.activeFloatingLabelColor
+        floatingLabel = UILabel()
+        addSubview(floatingLabel)
+        floatingLabel.translatesAutoresizingMaskIntoConstraints = false
+        floatingLabel.textAlignment = textAlignment
+        floatingLabel.textColor = activeFloatingLabelColor
         if let font = self.font {
-            self.floatingLabel.font = UIFont(name: font.familyName, size: (max(12, font.pointSize * 0.65)))
+            floatingLabel.font = UIFont(name: font.familyName, size: (max(12, font.pointSize * 0.65)))
         }
-        self.floatingLabel.text = self.placeholder
-        self.floatingLabel.alpha = 0
-        self.floatingLabel.sizeToFit()
+        floatingLabel.text = placeholder
+        floatingLabel.alpha = 0
+        floatingLabel.sizeToFit()
 
-        self.underlineView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        self.underlineView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        self.underlineView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        self.underlineView.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        underlineView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        underlineView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        underlineView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        underlineView.heightAnchor.constraint(equalToConstant: 1).isActive = true
 
-        self.floatingLabel.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        self.floatingLabel.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        self.floatingLabelTopConstraint = self.floatingLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
-        self.floatingLabelTopConstraint.isActive = true
+        floatingLabel.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        floatingLabel.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        floatingLabelTopConstraint = floatingLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
+        floatingLabelTopConstraint.isActive = true
 
         addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
         addTarget(self, action: #selector(textFieldEditingDidEnd), for: .editingDidEnd)
         addTarget(self, action: #selector(textFieldEditingDidBegin), for: .editingDidBegin)
 
-        self.clipsToBounds = false
-        self.originalPlaceholder = self.placeholder ?? ""
-        self.originalBorderColor = self.borderColor
-        self.originalTextColor = self.textColor
+        clipsToBounds = false
+        originalPlaceholder = placeholder ?? ""
+        originalBorderColor = borderColor
+        originalTextColor = textColor
     }
 
     public func showFloatingLabel(_ animated: Bool = true) {
-        if self.floatingLabelVisible || !self.enableFloatingPlaceholder {
+        if floatingLabelVisible || !enableFloatingPlaceholder {
             return
         }
 
-        self.floatingLabel?.textColor = self.isFirstResponder ? self.activeFloatingLabelColor : self.inactiveFloatingLabelColor
-        self.floatingLabelTopConstraint?.constant = -(bounds.height / 2)
+        floatingLabel?.textColor = isFirstResponder ? activeFloatingLabelColor : inactiveFloatingLabelColor
+        floatingLabelTopConstraint?.constant = -(bounds.height / 2)
 
         UIView.animate(withDuration: animated ? 0.3 : 0, delay: 0, options: .curveEaseInOut, animations: {
             self.floatingLabel?.alpha = 1
@@ -249,10 +250,10 @@ public class TextField: UITextField {
     }
 
     public func hideFloatinglabel(_ animated: Bool = true) {
-        if !self.floatingLabelVisible || !self.enableFloatingPlaceholder {
+        if !floatingLabelVisible || !enableFloatingPlaceholder {
             return
         }
-        self.floatingLabelTopConstraint?.constant = 0
+        floatingLabelTopConstraint?.constant = 0
         UIView.animate(withDuration: animated ? 0.15 : 0, animations: {
             self.floatingLabel?.alpha = 0
             self.layoutIfNeeded()
@@ -263,44 +264,44 @@ public class TextField: UITextField {
     }
 
     public func updateError() {
-        if self.hasError {
-            self.originalBorderColor = self.borderColor
-            self.originalTextColor = self.textColor
-            self.borderColor = .red
-            self.textColor = self.borderColor
-            self.underlineView?.backgroundColor = self.borderColor
-            self.floatingLabel?.textColor = self.borderColor
-            self.placeholder = self.validator?.errorMessage ?? self.originalPlaceholder
+        if hasError {
+            originalBorderColor = borderColor
+            originalTextColor = textColor
+            borderColor = .red
+            textColor = borderColor
+            underlineView?.backgroundColor = borderColor
+            floatingLabel?.textColor = borderColor
+            placeholder = validator?.errorMessage ?? originalPlaceholder
         } else {
-            self.borderColor = self.originalBorderColor
-            self.textColor = self.originalTextColor
-            self.underlineView?.backgroundColor = self.underlineViewColor
-            self.floatingLabel?.textColor = self.isFirstResponder ? self.activeFloatingLabelColor : self.inactiveFloatingLabelColor
-            self.placeholder = self.originalPlaceholder
+            borderColor = originalBorderColor
+            textColor = originalTextColor
+            underlineView?.backgroundColor = underlineViewColor
+            floatingLabel?.textColor = isFirstResponder ? activeFloatingLabelColor : inactiveFloatingLabelColor
+            placeholder = originalPlaceholder
         }
 
-        if let placeholder = self.placeholder {
-            let attributes: [NSAttributedString.Key: Any] =  [.foregroundColor: self.hasError ? self.borderColor ?? .red : self.placeholderTextColor]
-            self.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: attributes)
+        if let placeholder = placeholder {
+            let attributes: [NSAttributedString.Key: Any] =  [.foregroundColor: hasError ? borderColor ?? .red : placeholderTextColor]
+            attributedPlaceholder = NSAttributedString(string: placeholder, attributes: attributes)
         }
     }
 
     public func updateIcon() {
-        self.leftView = nil
-        self.leftViewMode = .never
-        self.rightView = nil
-        self.rightViewMode = .never
+        leftView = nil
+        leftViewMode = .never
+        rightView = nil
+        rightViewMode = .never
 
         if let iconImage = self.iconImage {
             let imageView = UIImageView(image: iconImage)
-            imageView.frame = CGRect(origin: .zero, size: self.iconSize)
+            imageView.frame = CGRect(origin: .zero, size: iconSize)
             imageView.contentMode = .scaleAspectFit
-            if self.iconPosition == .left {
-                self.leftView = imageView
-                self.leftViewMode = .always
+            if iconPosition == .left {
+                leftView = imageView
+                leftViewMode = .always
             } else {
-                self.rightView = imageView
-                self.rightViewMode = .always
+                rightView = imageView
+                rightViewMode = .always
             }
         }
         setNeedsLayout()
@@ -308,36 +309,36 @@ public class TextField: UITextField {
 
     @discardableResult
     public func validate() -> Bool {
-        guard var text = self.text else {
-            return (self.isRequired ? false : true)
+        guard var text = text else {
+            return (isRequired ? false : true)
         }
 
-        if !self.stringFormat.isEmpty {
-            text = text.clearFormat(self.stringFormat)
+        if !stringFormat.isEmpty {
+            text = text.clearFormat(stringFormat)
         }
 
         var valid: Bool = true
 
-        if self.isRequired {
+        if isRequired {
             valid = !text.trim().isEmpty
         }
 
         if !text.isEmpty &&
-            self.minCharacterLength > text.count &&
-            self.maxCharacterLength > text.count {
+            minCharacterLength > text.count &&
+            maxCharacterLength > text.count {
             valid = false
         }
 
-        if let validator = self.validator {
+        if let validator = validator {
             valid = valid && text.validate(validator)
         }
 
-        self.hasError = !valid
+        hasError = !valid
         return valid
     }
 
     public func checkText(_ value: inout String, animated: Bool = true) {
-        if self.hasError && self.isRequired {
+        if hasError && isRequired {
             validate()
         }
 
@@ -348,44 +349,46 @@ public class TextField: UITextField {
 
         showFloatingLabel(animated)
 
-        if !self.stringFormat.isEmpty {
-            value = value.clearFormat(self.stringFormat)
+        if !stringFormat.isEmpty {
+            value = value.clearFormat(stringFormat)
         }
 
-        if self.allowOnlyNumbers {
+        if allowOnlyNumbers {
             let characterSet = CharacterSet(charactersIn: "0123456789 +")
             value = value.components(separatedBy: characterSet.inverted).joined()
         }
 
-        if !self.stringFormat.isEmpty {
-            value = value.format(self.stringFormat)
+        if !stringFormat.isEmpty {
+            value = value.format(stringFormat)
         }
 
         toggleFloatingLabel()
     }
 
     public func toggleFloatingLabel() {
-        if self.isFirstResponder {
-            self.textColor = self.activeTextColor
-            self.floatingLabel.textColor = hasError ? .red : activeFloatingLabelColor
+        if isFirstResponder {
+            textColor = activeTextColor
+            floatingLabel.textColor = hasError ? .red : activeFloatingLabelColor
         } else {
-            self.textColor = self.inactiveTextColor
-            self.floatingLabel.textColor =  hasError ? .red : inactiveFloatingLabelColor
+            textColor = inactiveTextColor
+            floatingLabel.textColor =  hasError ? .red : inactiveFloatingLabelColor
         }
     }
 }
 
 extension TextField {
     @objc public func textFieldEditingDidBegin(_ textField: UITextField) {
-        self.text = textField.text
+        text = textField.text
+        underlineView.backgroundColor = underlineActiveViewColor
     }
 
     @objc public func textFieldEditingDidEnd(_ textField: UITextField) {
-        self.text = textField.text
+        text = textField.text
+        underlineView.backgroundColor = underlineViewColor
     }
 
     @objc public func textFieldEditingChanged(_ textField: UITextField) {
-        self.doAnimation = true
-        self.text = textField.text
+        doAnimation = true
+        text = textField.text
     }
 }
