@@ -23,8 +23,12 @@ class CreditCardTextField: TextField {
     }
 
     private func formatCreditCard(_ value: inout String) {
-        let matched = CreditCardFormatter.all.compactMap { $0.hasPrefix(value) }.sorted { $0.1 > $1.1 }.map { $0.0 }.first
-        iconImage = matched?.image ?? CreditCardFormatter.unknown.image
-        value = matched?.formatString(value) ?? value
+        let matched = CreditCardFormatter.all.compactMap { $0.hasPrefix(value) }.sorted { $0.1 > $1.1 }.first
+        if let matched = matched, matched.1 > 0 {
+            iconImage = matched.0.image
+            value = matched.0.formatString(value)
+        } else {
+            iconImage = CreditCardFormatter.unknown.image
+        }
     }
 }
