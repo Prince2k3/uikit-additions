@@ -65,15 +65,13 @@ public enum CreditCardFormatter: String, Codable {
 
 extension CreditCardFormatter {
     func hasPrefix(_ value: String) -> Bool {
+        var found = false
         for prefix in self.prefixes {
-            if let first = prefix.first,
-               prefix.count == 1 {
-                return value.hasPrefix(first)
-            } else if let first = prefix.first,
-                      let last = prefix.last,
+            if prefix.count == 1, let first = prefix.first, value.hasPrefix(first) {
+                return true
+            } else if let first = prefix.first, let last = prefix.last,
                       let number = Int(value.prefix(first.digitsCount)),
                       (first...last).contains(number) {
-
                     return true
             }
         }
