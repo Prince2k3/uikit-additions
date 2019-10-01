@@ -1390,7 +1390,7 @@ public class CreditCardIcons: NSObject {
             return Cache.imageOfAmex!
         }
 
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: 780, height: 500), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 96, height: 68), false, 0)
             CreditCardIcons.drawAmex()
 
         Cache.imageOfAmex = UIGraphicsGetImageFromCurrentImageContext()!
@@ -1404,7 +1404,7 @@ public class CreditCardIcons: NSObject {
             return Cache.imageOfDiners!
         }
 
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: 780, height: 500), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 96, height: 68), false, 0)
             CreditCardIcons.drawDiners()
 
         Cache.imageOfDiners = UIGraphicsGetImageFromCurrentImageContext()!
@@ -1418,7 +1418,7 @@ public class CreditCardIcons: NSObject {
             return Cache.imageOfDiscover!
         }
 
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: 780, height: 500), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 96, height: 68), false, 0)
             CreditCardIcons.drawDiscover()
 
         Cache.imageOfDiscover = UIGraphicsGetImageFromCurrentImageContext()!
@@ -1432,7 +1432,7 @@ public class CreditCardIcons: NSObject {
             return Cache.imageOfUnknown!
         }
 
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: 780, height: 500), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 96, height: 68), false, 0)
             CreditCardIcons.drawUnknown()
 
         Cache.imageOfUnknown = UIGraphicsGetImageFromCurrentImageContext()!
@@ -1446,7 +1446,7 @@ public class CreditCardIcons: NSObject {
             return Cache.imageOfJcb!
         }
 
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: 780, height: 500), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 96, height: 68), false, 0)
             CreditCardIcons.drawJcb()
 
         Cache.imageOfJcb = UIGraphicsGetImageFromCurrentImageContext()!
@@ -1460,7 +1460,7 @@ public class CreditCardIcons: NSObject {
             return Cache.imageOfVisa!
         }
 
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: 780, height: 500), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 96, height: 68), false, 0)
             CreditCardIcons.drawVisa()
 
         Cache.imageOfVisa = UIGraphicsGetImageFromCurrentImageContext()!
@@ -1474,7 +1474,7 @@ public class CreditCardIcons: NSObject {
             return Cache.imageOfMaestro!
         }
 
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: 750, height: 471), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 96, height: 68), false, 0)
             CreditCardIcons.drawMaestro()
 
         Cache.imageOfMaestro = UIGraphicsGetImageFromCurrentImageContext()!
@@ -1488,7 +1488,7 @@ public class CreditCardIcons: NSObject {
             return Cache.imageOfMastercard!
         }
 
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: 750, height: 471), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 96, height: 68), false, 0)
             CreditCardIcons.drawMastercard()
 
         Cache.imageOfMastercard = UIGraphicsGetImageFromCurrentImageContext()!
