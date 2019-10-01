@@ -25,7 +25,7 @@ public enum CreditCardFormatter: String, Codable {
         case .visa:
             return [["4"]]
         case .masterCard:
-            return [["50"], ["51"], [""], "55"], ["222100", "272099"]]
+            return [["50", "55"], ["222100", "272099"]]
         case .maestro:
             return [["5018"], ["5020"], ["5038"], ["5612"], ["5893"], ["6304"], ["6759"], ["6761"], ["6762"], ["6763"], ["0604"], ["6390"]]
         case .discover:
