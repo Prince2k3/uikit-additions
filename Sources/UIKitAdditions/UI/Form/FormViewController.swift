@@ -32,6 +32,7 @@ open class FormViewController: UITableViewController {
 
     public private(set) lazy var textFieldInputAccessoryView: InputAccessoryView = {
         let inputAccessoryView = InputAccessoryView()
+        inputAccessoryView.sizeToFit()
         inputAccessoryView.tintColor = view.tintColor
         inputAccessoryView.backgroundColor = inputAccessoryBackgroundColor
         inputAccessoryView.doneTitle = "Done".localized()
