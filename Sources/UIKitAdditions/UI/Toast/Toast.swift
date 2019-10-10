@@ -26,7 +26,8 @@ open class Toast {
 
     private var timer: Timer?
     private var positionConstraint: NSLayoutConstraint?
-
+    private var keyboardManager: KeyboardManager? = KeyboardManager()
+    
     public var positionOffset: CGFloat = 84
     public var position: Position = .bottom
     public var percentageWidth: CGFloat = 0.7
@@ -36,11 +37,14 @@ open class Toast {
     public var duration: TimeInterval = 0.3
     public var isShadowEnabled: Bool = true
     public var isVisible: Bool = false
-
+    
     private init() {}
+    
+    deinit {
+        keyboardManager = nil
+    }
 
-    open func show(message: String) {
-
+    open func showMessage(_ message: String) {
         DispatchQueue.main.async {
             if self.isVisible {
                 self.timer?.invalidate()
@@ -49,45 +53,49 @@ open class Toast {
             }
 
             self.toastView.message = message
-            self.addToastToWindow()
+            self.addToastToWindow(self.keyboardManager?.keyboardInfo?.frameEnd.height)
         }
     }
 
-    func addToastToWindow() {
-        self.toastView.alpha = 1
-        self.toastView.cornerRadius = self.cornerRadius
-        self.toastView.backgroundColor = self.backgroundColor
-        self.toastView.transform = .identity
-        if self.isShadowEnabled {
-            self.toastView.shadowColor = .black
-            self.toastView.shadowOffset = .zero
-            self.toastView.shadowRadius = 4
-            self.toastView.shadowOpacity = 0.15
+    func addToastToWindow(_ keyboardHeight: CGFloat? = nil) {
+        toastView.alpha = 1
+        toastView.cornerRadius = cornerRadius
+        toastView.backgroundColor = backgroundColor
+        toastView.transform = .identity
+        if isShadowEnabled {
+            toastView.shadowColor = .black
+            toastView.shadowOffset = .zero
+            toastView.shadowRadius = 4
+            toastView.shadowOpacity = 0.15
         }
 
         guard let window = UIApplication.shared.keyWindow else { return }
 
-        window.addSubview(self.toastView)
+        window.addSubview(toastView)
 
-        self.toastView.widthAnchor.constraint(equalToConstant: window.bounds.width * self.percentageWidth).isActive = true
-        self.toastView.centerXAnchor.constraint(equalTo: window.centerXAnchor).isActive = true
-        if self.position == .bottom {
-            self.positionConstraint = self.toastView.bottomAnchor.constraint(equalTo: window.bottomAnchor, constant: -self.positionOffset)
+        toastView.widthAnchor.constraint(equalToConstant: window.bounds.width * percentageWidth).isActive = true
+        toastView.centerXAnchor.constraint(equalTo: window.centerXAnchor).isActive = true
+        
+        if position == .bottom {
+            positionConstraint = toastView.bottomAnchor.constraint(equalTo: window.bottomAnchor, constant: -(positionOffset + (keyboardHeight ?? 0.0)))
         } else {
-            self.positionConstraint = self.toastView.topAnchor.constraint(equalTo: window.topAnchor, constant: self.positionOffset)
+            positionConstraint = toastView.topAnchor.constraint(equalTo: window.topAnchor, constant: (positionOffset + (keyboardHeight ?? 0.0)))
         }
-        self.positionConstraint?.isActive = true
+        
+        positionConstraint?.isActive = true
 
         animateIn()
     }
 
     private func animateIn() {
-        self.toastView.alpha = 0
-        self.toastView.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
+        toastView.alpha = 0
+        toastView.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
+        
         let animator = UIViewPropertyAnimator(duration: 0.35, dampingRatio: 0.7) {
             self.toastView.alpha = 1
             self.toastView.transform = .identity
         }
+        
         animator.addCompletion { position in
             if position == .end {
                 self.timer?.invalidate()
@@ -97,6 +105,7 @@ open class Toast {
                 self.isVisible = true
             }
         }
+        
         animator.startAnimation()
     }
 
@@ -105,12 +114,14 @@ open class Toast {
             self.toastView.alpha = 0
             self.toastView.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
         }
+        
         animator.addCompletion { position in
             if position == .end {
                 self.isVisible = false
                 self.toastView.removeFromSuperview()
             }
         }
+        
         animator.startAnimation()
     }
 }
@@ -127,14 +138,14 @@ private class ToastView: UIView {
 
     var textColor: UIColor = .white {
         didSet {
-            self.label.textColor = self.textColor
+            label.textColor = textColor
         }
     }
 
     var message: String = "" {
         didSet {
-            self.label.textColor = self.textColor
-            self.label.text = message
+            label.textColor = textColor
+            label.text = message
         }
     }
 
@@ -149,8 +160,8 @@ private class ToastView: UIView {
     }
 
     func commonInit() {
-        addSubview(self.label)
-        self.label.anchorToSuperview(edgeInset: UIEdgeInsets(top: 8, left: 8, bottom: -8, right: -8))
+        addSubview(label)
+        label.anchorToSuperview(edgeInset: UIEdgeInsets(top: 8, left: 8, bottom: -8, right: -8))
     }
 }
 
@@ -158,7 +169,7 @@ private class ToastView: UIView {
 
 extension UIViewController {
     public func presentInfo(_ message: String, toast: Toast = .info) {
-        toast.show(message: message)
+        toast.showMessage(message)
     }
     
     public func presentError(_ error: Error?, toast: Toast = .error) {
@@ -169,16 +180,16 @@ extension UIViewController {
             message = error?.localizedDescription ?? message
         }
         
-        toast.show(message: message)
+        toast.showMessage(message)
     }
 }
 
 extension UIApplication {
     public static func presentError(_ error: Error?) {
-        self.shared.keyWindow?.rootViewController?.presentError(error)
+        shared.keyWindow?.rootViewController?.presentError(error)
     }
     
     public static func presentInfo(_ message: String) {
-        self.shared.keyWindow?.rootViewController?.presentInfo(message)
+        shared.keyWindow?.rootViewController?.presentInfo(message)
     }
 }
