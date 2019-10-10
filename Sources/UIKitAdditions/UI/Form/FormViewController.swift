@@ -30,7 +30,7 @@ open class FormViewController: UITableViewController {
         }
     }
 
-    private lazy var textFieldInputAccessoryView: InputAccessoryView = {
+    public private(set) lazy var textFieldInputAccessoryView: InputAccessoryView = {
         let inputAccessoryView = InputAccessoryView()
         inputAccessoryView.tintColor = view.tintColor
         inputAccessoryView.backgroundColor = inputAccessoryBackgroundColor
@@ -39,7 +39,7 @@ open class FormViewController: UITableViewController {
             self.view.endEditing(true)
         }
 
-        inputAccessoryView.moveToNextHandler = { current in
+        inputAccessoryView.nextHandler = { item, current in
             guard
                 let current = current as? TextField,
                 let index = self.textFields.firstIndex(of: current)
@@ -54,7 +54,7 @@ open class FormViewController: UITableViewController {
             }
         }
 
-        inputAccessoryView.moveToPreviousHandler = { current in
+        inputAccessoryView.previousHandler = { item, current in
             guard
                 let current = current as? TextField,
                 let index = self.textFields.firstIndex(of: current)
@@ -106,7 +106,6 @@ open class FormViewController: UITableViewController {
     private func updateInputView(_ textField: UITextField) {
         guard let entry = FormEntry(rawValue: textField.tag) else { return }
         
-        self.textFieldInputAccessoryView.inputType = .form
         self.textFieldInputAccessoryView.view = textField
         
         switch entry {

@@ -1,142 +1,65 @@
 import UIKit
 
-public class InputAccessoryView: UIView {
-    public enum Kind {
-        case form, button
-    }
-    
-    private lazy var formView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    private lazy var buttonView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    private lazy var previousButton: UIButton = {
-        let button = UIButton()
-        button.addTarget(self, action: #selector(previousButtonAction), for: .touchUpInside)
-        button.setImage(InputAccessoryIcons.imageOfArrowup, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.heightAnchor.constraint(equalToConstant: 44).isActive = true
-        button.widthAnchor.constraint(equalToConstant: 44).isActive = true
-        button.tintColor = tintColor
-        return button
-    }()
-    
-    private lazy var nextButton: UIButton = {
-        let button = UIButton()
-        button.addTarget(self, action: #selector(nextButtonAction), for: .touchUpInside)
-        button.setImage(InputAccessoryIcons.imageOfArrowdown, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.heightAnchor.constraint(equalToConstant: 44).isActive = true
-        button.widthAnchor.constraint(equalToConstant: 44).isActive = true
-        button.tintColor = tintColor
-        return button
-    }()
-    
-    private lazy var doneButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Done".localized(), for: .normal)
-        button.addTarget(self, action: #selector(doneButtonAction), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        button.tintColor = tintColor
-        return button
-    }()
-    
-    private lazy var buttonsStackView: UIStackView = {
-        let view = UIStackView(arrangedSubviews: [previousButton, nextButton])
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.distribution = .fillEqually
-        view.alignment = .center
-        view.axis = .horizontal
-        view.spacing = 8
-        return view
-    }()
-    
-    private lazy var formStackView: UIStackView = {
-        let spacer = UIView()
-        spacer.translatesAutoresizingMaskIntoConstraints = false
-        spacer.backgroundColor = .clear
-        
-        let view = UIStackView(arrangedSubviews: [buttonsStackView, spacer, doneButton])
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.distribution = .fill
-        view.alignment = .center
-        view.axis = .horizontal
-        return view
-    }()
-    
-    private var button: UIButton = {
-        let button = UIButton()
-        button.setTitle("Next".localized(), for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-
-    public weak var view: UIView?
-    
-    public var moveToPreviousHandler: ((UIView?) -> Void)?
-    public var moveToNextHandler: ((UIView?) -> Void)?
-    public var doneHandler: ((UIView?) -> Void)?
-    public var buttonActionHandler: (() -> Void)?
-    public var inputType: InputAccessoryView.Kind = .form {
+open class InputAccessoryView: UIToolbar {
+    public var orientation: Orientation = .horizontal {
         didSet {
-            buttonView.isHidden = inputType != .button
-            formView.isHidden = inputType != .form
-        }
-    }
-
-    public var buttonBackgroundColor: UIColor? {
-        didSet {
-            button.setBackgroundColor(buttonBackgroundColor, for: .normal)
+            switch orientation {
+            case .horizontal:
+                previousItem.image = image(forDirection: .left)
+                nextItem.image = image(forDirection: .right)
+            case .vertical:
+                previousItem.image = image(forDirection: .up)
+                nextItem.image = image(forDirection: .down)
+            }
         }
     }
     
-    public var buttonTitle: String = "Next".localized() {
-        didSet {
-            button.setTitle(buttonTitle, for: .normal)
-        }
-    }
-    
+    public var previousHandler: ((UIBarButtonItem, UIView) -> Void)?
+    public var nextHandler: ((UIBarButtonItem, UIView) -> Void)?
+    public var doneHandler: ((UIView) -> Void)?
     public var doneTitle: String {
-        get { return doneButton.titleLabel?.text ?? "" }
-        set { doneButton.setTitle(newValue, for: .normal) }
+        get { return doneItem.title ?? "" }
+        set { doneItem.title = newValue }
     }
 
     public var isPreviousButtonEnabled: Bool = false {
         didSet {
-            previousButton.isEnabled = isPreviousButtonEnabled
-            previousButton.alpha = isPreviousButtonEnabled ? 1 : 0.4
+            previousItem.isEnabled = isPreviousButtonEnabled
         }
     }
 
     public var isNextButtonEnabled: Bool = false {
         didSet {
-            nextButton.isEnabled = isNextButtonEnabled
-            nextButton.alpha = isNextButtonEnabled ? 1 : 0.4
-        }
-    }
-
-    public var isNextButtonHidden: Bool = false {
-        didSet {
-            nextButton.isHidden = isNextButtonHidden
-        }
-    }
-
-    public var isPreviousButtonHidden: Bool = false {
-        didSet {
-            previousButton.isHidden = isPreviousButtonHidden
+            nextItem.isEnabled = isNextButtonEnabled
         }
     }
     
+    public weak var view: UIView?
+    
+    private var flexible: UIBarButtonItem = {
+        return UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+    }()
+    
+    private lazy var fixed: UIBarButtonItem = {
+        let item = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        item.width = 20
+        return item
+    }()
+    
+    lazy var previousItem: UIBarButtonItem = {
+        return UIBarButtonItem()
+    }()
+    
+    lazy var nextItem: UIBarButtonItem = {
+        return UIBarButtonItem()
+    }()
+    
+    lazy var doneItem: UIBarButtonItem = {
+        return UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
+    }()
+    
     public override init(frame: CGRect) {
-        super.init(frame: CGRect(width: UIScreen.main.bounds.width, height: 44))
+        super.init(frame: frame)
         commonInit()
     }
     
@@ -145,35 +68,67 @@ public class InputAccessoryView: UIView {
         commonInit()
     }
     
-    func commonInit() {
-        formView.addSubview(formStackView)
-        formStackView.anchorToSuperview(edgeInset: UIEdgeInsets(right: -8, left: 16))
-        
-        addSubview(formView)
-        formView.anchorToSuperview()
-        
-        buttonView.addSubview(button)
-        button.anchorToSuperview()
-        
-        addSubview(buttonView)
-        buttonView.anchorToSuperview()
-        
-        buttonView.isHidden = true
+    private func commonInit() {
+        setItems([previousItem, fixed, nextItem, flexible, doneItem], animated: false)
+        orientation = .vertical
     }
     
-    @objc func previousButtonAction(_ button: UIButton) {
-        moveToPreviousHandler?(view)
+    private func image(forDirection direction: Direction) -> UIImage {
+        let upArrowImage = self.upArrowImage()
+        let image = UIImage(cgImage: upArrowImage.cgImage!, scale: upArrowImage.scale, orientation: direction.imageOrientation)
+        return image
     }
     
-    @objc func nextButtonAction(_ button: UIButton) {
-        moveToNextHandler?(view)
+    private func upArrowImage() -> UIImage {
+        let lineWidth: CGFloat = 1.5
+        let ratio: CGFloat = 5.0 / 9.0
+        let dimension: CGFloat = 20
+        let size = CGSize(width: dimension, height: dimension * ratio)
+        let bounds = CGRect(origin: .zero, size: size).insetBy(dx: lineWidth / 2, dy: lineWidth / 2)
+        
+        let renderer = UIGraphicsImageRenderer(size: size)
+        return renderer.image { context in
+            let path = UIBezierPath()
+            path.lineWidth = lineWidth
+            path.lineCapStyle = .round
+            path.move(to: CGPoint(x: bounds.minX, y: bounds.maxY))
+            path.addLine(to: CGPoint(x: bounds.midX, y: bounds.minY))
+            path.addLine(to: CGPoint(x: bounds.maxX, y: bounds.maxY))
+            UIColor.black.setStroke()
+            path.stroke()
+        }
+    }
+}
+
+extension InputAccessoryView {
+    @objc func previousButtonAction(_ item: UIBarButtonItem) {
+        view.flatMap { previousHandler?(item, $0) }
+    }
+
+    @objc func nextButtonAction(_ item: UIBarButtonItem) {
+        view.flatMap { nextHandler?(item, $0) }
+    }
+
+    @objc func doneButtonAction(_ item: UIBarButtonItem) {
+        view.flatMap { doneHandler?($0) }
+    }
+}
+
+extension InputAccessoryView {
+    public enum Orientation {
+        case vertical, horizontal
     }
     
-    @objc func doneButtonAction(_ button: UIButton) {
-        doneHandler?(view)
-    }
-    
-    @objc func buttonAction() {
-        buttonActionHandler?()
+    private enum Direction {
+        case left, right, up, down
+        
+        var imageOrientation: UIImage.Orientation {
+            switch self {
+            case .up: return .up
+            case .down: return .down
+            case .left: return .left
+            case .right: return .right
+            }
+        }
     }
 }

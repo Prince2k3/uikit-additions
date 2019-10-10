@@ -19,6 +19,8 @@
 		1E146AA02337F25D00232770 /* SwiftAdditions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E146A952337F25D00232770 /* SwiftAdditions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1E146AA12337F25E00232770 /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E146A962337F25D00232770 /* SwiftDate.framework */; };
 		1E146AA22337F25E00232770 /* SwiftDate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E146A962337F25D00232770 /* SwiftDate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1E884090234EC2AE001F0F9C /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E88408F234EC2AE001F0F9C /* String+Localized.swift */; };
+		1E884094234EC9CC001F0F9C /* CreditCardIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E884093234EC9CC001F0F9C /* CreditCardIcons.swift */; };
 		OBJ_106 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Animator.swift */; };
 		OBJ_107 /* FadeInOutAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* FadeInOutAnimator.swift */; };
 		OBJ_108 /* ScaleInOutAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* ScaleInOutAnimator.swift */; };
@@ -124,6 +126,8 @@
 		1E146A942337F25D00232770 /* DataSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DataSource.framework; path = Carthage/Build/iOS/DataSource.framework; sourceTree = "<group>"; };
 		1E146A952337F25D00232770 /* SwiftAdditions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftAdditions.framework; path = Carthage/Build/iOS/SwiftAdditions.framework; sourceTree = "<group>"; };
 		1E146A962337F25D00232770 /* SwiftDate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftDate.framework; path = Carthage/Build/iOS/SwiftDate.framework; sourceTree = "<group>"; };
+		1E88408F234EC2AE001F0F9C /* String+Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
+		1E884093234EC9CC001F0F9C /* CreditCardIcons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardIcons.swift; sourceTree = "<group>"; };
 		OBJ_10 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		OBJ_11 /* FadeInOutAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeInOutAnimator.swift; sourceTree = "<group>"; };
 		OBJ_12 /* ScaleInOutAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleInOutAnimator.swift; sourceTree = "<group>"; };
@@ -231,9 +235,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		1E884095234EC9CF001F0F9C /* Credit Card */ = {
+			isa = PBXGroup;
+			children = (
+				1E884093234EC9CC001F0F9C /* CreditCardIcons.swift */,
+				OBJ_58 /* CreditCardFormatter.swift */,
+				OBJ_59 /* CreditCardTextField.swift */,
+			);
+			name = "Credit Card";
+			sourceTree = "<group>";
+		};
 		OBJ_16 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				1E88408F234EC2AE001F0F9C /* String+Localized.swift */,
 				OBJ_17 /* Alamofire+PromiseKit.swift */,
 				OBJ_18 /* Keychain+Keys.swift */,
 				OBJ_19 /* NSAttributedString+Extension.swift */,
@@ -340,8 +355,7 @@
 		OBJ_57 /* TextFields */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_58 /* CreditCardFormatter.swift */,
-				OBJ_59 /* CreditCardTextField.swift */,
+				1E884095234EC9CF001F0F9C /* Credit Card */,
 				OBJ_60 /* PhoneNumberTextField.swift */,
 				OBJ_61 /* TextField.swift */,
 			);
@@ -535,6 +549,7 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_106 /* Animator.swift in Sources */,
+				1E884094234EC9CC001F0F9C /* CreditCardIcons.swift in Sources */,
 				OBJ_107 /* FadeInOutAnimator.swift in Sources */,
 				OBJ_108 /* ScaleInOutAnimator.swift in Sources */,
 				OBJ_109 /* SemiModalAnimator.swift in Sources */,
@@ -552,6 +567,7 @@
 				OBJ_121 /* UIImage+Extension.swift in Sources */,
 				OBJ_122 /* UIImageView+Extension.swift in Sources */,
 				OBJ_123 /* UINavigationController+Extension.swift in Sources */,
+				1E884090234EC2AE001F0F9C /* String+Localized.swift in Sources */,
 				OBJ_124 /* UIScrollView+Extension.swift in Sources */,
 				OBJ_125 /* UIStoryboard+Extension.swift in Sources */,
 				OBJ_126 /* UITableView+Extension.swift in Sources */,
