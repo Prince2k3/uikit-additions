@@ -47,15 +47,15 @@ open class InputAccessoryView: UIToolbar {
     }()
     
     lazy var previousItem: UIBarButtonItem = {
-        return UIBarButtonItem()
+        return UIBarButtonItem(image: nil, style: .plain, target: self, action: #selector(handlePrevious))
     }()
     
     lazy var nextItem: UIBarButtonItem = {
-        return UIBarButtonItem()
+        return UIBarButtonItem(image: nil, style: .plain, target: self, action: #selector(handleNext))
     }()
     
     lazy var doneItem: UIBarButtonItem = {
-        return UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
+        return UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleDone))
     }()
     
     public override init(frame: CGRect) {
@@ -101,15 +101,15 @@ open class InputAccessoryView: UIToolbar {
 }
 
 extension InputAccessoryView {
-    @objc func previousButtonAction(_ item: UIBarButtonItem) {
+    @objc private func handlePrevious(_ item: UIBarButtonItem) {
         view.flatMap { previousHandler?(item, $0) }
     }
 
-    @objc func nextButtonAction(_ item: UIBarButtonItem) {
+    @objc private func handleNext(_ item: UIBarButtonItem) {
         view.flatMap { nextHandler?(item, $0) }
     }
 
-    @objc func doneButtonAction(_ item: UIBarButtonItem) {
+    @objc private func handleDone(_ item: UIBarButtonItem) {
         view.flatMap { doneHandler?($0) }
     }
 }
