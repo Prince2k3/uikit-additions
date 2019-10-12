@@ -1,13 +1,14 @@
 import UIKit
 
 public class BusyButton: Button {
-    private lazy var activityIndicatorView: UIActivityIndicatorView = {
-        let view = UIActivityIndicatorView(style:  activityIndicatorStyle)
+    private(set) lazy var activityIndicatorView: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.startAnimating()
         return view
     }()
 
+    public var hideTitleLabelWhenBusy: Bool = false
     public var isBusy: Bool = false {
         didSet {
             if isBusy {
@@ -17,21 +18,12 @@ public class BusyButton: Button {
             }
         }
     }
-    
-    public var hideTitleLabelWhenBusy: Bool = false
-    
-    public var activityIndicatorStyle: UIActivityIndicatorView.Style = .gray {
-        didSet {
-            activityIndicatorView.style = activityIndicatorStyle
-        }
-    }
 
     private func showLoader() {
         guard
             !subviews.contains(activityIndicatorView)
             else { return }
         
-        activityIndicatorView.radius = min(0.7 * frame.height / 2, activityIndicatorView.radius)
         isEnabled = false
         UIView.transition(with: self, duration: 0.2, options: .curveEaseOut, animations: {
             self.titleLabel?.alpha = self.hideTitleLabelWhenBusy ? 0.0 : 1.0
@@ -72,15 +64,5 @@ public class BusyButton: Button {
         }
         
         activityIndicatorView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-    }
-}
-
-extension UIActivityIndicatorView {
-    public var radius: CGFloat {
-        get { return frame.width / 2 }
-        set {
-            frame.size = CGSize(width: 2 * newValue, height: 2 * newValue)
-            setNeedsDisplay()
-        }
     }
 }
