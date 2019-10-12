@@ -61,17 +61,19 @@ public class BusyButton: Button {
     open override func layoutSubviews() {
         super.layoutSubviews()
         
+        guard activityIndicatorView.superview != nil else { return }
+        
         if let titleLabel = self.titleLabel {
-            self.activityIndicatorView.leftAnchor.constraint(equalTo: titleLabel.rightAnchor, constant: 8).isActive = true
+            activityIndicatorView.leftAnchor.constraint(equalTo: titleLabel.rightAnchor, constant: 8).isActive = true
         } else {
-            self.activityIndicatorView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+            activityIndicatorView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         }
     }
 }
 
 extension UIActivityIndicatorView {
     public var radius: CGFloat {
-        get { return self.frame.width / 2 }
+        get { return frame.width / 2 }
         set {
             frame.size = CGSize(width: 2 * newValue, height: 2 * newValue)
             setNeedsDisplay()
