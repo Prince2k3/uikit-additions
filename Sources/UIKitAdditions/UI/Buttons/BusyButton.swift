@@ -32,7 +32,7 @@ public class BusyButton: Button {
             else { return }
         
         activityIndicatorView.radius = min(0.7 * frame.height / 2, activityIndicatorView.radius)
-        self.isUserInteractionEnabled = false
+        isEnabled = false
         UIView.transition(with: self, duration: 0.2, options: .curveEaseOut, animations: {
             self.titleLabel?.alpha = self.hideTitleLabelWhenBusy ? 0.0 : 1.0
             self.imageView?.alpha = 0.0
@@ -51,7 +51,7 @@ public class BusyButton: Button {
         guard
             subviews.contains(activityIndicatorView)
             else { return }
-        isUserInteractionEnabled = true
+        isEnabled = true
         activityIndicatorView.stopAnimating()
         activityIndicatorView.removeFromSuperview()
         UIView.transition(with: self, duration: 0.2, options: .curveEaseIn, animations: {
