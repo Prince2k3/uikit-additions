@@ -1,7 +1,7 @@
 import UIKit
 
 public class BusyButton: Button {
-    private(set) lazy var activityIndicatorView: UIActivityIndicatorView = {
+    public private(set) lazy var activityIndicatorView: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.startAnimating()
@@ -11,11 +11,7 @@ public class BusyButton: Button {
     public var hideTitleLabelWhenBusy: Bool = false
     public var isBusy: Bool = false {
         didSet {
-            if isBusy {
-                showLoader()
-            } else {
-                hideLoader()
-            }
+            isBusy ? showLoader() : hideLoader()
         }
     }
 
