@@ -18,6 +18,8 @@ public class BusyButton: Button {
         }
     }
     
+    public var hideTitleLabelWhenBusy: Bool = false
+    
     public var activityIndicatorStyle: UIActivityIndicatorView.Style = .gray {
         didSet {
             activityIndicatorView.style = activityIndicatorStyle
@@ -32,7 +34,7 @@ public class BusyButton: Button {
         activityIndicatorView.radius = min(0.7 * frame.height / 2, activityIndicatorView.radius)
         self.isUserInteractionEnabled = false
         UIView.transition(with: self, duration: 0.2, options: .curveEaseOut, animations: {
-            self.titleLabel?.alpha = 0.0
+            self.titleLabel?.alpha = self.hideTitleLabelWhenBusy ? 0.0 : 1.0
             self.imageView?.alpha = 0.0
         }) { [weak self] _ in
             guard let self = self else { return }
@@ -63,11 +65,13 @@ public class BusyButton: Button {
         
         guard activityIndicatorView.superview != nil else { return }
         
-        if let titleLabel = self.titleLabel {
+        if let titleLabel = self.titleLabel, titleLabel.alpha == 1.0 {
             activityIndicatorView.leftAnchor.constraint(equalTo: titleLabel.rightAnchor, constant: 8).isActive = true
         } else {
             activityIndicatorView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         }
+        
+        activityIndicatorView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
     }
 }
 
