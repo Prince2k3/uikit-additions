@@ -19,46 +19,30 @@ public class BusyButton: Button {
         guard
             !subviews.contains(activityIndicatorView)
             else { return }
+        imageView?.isHidden = true
+        titleLabel?.isHidden = hideTitleLabelWhenBusy
+        
+        activityIndicatorView.startAnimating()
+        addSubview(activityIndicatorView)
+        
+        activityIndicatorView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        if let titleLabel = self.titleLabel, !titleLabel.isHidden {
+            activityIndicatorView.leftAnchor.constraint(equalTo: titleLabel.rightAnchor, constant: 8).isActive = true
+        } else {
+            activityIndicatorView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        }
         
         isEnabled = false
-        UIView.transition(with: self, duration: 0.2, options: .curveEaseOut, animations: {
-            self.titleLabel?.alpha = self.hideTitleLabelWhenBusy ? 0.0 : 1.0
-            self.imageView?.alpha = 0.0
-        }) { [weak self] _ in
-            guard let self = self else { return }
-            self.addSubview(self.activityIndicatorView)
-            if self.isBusy {
-                self.activityIndicatorView.startAnimating()
-            } else {
-                self.hideLoader()
-            }
-        }
     }
     
     private func hideLoader() {
         guard
             subviews.contains(activityIndicatorView)
             else { return }
-        isEnabled = true
         activityIndicatorView.stopAnimating()
         activityIndicatorView.removeFromSuperview()
-        UIView.transition(with: self, duration: 0.2, options: .curveEaseIn, animations: {
-            self.titleLabel?.alpha = 1.0
-            self.imageView?.alpha = 1.0
-        }) { _ in }
-    }
-    
-    open override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        guard activityIndicatorView.superview != nil else { return }
-        
-        if let titleLabel = self.titleLabel, titleLabel.alpha == 1.0 {
-            activityIndicatorView.leftAnchor.constraint(equalTo: titleLabel.rightAnchor, constant: 8).isActive = true
-        } else {
-            activityIndicatorView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        }
-        
-        activityIndicatorView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        titleLabel?.isHidden = false
+        imageView?.isHidden = false
+        isEnabled = true
     }
 }
