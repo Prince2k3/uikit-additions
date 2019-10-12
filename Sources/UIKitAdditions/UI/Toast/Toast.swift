@@ -26,7 +26,6 @@ open class Toast {
 
     private var timer: Timer?
     private var positionConstraint: NSLayoutConstraint?
-    private var keyboardManager: KeyboardManager? = KeyboardManager()
     
     public var positionOffset: CGFloat = 84
     public var position: Position = .bottom
@@ -40,10 +39,6 @@ open class Toast {
     
     private init() {}
     
-    deinit {
-        keyboardManager = nil
-    }
-
     open func showMessage(_ message: String) {
         DispatchQueue.main.async {
             if self.isVisible {
@@ -53,11 +48,11 @@ open class Toast {
             }
 
             self.toastView.message = message
-            self.addToastToWindow(self.keyboardManager?.keyboardInfo?.frameEnd.height)
+            self.addToastToWindow()
         }
     }
 
-    func addToastToWindow(_ keyboardHeight: CGFloat? = nil) {
+    func addToastToWindow() {
         toastView.alpha = 1
         toastView.cornerRadius = cornerRadius
         toastView.backgroundColor = backgroundColor
@@ -77,9 +72,9 @@ open class Toast {
         toastView.centerXAnchor.constraint(equalTo: window.centerXAnchor).isActive = true
         
         if position == .bottom {
-            positionConstraint = toastView.bottomAnchor.constraint(equalTo: window.bottomAnchor, constant: -(positionOffset + (keyboardHeight ?? 0.0)))
+            positionConstraint = toastView.bottomAnchor.constraint(equalTo: window.bottomAnchor, constant: -positionOffset)
         } else {
-            positionConstraint = toastView.topAnchor.constraint(equalTo: window.topAnchor, constant: (positionOffset + (keyboardHeight ?? 0.0)))
+            positionConstraint = toastView.topAnchor.constraint(equalTo: window.topAnchor, constant: positionOffset)
         }
         
         positionConstraint?.isActive = true
