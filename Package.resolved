@@ -20,6 +20,15 @@
         }
       },
       {
+        "package": "DateHelper",
+        "repositoryURL": "https://github.com/melvitax/DateHelper.git",
+        "state": {
+          "branch": null,
+          "revision": "f3c896beb529e86eba46483121276c74390856de",
+          "version": "4.3.0"
+        }
+      },
+      {
         "package": "PhoneNumberKit",
         "repositoryURL": "https://github.com/marmelroy/PhoneNumberKit.git",
         "state": {
@@ -44,15 +53,6 @@
           "branch": null,
           "revision": "1d05fc0238b9d71140097f18709cc75a54ab7988",
           "version": "1.1.1"
-        }
-      },
-      {
-        "package": "SwiftDate",
-        "repositoryURL": "https://github.com/malcommac/SwiftDate.git",
-        "state": {
-          "branch": null,
-          "revision": "700dde1b3417fd4a7fd2bec9f5bc8ab2de1b96b4",
-          "version": "6.1.0"
         }
       }
     ]
