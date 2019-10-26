@@ -1,6 +1,6 @@
 import UIKit
 import SwiftAdditions
-import SwiftDate
+import DateHelper
 
 public protocol FormViewControllerDelegate: class {
     func customizeMonthYearInputView(_ inputView: MonthYearInputView, for textField: UITextField)
@@ -221,7 +221,7 @@ extension FormViewController {
         guard let inputAccessoryView = self.inputAccessoryView as? InputAccessoryView,
             let textField = inputAccessoryView.view as? UITextField else { return }
 
-        textField.text = datePickerView.date.toString(.custom(.defaultDateFormat))
+        textField.text = datePickerView.date.toString(format: .custom(.defaultDateFormat))
 
         self.state = .editing
         self.textFieldDidChange(textField)

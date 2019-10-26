@@ -7,18 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E146A972337F25D00232770 /* PhoneNumberKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E146A912337F25D00232770 /* PhoneNumberKit.framework */; };
-		1E146A982337F25D00232770 /* PhoneNumberKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E146A912337F25D00232770 /* PhoneNumberKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1E146A992337F25D00232770 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E146A922337F25D00232770 /* PromiseKit.framework */; };
-		1E146A9A2337F25D00232770 /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E146A922337F25D00232770 /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1E146A9B2337F25D00232770 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E146A932337F25D00232770 /* Alamofire.framework */; };
-		1E146A9C2337F25D00232770 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E146A932337F25D00232770 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1E146A9D2337F25D00232770 /* DataSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E146A942337F25D00232770 /* DataSource.framework */; };
-		1E146A9E2337F25D00232770 /* DataSource.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E146A942337F25D00232770 /* DataSource.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1E146A9F2337F25D00232770 /* SwiftAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E146A952337F25D00232770 /* SwiftAdditions.framework */; };
-		1E146AA02337F25D00232770 /* SwiftAdditions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E146A952337F25D00232770 /* SwiftAdditions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1E146AA12337F25E00232770 /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E146A962337F25D00232770 /* SwiftDate.framework */; };
-		1E146AA22337F25E00232770 /* SwiftDate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E146A962337F25D00232770 /* SwiftDate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1E60F1102363E971004FE818 /* DateHelper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E60F10F2363E971004FE818 /* DateHelper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1E60F1162363E99E004FE818 /* DataSource.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E60F1112363E99D004FE818 /* DataSource.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1E60F1172363E99E004FE818 /* PhoneNumberKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E60F1122363E99E004FE818 /* PhoneNumberKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1E60F1182363E99E004FE818 /* SwiftAdditions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E60F1132363E99E004FE818 /* SwiftAdditions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1E60F1192363E99E004FE818 /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E60F1142363E99E004FE818 /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1E60F11A2363E99E004FE818 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E60F1152363E99E004FE818 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1E884090234EC2AE001F0F9C /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E88408F234EC2AE001F0F9C /* String+Localized.swift */; };
 		1E884094234EC9CC001F0F9C /* CreditCardIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E884093234EC9CC001F0F9C /* CreditCardIcons.swift */; };
 		OBJ_106 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Animator.swift */; };
@@ -30,7 +24,6 @@
 		OBJ_112 /* Alamofire+PromiseKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* Alamofire+PromiseKit.swift */; };
 		OBJ_113 /* Keychain+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Keychain+Keys.swift */; };
 		OBJ_114 /* NSAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* NSAttributedString+Extension.swift */; };
-		OBJ_115 /* SwiftDate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* SwiftDate+Extension.swift */; };
 		OBJ_116 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* UIButton+Extension.swift */; };
 		OBJ_117 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* UICollectionView+Extension.swift */; };
 		OBJ_118 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* UIColor+Extension.swift */; };
@@ -105,12 +98,12 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1E146AA02337F25D00232770 /* SwiftAdditions.framework in Embed Frameworks */,
-				1E146A982337F25D00232770 /* PhoneNumberKit.framework in Embed Frameworks */,
-				1E146A9C2337F25D00232770 /* Alamofire.framework in Embed Frameworks */,
-				1E146A9A2337F25D00232770 /* PromiseKit.framework in Embed Frameworks */,
-				1E146AA22337F25E00232770 /* SwiftDate.framework in Embed Frameworks */,
-				1E146A9E2337F25D00232770 /* DataSource.framework in Embed Frameworks */,
+				1E60F1162363E99E004FE818 /* DataSource.framework in Embed Frameworks */,
+				1E60F1172363E99E004FE818 /* PhoneNumberKit.framework in Embed Frameworks */,
+				1E60F1182363E99E004FE818 /* SwiftAdditions.framework in Embed Frameworks */,
+				1E60F1192363E99E004FE818 /* PromiseKit.framework in Embed Frameworks */,
+				1E60F11A2363E99E004FE818 /* Alamofire.framework in Embed Frameworks */,
+				1E60F1102363E971004FE818 /* DateHelper.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,12 +113,12 @@
 /* Begin PBXFileReference section */
 		1E05BFE32341183500049F1A /* InputAccessoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputAccessoryView.xib; sourceTree = "<group>"; };
 		1E05BFE42341183C00049F1A /* inputaccessoryview.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = inputaccessoryview.xcassets; sourceTree = "<group>"; };
-		1E146A912337F25D00232770 /* PhoneNumberKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhoneNumberKit.framework; path = Carthage/Build/iOS/PhoneNumberKit.framework; sourceTree = "<group>"; };
-		1E146A922337F25D00232770 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
-		1E146A932337F25D00232770 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		1E146A942337F25D00232770 /* DataSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DataSource.framework; path = Carthage/Build/iOS/DataSource.framework; sourceTree = "<group>"; };
-		1E146A952337F25D00232770 /* SwiftAdditions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftAdditions.framework; path = Carthage/Build/iOS/SwiftAdditions.framework; sourceTree = "<group>"; };
-		1E146A962337F25D00232770 /* SwiftDate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftDate.framework; path = Carthage/Build/iOS/SwiftDate.framework; sourceTree = "<group>"; };
+		1E60F10F2363E971004FE818 /* DateHelper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DateHelper.framework; path = Carthage/Build/iOS/DateHelper.framework; sourceTree = "<group>"; };
+		1E60F1112363E99D004FE818 /* DataSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DataSource.framework; path = Carthage/Build/iOS/DataSource.framework; sourceTree = "<group>"; };
+		1E60F1122363E99E004FE818 /* PhoneNumberKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhoneNumberKit.framework; path = Carthage/Build/iOS/PhoneNumberKit.framework; sourceTree = "<group>"; };
+		1E60F1132363E99E004FE818 /* SwiftAdditions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftAdditions.framework; path = Carthage/Build/iOS/SwiftAdditions.framework; sourceTree = "<group>"; };
+		1E60F1142363E99E004FE818 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
+		1E60F1152363E99E004FE818 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		1E88408F234EC2AE001F0F9C /* String+Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		1E884093234EC9CC001F0F9C /* CreditCardIcons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardIcons.swift; sourceTree = "<group>"; };
 		OBJ_10 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
@@ -137,7 +130,6 @@
 		OBJ_17 /* Alamofire+PromiseKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alamofire+PromiseKit.swift"; sourceTree = "<group>"; };
 		OBJ_18 /* Keychain+Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keychain+Keys.swift"; sourceTree = "<group>"; };
 		OBJ_19 /* NSAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extension.swift"; sourceTree = "<group>"; };
-		OBJ_20 /* SwiftDate+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftDate+Extension.swift"; sourceTree = "<group>"; };
 		OBJ_21 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		OBJ_22 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		OBJ_23 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -202,12 +194,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				1E146A9F2337F25D00232770 /* SwiftAdditions.framework in Frameworks */,
-				1E146A972337F25D00232770 /* PhoneNumberKit.framework in Frameworks */,
-				1E146A9B2337F25D00232770 /* Alamofire.framework in Frameworks */,
-				1E146A992337F25D00232770 /* PromiseKit.framework in Frameworks */,
-				1E146AA12337F25E00232770 /* SwiftDate.framework in Frameworks */,
-				1E146A9D2337F25D00232770 /* DataSource.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,12 +211,12 @@
 		1E146A902337F25D00232770 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1E146A932337F25D00232770 /* Alamofire.framework */,
-				1E146A942337F25D00232770 /* DataSource.framework */,
-				1E146A912337F25D00232770 /* PhoneNumberKit.framework */,
-				1E146A922337F25D00232770 /* PromiseKit.framework */,
-				1E146A952337F25D00232770 /* SwiftAdditions.framework */,
-				1E146A962337F25D00232770 /* SwiftDate.framework */,
+				1E60F1152363E99E004FE818 /* Alamofire.framework */,
+				1E60F1112363E99D004FE818 /* DataSource.framework */,
+				1E60F1122363E99E004FE818 /* PhoneNumberKit.framework */,
+				1E60F1142363E99E004FE818 /* PromiseKit.framework */,
+				1E60F1132363E99E004FE818 /* SwiftAdditions.framework */,
+				1E60F10F2363E971004FE818 /* DateHelper.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -252,7 +238,6 @@
 				OBJ_17 /* Alamofire+PromiseKit.swift */,
 				OBJ_18 /* Keychain+Keys.swift */,
 				OBJ_19 /* NSAttributedString+Extension.swift */,
-				OBJ_20 /* SwiftDate+Extension.swift */,
 				OBJ_21 /* UIButton+Extension.swift */,
 				OBJ_22 /* UICollectionView+Extension.swift */,
 				OBJ_23 /* UIColor+Extension.swift */,
@@ -558,7 +543,6 @@
 				OBJ_112 /* Alamofire+PromiseKit.swift in Sources */,
 				OBJ_113 /* Keychain+Keys.swift in Sources */,
 				OBJ_114 /* NSAttributedString+Extension.swift in Sources */,
-				OBJ_115 /* SwiftDate+Extension.swift in Sources */,
 				OBJ_116 /* UIButton+Extension.swift in Sources */,
 				OBJ_117 /* UICollectionView+Extension.swift in Sources */,
 				OBJ_118 /* UIColor+Extension.swift in Sources */,
