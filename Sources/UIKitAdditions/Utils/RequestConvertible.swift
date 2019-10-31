@@ -11,26 +11,30 @@ public protocol RequestConvertible: URLRequestConvertible, RequestPerformable {
 }
 
 extension RequestConvertible where Params == Parameters {
+    public var params: Parameters? {
+       return nil
+    }
+   
     public func asURLRequest() throws -> URLRequest {
-        var request = URLRequest(url: self.route.absoluteURL)
-        request.httpMethod = self.route.httpMethod.rawValue
-        if self.route.httpMethod == .get {
-            return try URLEncoding.default.encode(request, with: self.params)
+        var request = URLRequest(url: route.absoluteURL)
+        request.httpMethod = route.httpMethod.rawValue
+        if route.httpMethod == .get {
+            return try URLEncoding.default.encode(request, with: params)
         }
-        return try self.route.parameterEncoding.encode(request, with: self.params)
+        return try JSONEncoding.default.encode(self, with: params)
     }
 }
 
 extension RequestConvertible where Params: Encodable {
     public func asURLRequest() throws -> URLRequest {
-        var request = URLRequest(url: self.route.absoluteURL)
-        request.httpMethod = self.route.httpMethod.rawValue
+        var request = URLRequest(url: route.absoluteURL)
+        request.httpMethod = route.httpMethod.rawValue
         
-        if self.route.httpMethod == .get {
-            return try URLEncodedFormParameterEncoder.default.encode(self.params, into: request)
+        if route.httpMethod == .get {
+            return try URLEncodedFormParameterEncoder.default.encode(params, into: request)
         }
         
-        return try self.route.parameterEncoder.encode(self.params, into: request)
+        return try JSONParameterEncoder.default.encode(params, into: request)
     }
 }
 
@@ -41,45 +45,46 @@ extension RequestConvertible where Self: Encodable {
 }
 
 public protocol RequestPerformable {
-    var client: Session { get }
-}
-
-extension RequestConvertible where Self: RequestPerformable {
-    var client: Session {
-        return self.route.client
-    }
+    func perform<T: Decodable>() -> Promise<T>
+    func perform() -> Promise<Void>
+    func perform(queue: DispatchQueue, options: JSONSerialization.ReadingOptions) -> Promise<Any>
+    func perform<T: Decodable>(queue: DispatchQueue, decoder: JSONDecoder) -> Promise<T>
+    func perform() -> Promise<LocationHeader?>
+    func perform<T: Decodable>() -> Promise<(T, LocationHeader?)>
+    func perform() -> Promise<(Any, LocationHeader?)>
+    func perform<T: Decodable>(queue: DispatchQueue, decoder: JSONDecoder) -> Promise<(T, LocationHeader?)>
 }
 
 extension RequestPerformable where Self: RequestConvertible {
     public func perform<T: Decodable>() -> Promise<T> {
-        return self.client.request(self).validate().responseDecodable()
+        return route.client.request(self).validate().responseDecodable()
     }
     
     public func perform() -> Promise<Void> {
-        return self.client.request(self).validate().responseVoid()
+        return route.client.request(self).validate().responseVoid()
     }
     
     public func perform(queue: DispatchQueue = .main, options: JSONSerialization.ReadingOptions = []) -> Promise<Any> {
-        return self.client.request(self).validate().responseJSON(queue: queue, options: options)
+        return route.client.request(self).validate().responseJSON(queue: queue, options: options)
     }
     
     public func perform<T: Decodable>(queue: DispatchQueue = .main, decoder: JSONDecoder = .init()) -> Promise<T> {
-        return self.client.request(self).validate().responseDecodable(queue: queue, decoder: decoder)
+        return route.client.request(self).validate().responseDecodable(queue: queue, decoder: decoder)
     }
     
     public func perform() -> Promise<LocationHeader?> {
-        return self.client.request(self).validate().responseLocationHeader()
+        return route.client.request(self).validate().responseLocationHeader()
     }
     
     public func perform<T: Decodable>() -> Promise<(T, LocationHeader?)> {
-        return self.client.request(self).validate().responseDecodable()
+        return route.client.request(self).validate().responseDecodable()
     }
     
     public func perform() -> Promise<(Any, LocationHeader?)> {
-        return self.client.request(self).validate().responseJSON()
+        return route.client.request(self).validate().responseJSON()
     }
     
     public func perform<T: Decodable>(queue: DispatchQueue = .main, decoder: JSONDecoder = .init()) -> Promise<(T, LocationHeader?)> {
-        return self.client.request(self).validate().responseDecodable(queue: queue, decoder: decoder)
+        return route.client.request(self).validate().responseDecodable(queue: queue, decoder: decoder)
     }
 }
