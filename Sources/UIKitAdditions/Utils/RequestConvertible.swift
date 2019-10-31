@@ -88,3 +88,53 @@ extension RequestPerformable where Self: RequestConvertible {
         return route.client.request(self).validate().responseDecodable(queue: queue, decoder: decoder)
     }
 }
+
+// WebSocket
+@available(iOS 13, *)
+extension RequestPerformable where Self: RequestConvertible {
+    public func send(_ string: String) -> CancellableWebSocketRequest {
+        let request = route.client.openWebsocket(self, message: string)
+        return CancellableWebSocketRequest(request)
+    }
+    
+    public func send(_ data: Data) -> CancellableWebSocketRequest {
+        let request = route.client.openWebsocket(self, message: data)
+        return CancellableWebSocketRequest(request)
+    }
+    
+    public func send<T: Encodable>(_ encodable: T, encoder: JSONEncoder = .init()) throws -> CancellableWebSocketRequest {
+        let data = try encoder.encode(encodable)
+        let request = route.client.openWebsocket(self, message: data)
+        return CancellableWebSocketRequest(request)
+    }
+}
+
+@available(iOS 13, *)
+public class CancellableWebSocketRequest {
+    let request: WebSocketRequest
+    
+    init(_ request: WebSocketRequest) {
+        self.request = request
+    }
+    
+    public func close() {
+        request.close()
+    }
+    
+    public func ping(wait: TimeInterval = 15) {
+        request.ping(wait: wait)
+    }
+    
+    public func receivedData(_ handler: @escaping (Swift.Result<Data, Error>) -> Void) {
+        request.receivedData(handler)
+        
+    }
+    
+    public func receivedString(_ handler: @escaping (Swift.Result<String, Error>) -> Void) {
+        request.receivedString(handler)
+    }
+    
+    public func received<T: Decodable>(_ handler: @escaping (Swift.Result<T, Error>) -> Void) {
+        request.received(handler)
+    }
+}
