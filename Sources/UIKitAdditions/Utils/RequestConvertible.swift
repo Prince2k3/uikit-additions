@@ -44,16 +44,7 @@ extension RequestConvertible where Self: Encodable {
     }
 }
 
-public protocol RequestPerformable {
-    func perform<T: Decodable>() -> Promise<T>
-    func perform() -> Promise<Void>
-    func perform(queue: DispatchQueue, options: JSONSerialization.ReadingOptions) -> Promise<Any>
-    func perform<T: Decodable>(queue: DispatchQueue, decoder: JSONDecoder) -> Promise<T>
-    func perform() -> Promise<LocationHeader?>
-    func perform<T: Decodable>() -> Promise<(T, LocationHeader?)>
-    func perform() -> Promise<(Any, LocationHeader?)>
-    func perform<T: Decodable>(queue: DispatchQueue, decoder: JSONDecoder) -> Promise<(T, LocationHeader?)>
-}
+public protocol RequestPerformable {}
 
 extension RequestPerformable where Self: RequestConvertible {
     public func perform<T: Decodable>() -> Promise<T> {
@@ -92,49 +83,19 @@ extension RequestPerformable where Self: RequestConvertible {
 // WebSocket
 @available(iOS 13, *)
 extension RequestPerformable where Self: RequestConvertible {
-    public func send(_ string: String) -> CancellableWebSocketRequest {
-        let request = route.client.openWebsocket(self, message: string)
-        return CancellableWebSocketRequest(request)
+    public func openSocket() -> WebSocketRequest {
+        return route.client.openWebSocket(self)
+    }
+    public func openSocket(sendMessage string: String) -> WebSocketRequest {
+        return route.client.openWebSocket(self, andSend: string)
     }
     
-    public func send(_ data: Data) -> CancellableWebSocketRequest {
-        let request = route.client.openWebsocket(self, message: data)
-        return CancellableWebSocketRequest(request)
+    public func openSocket(sendMessage data: Data) -> WebSocketRequest {
+        return route.client.openWebSocket(self, sendMessage: data)
     }
     
-    public func send<T: Encodable>(_ encodable: T, encoder: JSONEncoder = .init()) throws -> CancellableWebSocketRequest {
-        let data = try encoder.encode(encodable)
-        let request = route.client.openWebsocket(self, message: data)
-        return CancellableWebSocketRequest(request)
-    }
-}
-
-@available(iOS 13, *)
-public class CancellableWebSocketRequest {
-    let request: WebSocketRequest
-    
-    init(_ request: WebSocketRequest) {
-        self.request = request
-    }
-    
-    public func close() {
-        request.close()
-    }
-    
-    public func ping(wait: TimeInterval = 15) {
-        request.ping(wait: wait)
-    }
-    
-    public func receivedData(_ handler: @escaping (Swift.Result<Data, Error>) -> Void) {
-        request.receivedData(handler)
-        
-    }
-    
-    public func receivedString(_ handler: @escaping (Swift.Result<String, Error>) -> Void) {
-        request.receivedString(handler)
-    }
-    
-    public func received<T: Decodable>(_ handler: @escaping (Swift.Result<T, Error>) -> Void) {
-        request.received(handler)
+    public func openSocket<T: Encodable>(sendMessage encodable: T, encoder: JSONEncoder = .init()) throws -> WebSocketRequest {
+        let encodableData = try encoder.encode(encodable)
+        return route.client.openWebSocket(self, sendMessage: encodableData)
     }
 }
