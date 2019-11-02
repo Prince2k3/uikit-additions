@@ -10,7 +10,7 @@ extension RequestPerformable where Self: RequestConvertible {
         return client.dataTask(self).validate().asVoid()
     }
     
-    public func perform<T: Decodable>(queue: DispatchQueue = .main, decoder: JSONDecoder = .init()) -> Promise<T> {
+    public func perform<T: Decodable>(queue: DispatchQueue = .main, decoder: JSONDecoder = .iso8601Strategy) -> Promise<T> {
         return client.dataTask(self).validate().responseDecode(T.self, queue: queue, decoder: decoder).map { $0.decoded }
     }
     
@@ -28,7 +28,7 @@ extension RequestPerformable where Self: RequestConvertible {
         }
     }
     
-    public func perform<T: Decodable>(queue: DispatchQueue = .main, decoder: JSONDecoder = .init()) -> Promise<(T, LocationHeader?)> {
+    public func perform<T: Decodable>(queue: DispatchQueue = .main, decoder: JSONDecoder = .iso8601Strategy) -> Promise<(T, LocationHeader?)> {
         return client.dataTask(self).validate().responseDecode(T.self, queue: queue, decoder: decoder)
             .map {
                 guard
