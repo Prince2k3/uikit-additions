@@ -7,12 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E1D4356236CF62A00D9133A /* URLRequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1D4354236CF62A00D9133A /* URLRequestConvertible.swift */; };
+		1E1D4357236CF62A00D9133A /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1D4355236CF62A00D9133A /* HTTPMethod.swift */; };
+		1E1D435C236CF88C00D9133A /* JSONEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1D4358236CF88C00D9133A /* JSONEncoding.swift */; };
+		1E1D435D236CF88C00D9133A /* URLEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1D4359236CF88C00D9133A /* URLEncoding.swift */; };
+		1E1D435E236CF88C00D9133A /* EncodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1D435A236CF88C00D9133A /* EncodingError.swift */; };
+		1E1D435F236CF88C00D9133A /* Encoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1D435B236CF88C00D9133A /* Encoding.swift */; };
+		1E1D4362236CFB7C00D9133A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1D4361236CFB7C00D9133A /* NetworkError.swift */; };
 		1E60F1102363E971004FE818 /* DateHelper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E60F10F2363E971004FE818 /* DateHelper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1E60F1162363E99E004FE818 /* DataSource.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E60F1112363E99D004FE818 /* DataSource.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1E60F1172363E99E004FE818 /* PhoneNumberKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E60F1122363E99E004FE818 /* PhoneNumberKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1E60F1182363E99E004FE818 /* SwiftAdditions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E60F1132363E99E004FE818 /* SwiftAdditions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1E60F1192363E99E004FE818 /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E60F1142363E99E004FE818 /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1E60F11A2363E99E004FE818 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E60F1152363E99E004FE818 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1E884090234EC2AE001F0F9C /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E88408F234EC2AE001F0F9C /* String+Localized.swift */; };
 		1E884094234EC9CC001F0F9C /* CreditCardIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E884093234EC9CC001F0F9C /* CreditCardIcons.swift */; };
 		OBJ_106 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Animator.swift */; };
@@ -102,7 +108,6 @@
 				1E60F1172363E99E004FE818 /* PhoneNumberKit.framework in Embed Frameworks */,
 				1E60F1182363E99E004FE818 /* SwiftAdditions.framework in Embed Frameworks */,
 				1E60F1192363E99E004FE818 /* PromiseKit.framework in Embed Frameworks */,
-				1E60F11A2363E99E004FE818 /* Alamofire.framework in Embed Frameworks */,
 				1E60F1102363E971004FE818 /* DateHelper.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -113,12 +118,18 @@
 /* Begin PBXFileReference section */
 		1E05BFE32341183500049F1A /* InputAccessoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputAccessoryView.xib; sourceTree = "<group>"; };
 		1E05BFE42341183C00049F1A /* inputaccessoryview.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = inputaccessoryview.xcassets; sourceTree = "<group>"; };
+		1E1D4354236CF62A00D9133A /* URLRequestConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequestConvertible.swift; sourceTree = "<group>"; };
+		1E1D4355236CF62A00D9133A /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		1E1D4358236CF88C00D9133A /* JSONEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncoding.swift; sourceTree = "<group>"; };
+		1E1D4359236CF88C00D9133A /* URLEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLEncoding.swift; sourceTree = "<group>"; };
+		1E1D435A236CF88C00D9133A /* EncodingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EncodingError.swift; path = ../Network/Encoding/EncodingError.swift; sourceTree = "<group>"; };
+		1E1D435B236CF88C00D9133A /* Encoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encoding.swift; sourceTree = "<group>"; };
+		1E1D4361236CFB7C00D9133A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		1E60F10F2363E971004FE818 /* DateHelper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DateHelper.framework; path = Carthage/Build/iOS/DateHelper.framework; sourceTree = "<group>"; };
 		1E60F1112363E99D004FE818 /* DataSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DataSource.framework; path = Carthage/Build/iOS/DataSource.framework; sourceTree = "<group>"; };
 		1E60F1122363E99E004FE818 /* PhoneNumberKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhoneNumberKit.framework; path = Carthage/Build/iOS/PhoneNumberKit.framework; sourceTree = "<group>"; };
 		1E60F1132363E99E004FE818 /* SwiftAdditions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftAdditions.framework; path = Carthage/Build/iOS/SwiftAdditions.framework; sourceTree = "<group>"; };
 		1E60F1142363E99E004FE818 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
-		1E60F1152363E99E004FE818 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		1E88408F234EC2AE001F0F9C /* String+Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		1E884093234EC9CC001F0F9C /* CreditCardIcons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardIcons.swift; sourceTree = "<group>"; };
 		OBJ_10 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
@@ -211,7 +222,6 @@
 		1E146A902337F25D00232770 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1E60F1152363E99E004FE818 /* Alamofire.framework */,
 				1E60F1112363E99D004FE818 /* DataSource.framework */,
 				1E60F1122363E99E004FE818 /* PhoneNumberKit.framework */,
 				1E60F1142363E99E004FE818 /* PromiseKit.framework */,
@@ -219,6 +229,47 @@
 				1E60F10F2363E971004FE818 /* DateHelper.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1E1D4352236CF5AF00D9133A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1E1D4353236CF5C300D9133A /* Extensions */,
+				1E1D4360236CF88F00D9133A /* Encoding */,
+				1E1D4355236CF62A00D9133A /* HTTPMethod.swift */,
+				1E1D4354236CF62A00D9133A /* URLRequestConvertible.swift */,
+				OBJ_83 /* RequestConvertible.swift */,
+				OBJ_80 /* LocationHeader.swift */,
+				OBJ_85 /* Router.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		1E1D4353236CF5C300D9133A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_17 /* Alamofire+PromiseKit.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1E1D4360236CF88F00D9133A /* Encoding */ = {
+			isa = PBXGroup;
+			children = (
+				1E1D435B236CF88C00D9133A /* Encoding.swift */,
+				1E1D4358236CF88C00D9133A /* JSONEncoding.swift */,
+				1E1D4359236CF88C00D9133A /* URLEncoding.swift */,
+			);
+			path = Encoding;
+			sourceTree = "<group>";
+		};
+		1E1D4363236CFD0000D9133A /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				1E1D4361236CFB7C00D9133A /* NetworkError.swift */,
+				1E1D435A236CF88C00D9133A /* EncodingError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		1E884095234EC9CF001F0F9C /* Credit Card */ = {
@@ -235,7 +286,6 @@
 			isa = PBXGroup;
 			children = (
 				1E88408F234EC2AE001F0F9C /* String+Localized.swift */,
-				OBJ_17 /* Alamofire+PromiseKit.swift */,
 				OBJ_18 /* Keychain+Keys.swift */,
 				OBJ_19 /* NSAttributedString+Extension.swift */,
 				OBJ_21 /* UIButton+Extension.swift */,
@@ -385,12 +435,9 @@
 				OBJ_75 /* DateFormats.swift */,
 				OBJ_76 /* Disk */,
 				OBJ_79 /* Identifier.swift */,
-				OBJ_80 /* LocationHeader.swift */,
 				OBJ_81 /* OrderedDictionary.swift */,
 				OBJ_82 /* Perform.swift */,
-				OBJ_83 /* RequestConvertible.swift */,
 				OBJ_84 /* ResourceUtils.swift */,
-				OBJ_85 /* Router.swift */,
 				OBJ_86 /* Segue.swift */,
 				OBJ_87 /* ServiceError.swift */,
 			);
@@ -409,6 +456,8 @@
 		OBJ_8 /* UIKitAdditions */ = {
 			isa = PBXGroup;
 			children = (
+				1E1D4363236CFD0000D9133A /* Error */,
+				1E1D4352236CF5AF00D9133A /* Network */,
 				OBJ_9 /* Animators */,
 				OBJ_16 /* Extensions */,
 				OBJ_39 /* Managers */,
@@ -545,9 +594,11 @@
 				OBJ_114 /* NSAttributedString+Extension.swift in Sources */,
 				OBJ_116 /* UIButton+Extension.swift in Sources */,
 				OBJ_117 /* UICollectionView+Extension.swift in Sources */,
+				1E1D435D236CF88C00D9133A /* URLEncoding.swift in Sources */,
 				OBJ_118 /* UIColor+Extension.swift in Sources */,
 				OBJ_119 /* UIEdgeInsets+Extension.swift in Sources */,
 				OBJ_120 /* UIFont+Custom.swift in Sources */,
+				1E1D4356236CF62A00D9133A /* URLRequestConvertible.swift in Sources */,
 				OBJ_121 /* UIImage+Extension.swift in Sources */,
 				OBJ_122 /* UIImageView+Extension.swift in Sources */,
 				OBJ_123 /* UINavigationController+Extension.swift in Sources */,
@@ -555,12 +606,16 @@
 				OBJ_124 /* UIScrollView+Extension.swift in Sources */,
 				OBJ_125 /* UIStoryboard+Extension.swift in Sources */,
 				OBJ_126 /* UITableView+Extension.swift in Sources */,
+				1E1D4357236CF62A00D9133A /* HTTPMethod.swift in Sources */,
 				OBJ_127 /* UITextField+Extension.swift in Sources */,
 				OBJ_128 /* UIView+AutoLayout.swift in Sources */,
 				OBJ_129 /* UIView+Extension.swift in Sources */,
 				OBJ_130 /* UIViewController+Alert.swift in Sources */,
+				1E1D4362236CFB7C00D9133A /* NetworkError.swift in Sources */,
 				OBJ_131 /* UIViewController+Extension.swift in Sources */,
+				1E1D435F236CF88C00D9133A /* Encoding.swift in Sources */,
 				OBJ_132 /* UIViewController+Present.swift in Sources */,
+				1E1D435E236CF88C00D9133A /* EncodingError.swift in Sources */,
 				OBJ_133 /* UIViewController+Promise.swift in Sources */,
 				OBJ_134 /* AppInfo.swift in Sources */,
 				OBJ_135 /* KeyboardManager.swift in Sources */,
@@ -575,6 +630,7 @@
 				OBJ_146 /* PhoneNumberTextField.swift in Sources */,
 				OBJ_147 /* TextField.swift in Sources */,
 				OBJ_148 /* Toast.swift in Sources */,
+				1E1D435C236CF88C00D9133A /* JSONEncoding.swift in Sources */,
 				OBJ_149 /* AccordionView.swift in Sources */,
 				OBJ_150 /* AutoCompleteView.swift in Sources */,
 				OBJ_151 /* GradientView.swift in Sources */,

@@ -1,13 +1,10 @@
 import UIKit
-import Alamofire
 
 public protocol Router {
-    var client: Session { get }
+    var client: URLSession { get }
     var path: String { get set }
     var baseURL: URL { get }
     var httpMethod: HTTPMethod { get }
-    var parameterEncoder: ParameterEncoder { get }
-    var parameterEncoding: ParameterEncoding { get }
 }
 
 extension Router {

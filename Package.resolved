@@ -2,15 +2,6 @@
   "object": {
     "pins": [
       {
-        "package": "Alamofire",
-        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
-        "state": {
-          "branch": "5.0.0-rc.2",
-          "revision": "c1d14588e5558a3669fd03510d135d88c5109069",
-          "version": null
-        }
-      },
-      {
         "package": "DataSource",
         "repositoryURL": "https://github.com/Prince2k3/datasource.git",
         "state": {
