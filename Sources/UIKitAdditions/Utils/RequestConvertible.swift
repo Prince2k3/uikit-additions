@@ -21,7 +21,7 @@ extension RequestConvertible where Params == Parameters {
         if route.httpMethod == .get {
             return try URLEncoding.default.encode(request, with: params)
         }
-        return try JSONEncoding.default.encode(self, with: params)
+        return try JSONEncoding.default.encode(request, with: params)
     }
 }
 
