@@ -25,3 +25,11 @@ extension UIViewController: Identifiable {}
 extension UITableViewCell: Identifiable {}
 extension UICollectionReusableView: Identifiable {}
 extension UITableViewHeaderFooterView: Identifiable {}
+
+extension Identifiable where Self: UIViewController {
+    static func fromStoryboard(_ name: String = "") -> Self? {
+        return name.isEmpty ?
+        UIStoryboard.makeViewController(fromStoryboard: Self.identifier) as Self? :
+        UIStoryboard.makeViewController(fromStoryboard: name) as Self?
+    }
+}

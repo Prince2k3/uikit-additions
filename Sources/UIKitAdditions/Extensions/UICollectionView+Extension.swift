@@ -16,6 +16,14 @@ extension UICollectionView {
     public func register<T: Identifiable>(`class` cls: T.Type, forSupplementaryViewOfKind kind: String) {
         register(cls.self as? AnyClass, forSupplementaryViewOfKind: kind, withReuseIdentifier: cls.identifier)
     }
+    
+    public func dequeueReusableCell<T: Identifiable>(_ type: T.Type, for indexPath: IndexPath) -> T {
+        return dequeueReusableCell(withReuseIdentifier: type.identifier, for: indexPath) as! T
+    }
+
+    public func dequeueReusableSupplementaryView<T: Identifiable>(ofKind elementKind: String, type: T.Type, for indexPath: IndexPath) -> T {
+        return dequeueReusableSupplementaryView(ofKind: elementKind, withReuseIdentifier: type.identifier, for: indexPath) as! T
+    }
 }
 
 extension UICollectionView {

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E04A48E23E5C44B00AA8330 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E04A48D23E5C44B00AA8330 /* UIStackView+Extensions.swift */; };
+		1E04A49023E5C51E00AA8330 /* UIControl+Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E04A48F23E5C51E00AA8330 /* UIControl+Handler.swift */; };
+		1E04A49223E5C55C00AA8330 /* UIColor+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E04A49123E5C55C00AA8330 /* UIColor+Image.swift */; };
 		1E60F1102363E971004FE818 /* DateHelper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E60F10F2363E971004FE818 /* DateHelper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1E60F1162363E99E004FE818 /* DataSource.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E60F1112363E99D004FE818 /* DataSource.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1E60F1172363E99E004FE818 /* PhoneNumberKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1E60F1122363E99E004FE818 /* PhoneNumberKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -29,7 +32,6 @@
 		OBJ_118 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* UIColor+Extension.swift */; };
 		OBJ_119 /* UIEdgeInsets+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* UIEdgeInsets+Extension.swift */; };
 		OBJ_120 /* UIFont+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* UIFont+Custom.swift */; };
-		OBJ_121 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* UIImage+Extension.swift */; };
 		OBJ_122 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* UIImageView+Extension.swift */; };
 		OBJ_123 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* UINavigationController+Extension.swift */; };
 		OBJ_124 /* UIScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* UIScrollView+Extension.swift */; };
@@ -111,6 +113,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1E04A48D23E5C44B00AA8330 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
+		1E04A48F23E5C51E00AA8330 /* UIControl+Handler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Handler.swift"; sourceTree = "<group>"; };
+		1E04A49123E5C55C00AA8330 /* UIColor+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Image.swift"; sourceTree = "<group>"; };
 		1E05BFE32341183500049F1A /* InputAccessoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputAccessoryView.xib; sourceTree = "<group>"; };
 		1E05BFE42341183C00049F1A /* inputaccessoryview.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = inputaccessoryview.xcassets; sourceTree = "<group>"; };
 		1E60F10F2363E971004FE818 /* DateHelper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DateHelper.framework; path = Carthage/Build/iOS/DateHelper.framework; sourceTree = "<group>"; };
@@ -135,7 +140,6 @@
 		OBJ_23 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		OBJ_24 /* UIEdgeInsets+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Extension.swift"; sourceTree = "<group>"; };
 		OBJ_25 /* UIFont+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Custom.swift"; sourceTree = "<group>"; };
-		OBJ_26 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		OBJ_27 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		OBJ_28 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		OBJ_29 /* UIScrollView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extension.swift"; sourceTree = "<group>"; };
@@ -243,7 +247,6 @@
 				OBJ_23 /* UIColor+Extension.swift */,
 				OBJ_24 /* UIEdgeInsets+Extension.swift */,
 				OBJ_25 /* UIFont+Custom.swift */,
-				OBJ_26 /* UIImage+Extension.swift */,
 				OBJ_27 /* UIImageView+Extension.swift */,
 				OBJ_28 /* UINavigationController+Extension.swift */,
 				OBJ_29 /* UIScrollView+Extension.swift */,
@@ -256,6 +259,9 @@
 				OBJ_36 /* UIViewController+Extension.swift */,
 				OBJ_37 /* UIViewController+Present.swift */,
 				OBJ_38 /* UIViewController+Promise.swift */,
+				1E04A48D23E5C44B00AA8330 /* UIStackView+Extensions.swift */,
+				1E04A48F23E5C51E00AA8330 /* UIControl+Handler.swift */,
+				1E04A49123E5C55C00AA8330 /* UIColor+Image.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -534,6 +540,7 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_106 /* Animator.swift in Sources */,
+				1E04A48E23E5C44B00AA8330 /* UIStackView+Extensions.swift in Sources */,
 				1E884094234EC9CC001F0F9C /* CreditCardIcons.swift in Sources */,
 				OBJ_107 /* FadeInOutAnimator.swift in Sources */,
 				OBJ_108 /* ScaleInOutAnimator.swift in Sources */,
@@ -548,9 +555,9 @@
 				OBJ_118 /* UIColor+Extension.swift in Sources */,
 				OBJ_119 /* UIEdgeInsets+Extension.swift in Sources */,
 				OBJ_120 /* UIFont+Custom.swift in Sources */,
-				OBJ_121 /* UIImage+Extension.swift in Sources */,
 				OBJ_122 /* UIImageView+Extension.swift in Sources */,
 				OBJ_123 /* UINavigationController+Extension.swift in Sources */,
+				1E04A49023E5C51E00AA8330 /* UIControl+Handler.swift in Sources */,
 				1E884090234EC2AE001F0F9C /* String+Localized.swift in Sources */,
 				OBJ_124 /* UIScrollView+Extension.swift in Sources */,
 				OBJ_125 /* UIStoryboard+Extension.swift in Sources */,
@@ -590,6 +597,7 @@
 				OBJ_161 /* Identifier.swift in Sources */,
 				OBJ_162 /* LocationHeader.swift in Sources */,
 				OBJ_163 /* OrderedDictionary.swift in Sources */,
+				1E04A49223E5C55C00AA8330 /* UIColor+Image.swift in Sources */,
 				OBJ_164 /* Perform.swift in Sources */,
 				OBJ_165 /* RequestConvertible.swift in Sources */,
 				OBJ_166 /* ResourceUtils.swift in Sources */,
